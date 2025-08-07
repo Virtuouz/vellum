@@ -7,7 +7,7 @@ const uuidFilter = require("./src/filters/uuid-filter.js");
 module.exports = async function (eleventyConfig) {
   eleventyConfig.on("eleventy.after", () => {
     execSync(
-      "npx tailwindcss -i ./src/css/main.css -o ./dist/css/styles.css --minify"
+      "npx @tailwindcss/cli -i ./src/css/main.css -o ./dist/css/styles.css --minify"
     );
   });
 

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently --kill-others \"sass --no-source-map --load-path=node_modules --watch src/assets/styles:src/css\"  \"npx tailwindcss/cli -i ./src/css/main.css -o ./dist/css/styles.css --watch\" \"bookshop-sass -b _component-library -o dist/css/bookshop.css -w\" \"npx eleventy --serve\"  "
+    "start": "concurrently --kill-others \"sass --no-source-map --load-path=node_modules --watch src/assets/styles:src/css\"  \"npx @tailwindcss/cli -i ./src/css/main.css -o ./dist/css/styles.css --watch\" \"bookshop-sass -b _component-library -o dist/css/bookshop.css -w\" \"npx eleventy --serve\"  "
   },
   "keywords": [],
   "author": "",
