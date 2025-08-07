@@ -21,39 +21,21 @@
   }
 }
 
-@import "variables.scss";
-@import "color_groups.scss";
-@import "nav.scss";
-@import "footer.scss";
-@import "component-browser.scss";
-@import "leaflet.scss";
+//@import "variables.scss";
+//@import "color_groups.scss";
+//@import "nav.scss";
+//@import "footer.scss";
+//@import "component-browser.scss";
+//@import "leaflet.scss";
 
 // Required Core Stylesheet
-@import "@glidejs/glide/src/assets/sass/glide.core";
+//@import "@glidejs/glide/src/assets/sass/glide.core";
 
 // Optional Theme Stylesheet
-@import "@glidejs/glide/src/assets/sass/glide.theme";
+//@import "@glidejs/glide/src/assets/sass/glide.theme";
 
 /* Globals */
 
-@font-face {
-  font-family: "fira-sansregular";
-  src:
-    url("/fonts/firasans-regular-webfont.woff2") format("woff2"),
-    url("/fonts/firasans-regular-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "piazzolla";
-  src:
-    url("/fonts/Piazzolla-VariableFont_opsz,wght.woff2")
-      format("woff2 supports variations"),
-    url("/fonts/Piazzolla-VariableFont_opsz,wght.woff2")
-      format("woff2-variations");
-  font-weight: 100 1000;
-}
 
 /* * {
   outline: 1px solid #f00 !important;

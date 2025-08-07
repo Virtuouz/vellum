@@ -7,21 +7,21 @@ const uuidFilter = require("./src/filters/uuid-filter.js");
 module.exports = async function (eleventyConfig) {
   eleventyConfig.on("eleventy.after", () => {
     execSync(
-      "npx @tailwindcss/cli -i ./src/css/main.css -o ./dist/css/styles.css --minify"
+      "npx tailwindcss -i ./src/css/main.css -o ./dist/css/styles.css --minify"
     );
   });
 
-    eleventyConfig.addPlugin(
+  eleventyConfig.addPlugin(
     pluginBookshop({
       bookshopLocations: ["_component-library"],
       pathPrefix: "",
-    }),
+    })
   );
 
   eleventyConfig.addFilter("fileSubstringFilter", fileSubstringFilter);
-    eleventyConfig.addFilter("uuidFilter", uuidFilter);
+  eleventyConfig.addFilter("uuidFilter", uuidFilter);
 
-    return {
+  return {
     markdownTemplateEngine: "liquid",
     dataTemplateEngine: "liquid",
     htmlTemplateEngine: "liquid",
