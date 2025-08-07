@@ -20,7 +20,7 @@ pagination:
   size: 22
   generatePageOnEmptyData: true
 metaDesc: 
-layout: layouts/page.html
+layout: layouts/doc.html
 hero:
 content_blocks: []
 ---
