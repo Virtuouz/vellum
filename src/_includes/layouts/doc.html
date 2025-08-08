@@ -1,52 +1,73 @@
-{% layout "layouts/base.html" %} 
-
+{% layout "layouts/base.html" %}
 
 {% block content %}
-<div class="flex">
-  <aside class="flex flex-col">
-    <div>
-      <div>search</div>
-      <div>collection selection</div>
+<div class="flex min-h-screen text-gray-100 bg-gray-950 font-inter">
+  
+  <!-- Left Sidebar Navigation -->
+  <aside class="hidden lg:flex lg:flex-col w-72 h-screen border-r border-gray-800 p-4 sticky top-0 bg-gray-900 overflow-y-auto">
+    <!-- Search and Collection Selection Section -->
+    <div class="flex flex-col gap-2 pb-4 mb-4 border-b border-gray-800">
+      <div class="relative">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </span>
+        <input type="text" placeholder="Search" class="w-full pl-10 pr-4 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm transition-colors duration-200" />
+      </div>
+      <div class="relative">
+        <select class="w-full pl-4 pr-10 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm appearance-none cursor-pointer transition-colors duration-200">
+          <option>Framework</option>
+          <option>Other Collections</option>
+        </select>
+        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </div>
     </div>
-    <div>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <li>11</li>
-        <li>12</li>
-        <li>13</li>
-        <li>14</li>
-        <li>15</li>
-        <li>16</li>
-        <li>17</li>
-        <li>18</li>
-        <li>19</li>
-        <li>20</li>
+    
+    <!-- Navigation List -->
+    <nav>
+      <ul class="flex flex-col gap-1">
+        <!-- These list items are placeholders, you would use a loop here -->
+        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Introduction</li>
+        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">What is Fumadocs</li>
+        <li class="px-3 py-2 text-sm rounded-md bg-gray-800 text-white font-medium">Comparisons</li>
+        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Setup</li>
+        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Manual Installation</li>
+        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Internationalization</li>
+        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Static Export</li>
+        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Versioning</li>
+        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Integrations</li>
       </ul>
-    </div>
+    </nav>
   </aside>
- <div class="flex flex-1 w-full mx-auto">
-   <section>
-   
-   {% if content and content != "" %}
-   <div class="flex flex-col justify-center">
-    <section class="w-full max-w-[720px] cs-mainContent">{{ content }}</section>
-   </div>
-   {% endif %}
-   </section>
-   <div>
-    {{content | toc }}
-   </div>
- </div>
+  
+  <!-- Main Content Area -->
+  <main class="flex flex-1 w-full mx-auto overflow-y-auto p-8">
+    <div class="flex flex-col w-full">
+      {% if content and content != "" %}
+        <article class="w-full max-w-4xl mx-auto flex-1 prose prose-invert">
+          {{ content }}
+        </article>
+      {% endif %}
+      
+      <!-- Bookshop component for page content -->
+      {% bookshop_include "page" content_blocks: content_blocks %}
+    </div>
+  </main>
+  
+  <!-- Right Table of Contents (TOC) -->
+  <div class="hidden xl:block w-72 h-screen p-4 sticky top-0 overflow-y-auto">
+    <div class="flex flex-col gap-4">
+      <p class="text-sm font-semibold text-gray-400">On this page</p>
+      <nav>
+        {{ content | toc }}
+      </nav>
+    </div>
+  </div>
+  
 </div>
-{% bookshop_include "page" content_blocks: content_blocks %}
-
- {% endblock %}
+{% endblock %}
