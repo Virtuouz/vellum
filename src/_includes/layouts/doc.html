@@ -33,7 +33,7 @@
       </ul>
     </div>
   </aside>
- <div>
+ <div class="flex flex-1 w-full mx-auto">
    <section>
    
    {% if content and content != "" %}
@@ -42,6 +42,9 @@
    </div>
    {% endif %}
    </section>
+   <div>
+    {{content | toc }}
+   </div>
  </div>
 </div>
 {% bookshop_include "page" content_blocks: content_blocks %}

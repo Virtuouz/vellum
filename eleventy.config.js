@@ -3,8 +3,30 @@ const { execSync } = require("child_process");
 const fileSubstringFilter = require("./src/filters/extract-file-substring-filter.js");
 const pluginBookshop = require("@bookshop/eleventy-bookshop");
 const uuidFilter = require("./src/filters/uuid-filter.js");
+const markdownItAnchor = require("markdown-it-anchor");
+const pluginTOC = require('eleventy-plugin-nesting-toc');
+const markdownIt = require("markdown-it"),
+  md = markdownIt({
+    html: true,
+    linkify: false,
+    typographer: true,
+  });
+md.disable(["code", "blockquote"]);
 
 module.exports = async function (eleventyConfig) {
+
+  // Markdown
+  let options = {
+    html: true,
+    linkify: true,
+    typographer: true,
+  };
+  eleventyConfig.setLibrary(
+    "md",
+    markdownIt(options).disable(["code"]).use(markdownItAnchor),
+  );
+
+
   eleventyConfig.on("eleventy.after", () => {
     execSync(
       "npx tailwindcss -i ./src/css/main.css -o ./dist/css/styles.css --minify"
@@ -17,6 +39,7 @@ module.exports = async function (eleventyConfig) {
       pathPrefix: "",
     })
   );
+  eleventyConfig.addPlugin(pluginTOC);
 
   eleventyConfig.addFilter("fileSubstringFilter", fileSubstringFilter);
   eleventyConfig.addFilter("uuidFilter", uuidFilter);
