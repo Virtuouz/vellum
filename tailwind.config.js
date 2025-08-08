@@ -20,5 +20,5 @@ module.exports = {
   //         pattern: /.+/,
   //       },
   //     ],
-  plugins: [],
+  plugins: ["prettier-plugin-tailwindcss"],
 };
