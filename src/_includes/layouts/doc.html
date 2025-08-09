@@ -19,30 +19,6 @@
 {% assign navPages = navPages | eleventyNavigation | uniq %}
 
 {% block content %}
-<div class="flex min-h-screen text-gray-100 bg-gray-950 font-inter">
-  
-  <!-- Left Sidebar Navigation -->
-  <aside class="hidden lg:flex lg:flex-col w-72 h-screen border-r border-gray-800 p-4 sticky top-0 bg-gray-900 overflow-y-auto">
-    <!-- Search and Collection Selection Section -->
-    <div class="flex flex-col gap-2 pb-4 mb-4 border-b border-gray-800">
-      <div class="relative">
-        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </span>
-        <div id="" class="w-full pl-10 pr-4 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm transition-colors duration-200">search</div>
-        <button
-        _="
-      on click
-      set modal to #modal-search
-      modal.show()
-      transition #modal-search opacity to 1 over 0.2s
-      "
-  class="w-full pl-10 pr-4 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm transition-colors duration-200"
-  
-  >
-  Search</button>
 <dialog id="modal-search" class="fixed top-0 z-[920] h-full w-full overflow-scroll p-4 opacity-0 open:bg-slate-950 open:bg-opacity-60 open:backdrop-blur-lg sm:p-10">
   <div class="flex flex-col gap-10">
     <button
@@ -57,10 +33,33 @@
       {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'large' roundedBorder: false color: "#ffffff" %}
     </button>
     <div class="self-center w-full max-w-[90%] {% if resource._bookshop_name != "generic/videoEmbed" %}flex justify-center{% endif %}">
-<div id="search"></div>
+<div id="search" class="w-full md:max-w-[80%]"></div>
     </div>
   </div>
 </dialog>
+<div class="flex min-h-screen text-gray-100 bg-gray-950 font-inter">
+  
+  <!-- Left Sidebar Navigation -->
+  <aside class="hidden lg:flex lg:flex-col w-72 h-screen border-r border-gray-800 p-4 sticky top-0 bg-gray-900 overflow-y-auto">
+    <!-- Search and Collection Selection Section -->
+    <div class="flex flex-col gap-2 pb-4 mb-4 border-b border-gray-800">
+      <div class="relative">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </span>
+        <button
+        _="
+      on click
+      set modal to #modal-search
+      modal.show()
+      transition #modal-search opacity to 1 over 0.2s
+      "
+  class="w-full pl-10 pr-4 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm transition-colors duration-200"
+  
+  >
+  Search</button>
 <!-- End Modal -->
       </div>
       {% if docCollections.size > 1 %}
