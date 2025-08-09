@@ -4,13 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        Example: {
-          green: "#B4E89B",
-          mutedgreen: "#799C68",
-          darkgreen: "#060D02",
-          creme: "#E4C590",
-          gray: "#242626",
-          light: "#474949",
+        vellum: {
+          darkbrown: "#100501",
+          lightbrown: "#f6f0ee",
+          lessdarkbrown: "#1c0c06",
+          lightgrey: "#f5f5f5",
         },
       },
     },

@@ -7,7 +7,7 @@ eleventyNavigation:
   key: Something
   order: 1
   title:
-  parent: Home
+  parent: Items
   url:
 pageLink: 
 permalink: >-

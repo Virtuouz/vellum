@@ -14,10 +14,10 @@
   Check if the current navigation item is a single link (no children).
 {% endcomment %}
 {% if entry.children.size == 0 %}
-  <li class="w-full">
+  <li>
     <a
       data-umami-event="{{entry.title}}-navbar"
-      class="px-3 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-gray-800 w-full block
+      class="px-3 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-gray-800 
         {% if entry.url == page.url %}bg-gray-800 font-medium{% endif %}"
       href="{{ entry.url }}"
     >
@@ -31,18 +31,18 @@
 {% endcomment %}
 {% if entry.children.size > 0 %}
   {% assign navUUID = "a" | uuidFilter %}
-  {% comment %} Check if the current page is a child of this section to determine if the accordion should be open {% endcomment %}
-  {% assign isOpen = page.url | startsWith: entry.url %}
-  <p>{{isOpen}}</p>
-  <p>{{entry.url}}</p>
-  <p>{{page.url}}</p>
+  {% comment %}
+    Determine if the accordion should be open. This happens if the current page is a child of this entry.
+    We check the page's parent key against the current entry's key.
+  {% endcomment %}
+  {% assign isOpen = eleventyNavigation.parent == entry.key or entry.url == page.url %}
   <div class="relative">
     <div class="w-full">
       <li class="w-full">
         <button
-          aria-expanded="{{ isOpen }}"
+          aria-expanded="{{ isOpen  }}"
           class="flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-gray-800
-            {% if entry.url == page.url %}bg-gray-800 font-medium{% endif %}"
+            {% if isOpen %}bg-gray-800 font-medium{% endif %}"
           _="
             on click
             set content to the next <div/>
@@ -67,7 +67,9 @@
           {% render "partials/render-sidebar.html"
             , entry: child
             , level: level
-            , page: page %}
+            , page: page
+            , eleventyNavigation: eleventyNavigation
+            , navPages: navPages %}
         {% endfor %}
       </ul>
     </div>

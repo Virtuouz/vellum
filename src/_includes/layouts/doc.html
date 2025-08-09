@@ -1,6 +1,6 @@
 {% layout "layouts/base.html" %}
 
-{% assign navPages = collections.all | eleventyNavigation  %}
+{% assign navPages = collections.all | eleventyNavigation %}
 
 {% block content %}
 <div class="flex min-h-screen text-gray-100 bg-gray-950 font-inter">
@@ -33,18 +33,8 @@
     <!-- Navigation List -->
     <nav>
       <ul class="flex flex-col gap-1">
-        <!-- These list items are placeholders, you would use a loop here -->
-        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Introduction</li>
-        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">What is Fumadocs</li>
-        <li class="px-3 py-2 text-sm rounded-md bg-gray-800 text-white font-medium">Comparisons</li>
-        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Setup</li>
-        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Manual Installation</li>
-        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Internationalization</li>
-        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Static Export</li>
-        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Versioning</li>
-        <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Integrations</li>
         {% for entry in navPages %} {% render "partials/render-sidebar.html",
-          entry: entry, level:level, page:page %} {% endfor %}
+          entry: entry, level:level, page:page, eleventyNavigation: eleventyNavigation, navPages: navPages %} {% endfor %}
       </ul>
     </nav>
   </aside>
