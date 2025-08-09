@@ -1,11 +1,11 @@
 {% assign level = level | plus: 1 %}
-
-
-{% if entry.children.size == nil %}
+{% if entry.children.size == 0 %}
   <li>
     <a
       data-umami-event="{{entry.title}}-navbar"
+{% comment %}
       {{ entry.url | linkFilter: page.url }}
+{% endcomment %}
       class="data-[state=active]:link data-[state=active]: px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200"
       href="{{ entry.url }}">{{ entry.title }}</a>
   </li>
@@ -14,12 +14,15 @@
 {% if entry.children.size > 0 %}
   {% assign navUUID = "a" | uuidFilter %}
   <div class="relative ">
-    <div class="flex items-center">
+    <div class="flex items-center justify-between w-full">
       <li>
         <button
-          data-umami-event="{{entry.title}}-navbar"
-          {{ entry.url | linkFilter: page.url }}
-          class=" data-[state=active]: px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200"
+    aria-expanded="false"
+
+{% comment %}
+      {{ entry.url | linkFilter: page.url }}
+{% endcomment %}
+          class="flex  data-[state=active]: px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200"
           _="
     on click
          set content to the next <div/>
@@ -42,11 +45,11 @@
         </button>
       </li>
     </div>
-    <div>
+    <div class="h-0 overflow-hidden transition-all duration-300 ease-in-out">
       <ul
         class="flex flex-col gap-1">
         {% for child in entry.children %}
-          {% render "partials/render-nav.html"
+          {% render "partials/render-sidebar.html"
             , entry: child
             , level: level
             , page: page %}

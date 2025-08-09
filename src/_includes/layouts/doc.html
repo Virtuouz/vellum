@@ -1,5 +1,7 @@
 {% layout "layouts/base.html" %}
 
+{% assign navPages = collections.all | eleventyNavigation  %}
+
 {% block content %}
 <div class="flex min-h-screen text-gray-100 bg-gray-950 font-inter">
   
@@ -41,6 +43,8 @@
         <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Static Export</li>
         <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Versioning</li>
         <li class="px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200">Integrations</li>
+        {% for entry in navPages %} {% render "partials/render-sidebar.html",
+          entry: entry, level:level, page:page %} {% endfor %}
       </ul>
     </nav>
   </aside>
