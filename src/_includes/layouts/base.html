@@ -16,6 +16,8 @@
     />
     <link rel="stylesheet" href="/css/bookshop.css" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <script src="/pagefind/pagefind-ui.js"></script>
     {{site.customCode.headCode}}
     {{customCode.headCode}}
   </head>
@@ -431,6 +433,11 @@
             };
           }
   </script>
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({ element: "#search", showSubResults: true });
+    });
+</script>
     {{site.customCode.bodyCode}}
     {{customCode.bodyCode}}
   </body>
