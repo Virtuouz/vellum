@@ -1,15 +1,15 @@
 ---
 _schema: default
 draft: false
-title: Home
+title: No Group
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  key: Home
+  key: No Group
   order: 1
   title:
-  parent:
+  parent: 
   url:
-pageLink:
+pageLink: 
 permalink: >-
   {% if pageLink == 'blog' or pageLink == 'Blog' %}/{{pageLink | slugify}}{% if
   pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber }}{% endif

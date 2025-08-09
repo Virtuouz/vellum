@@ -49,6 +49,10 @@ module.exports = async function (eleventyConfig) {
 
   eleventyConfig.addFilter("fileSubstringFilter", fileSubstringFilter);
   eleventyConfig.addFilter("uuidFilter", uuidFilter);
+  eleventyConfig.addFilter("startsWith", function(str, startsWith) {
+    console.log(str, startsWith);
+    return startsWith.length > 1 && str.startsWith(startsWith);
+  });
 
   return {
     markdownTemplateEngine: "liquid",

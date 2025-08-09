@@ -1,48 +1,68 @@
+{% comment %}
+  This partial renders a single navigation item.
+  It uses recursion to handle nested menu items.
+
+  Variables:
+  - entry: The current navigation object from your navigation data.
+  - level: The current nesting level (used for indentation).
+  - page: The current page object, used for comparison.
+{% endcomment %}
+
 {% assign level = level | plus: 1 %}
+
+{% comment %}
+  Check if the current navigation item is a single link (no children).
+{% endcomment %}
 {% if entry.children.size == 0 %}
-  <li>
+  <li class="w-full">
     <a
       data-umami-event="{{entry.title}}-navbar"
-{% comment %}
-      {{ entry.url | linkFilter: page.url }}
-{% endcomment %}
-      class="data-[state=active]:link data-[state=active]: px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200"
-      href="{{ entry.url }}">{{ entry.title }}</a>
+      class="px-3 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-gray-800 w-full block
+        {% if entry.url == page.url %}bg-gray-800 font-medium{% endif %}"
+      href="{{ entry.url }}"
+    >
+      {{ entry.title }}
+    </a>
   </li>
 {% endif %}
 
+{% comment %}
+  Check if the current navigation item has children and should be an accordion.
+{% endcomment %}
 {% if entry.children.size > 0 %}
   {% assign navUUID = "a" | uuidFilter %}
-  <div class="relative ">
+  {% comment %} Check if the current page is a child of this section to determine if the accordion should be open {% endcomment %}
+  {% assign isOpen = page.url | startsWith: entry.url %}
+  <p>{{isOpen}}</p>
+  <p>{{entry.url}}</p>
+  <p>{{page.url}}</p>
+  <div class="relative">
     <div class="w-full">
-      <li class=" w-full">
+      <li class="w-full">
         <button
-    aria-expanded="false"
-
-{% comment %}
-      {{ entry.url | linkFilter: page.url }}
-{% endcomment %}
-          class="flex items-center justify-between w-full data-[state=active]: px-3 py-2 text-sm rounded-md hover:bg-gray-800 transition-colors duration-200"
+          aria-expanded="{{ isOpen }}"
+          class="flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-gray-800
+            {% if entry.url == page.url %}bg-gray-800 font-medium{% endif %}"
           _="
-    on click
-         set content to the next <div/>
-         set @aria-expanded to ( @aria-expanded == 'false' )
-         set *height of content to (content's scrollHeight * ( @aria-expanded == 'true' )) + 'px'
-         toggle .rotate-90 on <span/> in me
-      end
-      ">
+            on click
+            set content to the next <div/>
+            set @aria-expanded to ( @aria-expanded == 'false' )
+            set *height of content to (content's scrollHeight * ( @aria-expanded == 'true' )) + 'px'
+            toggle .rotate-90 on <span/> in me
+          end
+          "
+        >
           <p>{{ entry.title }}</p>
-          <span class="transition-all duration-300 ease-in-out">
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-</svg>
+          <span class="transition-all duration-300 ease-in-out {% if isOpen %}rotate-90{% endif %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+            </svg>
           </span>
         </button>
       </li>
     </div>
-    <div class="h-0 overflow-hidden transition-all duration-300 ease-in-out">
-      <ul
-        class="pl-3 flex flex-col gap-1">
+    <div class="overflow-hidden transition-all duration-300 ease-in-out {% if isOpen %}{% else %}h-0{% endif %}">
+      <ul class="pl-3 flex flex-col gap-1">
         {% for child in entry.children %}
           {% render "partials/render-sidebar.html"
             , entry: child
@@ -52,6 +72,4 @@
       </ul>
     </div>
   </div>
-
-
 {% endif %}
