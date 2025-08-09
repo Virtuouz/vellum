@@ -9,7 +9,6 @@
     "bookshop-sass:build": "bookshop-sass -b _component-library -o dist/css/bookshop.css",
     "build": "sass --no-source-map src/assets/styles:dist/css && sass --no-source-map src/assets/styles:dist/css && npx eleventy",
     "eleventy": "npm run sass:build && npm run bookshop-sass:build && npx eleventy",
-    "new": "npx @bookshop/init --component",
     "start": "concurrently --kill-others \"sass --no-source-map --load-path=node_modules --watch src/assets/styles:src/css\"  \"npx tailwindcss -i ./src/css/main.css -o ./dist/css/styles.css --watch\" \"bookshop-sass -b _component-library -o dist/css/bookshop.css -w\" \"npx eleventy --serve\"  "
   },
   "keywords": [],
@@ -17,7 +16,12 @@
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-navigation": "^1.0.4",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
     "@bookshop/eleventy-bookshop": "3.16.3",
+    "eleventy-plugin-nesting-toc": "^1.3.0",
+    "eleventy-plugin-svg-contents": "^0.7.0",
+    "markdown-it-anchor": "^9.2.0",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "sass": "^1.90.0",
