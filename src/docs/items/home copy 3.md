@@ -1,13 +1,13 @@
 ---
 _schema: default
 draft: false
-title: Items
+title: Something
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  key: Items
+  key: Something
   order: 1
   title:
-  parent: Home
+  parent: Items
   url:
 pageLink: 
 permalink: >-
@@ -17,7 +17,7 @@ permalink: >-
   %}/{% assign title = title | slugify %}{{ page.filePathStem | fileSubstringFilter | append: title | downcase }}/index.html{%endif %}
 metaDesc: 
 layout: layouts/doc.html
-tags: other
+tags: else 
 hero:
 content_blocks: []
 ---

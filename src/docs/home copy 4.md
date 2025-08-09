@@ -4,7 +4,7 @@ draft: false
 title: No Group
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  key: No Group
+  key: no group
   order: 1
   title:
   parent: 
@@ -17,6 +17,7 @@ permalink: >-
   %}/{% assign title = title | slugify %}{{ page.filePathStem | fileSubstringFilter | append: title | downcase }}/index.html{%endif %}
 metaDesc: 
 layout: layouts/doc.html
+tags: else
 hero:
 content_blocks: []
 ---
