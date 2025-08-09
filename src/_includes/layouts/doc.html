@@ -1,8 +1,10 @@
 {% layout "layouts/base.html" %}
 
-{% assign primaryCollection = tags | first %}
+{% assign primaryCollectionTag = tags | first %}
 {% for collection in docCollections %}
- {% if collection.key == primaryCollection %}
+ {% if collection.key == primaryCollectionTag %} 
+
+{% assign primaryCollection = collection %}
  {% capture primaryCollectionName %}
   {% if collection.name and collection.name != "" %}
   {{ collection.name }}
@@ -19,10 +21,9 @@
 {% assign navPages = navPages | eleventyNavigation | uniq %}
 
 {% block content %}
-<dialog id="modal-search" class="fixed top-0 z-[920] h-full w-full overflow-scroll p-4 opacity-0 open:bg-slate-950 open:bg-opacity-60 open:backdrop-blur-lg sm:p-10">
+<dialog id="modal-search" class="fixed top-0 z-[920] h-full w-full overflow-x-scroll p-4 opacity-0 open:bg-slate-950 open:bg-opacity-60 open:backdrop-blur-lg sm:p-10">
   <div class="flex flex-col gap-10">
     <button
-      aria-label="Close image"
       class="sticky top-0 self-end font-bold text-white opacity-60"
       _="
           on click
@@ -86,7 +87,12 @@
             end
           "
         >
-          {{ primaryCollectionName }}
+          <div class="flex items-center gap-2">
+            <div class="opacity-60 ">
+              {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: primaryCollection.icon iconType: "solid" iconSize: 'micro' roundedBorder: false color: "#ffffff" %}
+            </div>
+            <p>{{ primaryCollectionName }}</p>
+          </div>
           <div class="absolute inset-y-1 right-0 flex items-center pr-3 pointer-events-none">
             <svg id="dropdown-arrow" class="w-5 h-4 text-gray-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
@@ -102,10 +108,15 @@
         >
 
           {% for collection in docCollections %}
-          {% if primaryCollection == collection.key %}
+          {% if primaryCollectionTag == collection.key %}
            {% else  %}
              
-            <a href="{{ collection.path }}" class="block px-5 py-2 text-sm text-gray-200 hover:bg-gray-700 hover:text-white">{{ collection.name }}</a>
+            <a href="{{ collection.path }}" class="py-2 text-sm text-gray-200 hover:bg-gray-700 hover:text-white flex items-center gap-2">
+
+            <div class="opacity-60 pl-5">
+              {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: collection.icon iconType: "solid" iconSize: 'micro' roundedBorder: false color: "#ffffff" %}
+            </div>
+              <p>{{ collection.name }}</p></a>
           {% endif %}
           {% endfor %}
         </div>
@@ -126,14 +137,14 @@
   <!-- Main Content Area -->
   <main class="flex flex-1 w-full mx-auto overflow-y-auto p-8">
     <div class="flex flex-col w-full">
+      <!-- Bookshop component for page content -->
+      {% bookshop_include "page" content_blocks: content_blocks %}
       {% if content and content != "" %}
         <article class="cs-mainContent w-full max-w-4xl mx-auto flex-1 prose prose-invert">
           {{ content }}
         </article>
       {% endif %}
       
-      <!-- Bookshop component for page content -->
-      {% bookshop_include "page" content_blocks: content_blocks %}
     </div>
   </main>
   

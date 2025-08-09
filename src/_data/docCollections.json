@@ -2,13 +2,13 @@
   {
     "key": "other",
     "name":"Other",
-    "icon":"icon-folder",
+    "icon":"folder",
     "path":"/"
 },
   {
     "key": "else",
     "name":"Else",
-    "icon":"icon-folder",
+    "icon":"academic-cap",
     "path":"src/docs/items/home-copy-2.md"
 }
 ]

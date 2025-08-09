@@ -2,6 +2,7 @@ const { execSync } = require("child_process");
 
 const fileSubstringFilter = require("./src/filters/extract-file-substring-filter.js");
 const uuidFilter = require("./src/filters/uuid-filter.js");
+const pathExistsFilter = require("./src/filters/pathExists-filter.js");
 
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginBookshop = require("@bookshop/eleventy-bookshop");
@@ -57,6 +58,7 @@ module.exports = async function (eleventyConfig) {
     console.log(itemUrl, pageUrl);
     return itemUrl.length > 1 && pageUrl.indexOf(itemUrl) === 0
   });
+    eleventyConfig.addFilter("pathExists", pathExistsFilter);
 
   return {
     markdownTemplateEngine: "liquid",

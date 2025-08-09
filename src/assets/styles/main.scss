@@ -30,13 +30,6 @@
 @import "prismtheme.scss";
 @import "content.scss";
 
-// Required Core Stylesheet
-//@import "@glidejs/glide/src/assets/sass/glide.core";
-
-// Optional Theme Stylesheet
-//@import "@glidejs/glide/src/assets/sass/glide.theme";
-
-/* Globals */
 
 
 /* * {
@@ -87,9 +80,6 @@ body {
   }
 }
 
-.cs-logoFont {
-  font-family: var(--logo-font), Lato, sans-serif;
-}
 
 
 .toc {
