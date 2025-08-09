@@ -42,19 +42,17 @@
         </button>
       </li>
     </div>
-    <ul
-      id="{{ entry.title | append: navUUID | slugify }}"
-      class="{{display}}    flex flex-col gap-1"
-      role="menu"
-      aria-orientation="vertical"
-      aria-labelledby="options-menu">
-      {% for child in entry.children %}
-        {% render "partials/render-nav.html"
-          , entry: child
-          , level: level
-          , page: page %}
-      {% endfor %}
-    </ul>
+    <div>
+      <ul
+        class="flex flex-col gap-1">
+        {% for child in entry.children %}
+          {% render "partials/render-nav.html"
+            , entry: child
+            , level: level
+            , page: page %}
+        {% endfor %}
+      </ul>
+    </div>
   </div>
 
 
