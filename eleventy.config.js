@@ -18,6 +18,7 @@ const markdownIt = require("markdown-it"),
 md.disable(["code", "blockquote"]);
 
 module.exports = async function (eleventyConfig) {
+  const { InputPathToUrlTransformPlugin } = await import("@11ty/eleventy");
 
   // Markdown
   let options = {
@@ -46,6 +47,7 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginTOC);
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
 
   eleventyConfig.addFilter("fileSubstringFilter", fileSubstringFilter);
   eleventyConfig.addFilter("uuidFilter", uuidFilter);
