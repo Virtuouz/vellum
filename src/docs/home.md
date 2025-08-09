@@ -15,10 +15,6 @@ permalink: >-
   pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber }}{% endif
   %}/index.html{% elsif pageLink %}/{% assign pagelink = pageLink | slugify %}{{  page.filePathStem | fileSubstringFilter | append: pagelink | downcase }}/index.html{% else
   %}/{% assign title = title | slugify %}{{ page.filePathStem | fileSubstringFilter | append: title | downcase }}/index.html{%endif %}
-pagination:
-  data: collections.blog
-  size: 22
-  generatePageOnEmptyData: true
 metaDesc: 
 layout: layouts/doc.html
 hero:
