@@ -1,0 +1,14 @@
+[
+  {
+    "key": "docs",
+    "name":"Docs",
+    "icon":"icon-folder",
+    "path":"/collections/"
+},
+  {
+    "key": "components",
+    "name":"Components",
+    "icon":"icon-folder",
+    "path":"/components/"
+}
+]

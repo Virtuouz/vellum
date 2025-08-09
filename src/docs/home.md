@@ -9,7 +9,7 @@ eleventyNavigation:
   title:
   parent:
   url:
-pageLink:
+pageLink: /
 permalink: >-
   {% if pageLink == 'blog' or pageLink == 'Blog' %}/{{pageLink | slugify}}{% if
   pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber }}{% endif

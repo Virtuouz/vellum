@@ -20,18 +20,49 @@
         </span>
         <input type="text" placeholder="Search" class="w-full pl-10 pr-4 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm transition-colors duration-200" />
       </div>
-      <div class="relative">
-        <select class="w-full pl-4 pr-10 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm appearance-none cursor-pointer transition-colors duration-200">
-          <option>Framework</option>
-          <option>Other Collections</option>
-        </select>
-        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
+    </div>
+    <div class="relative">
+        <button
+          id="collection-button"
+          class="w-full pl-5 pr-10 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm appearance-none cursor-pointer transition-colors duration-200 text-left"
+          _="
+            on click
+              toggle .invisible on #collection-dropdown
+              toggle .scale-y-1 on #collection-dropdown
+              toggle .scale-y-101 on #collection-dropdown
+              toggle .transform on #dropdown-arrow
+              toggle .rotate-181 on #dropdown-arrow
+                          halt
+            end
+            on click from elsewhere
+                add .scale-y-1 to #collection-dropdown
+                add .invisible to #collection-dropdown 
+                remove .scale-y-101 from #collection-dropdown
+                remove .rotate-181 from #dropdown-arrow
+            end
+          "
+        >
+          Select a Collection
+          <div class="absolute inset-y-1 right-0 flex items-center pr-3 pointer-events-none">
+            <svg id="dropdown-arrow" class="w-5 h-4 text-gray-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </button>
+
+        <div
+          id="collection-dropdown"
+          class="absolute top-full left-1 mt-1 w-full bg-gray-800 border border-gray-700 rounded-md shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[80vh] overflow-y-auto z-10"
+          _="
+          "
+        >
+
+          {% assign temp = docCollections | log %}
+          {% for collection in docCollections %}
+            <a href="{{ collection.path }}" class="block px-5 py-2 text-sm text-gray-200 hover:bg-gray-700 hover:text-white">{{ collection.name }}</a>
+          {% endfor %}
         </div>
       </div>
-    </div>
     
     <!-- Navigation List -->
     <nav>
