@@ -31,7 +31,45 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </span>
-        <div id="search" class="w-full pl-10 pr-4 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm transition-colors duration-200"></div>
+        <div id="" class="w-full pl-10 pr-4 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm transition-colors duration-200">search</div>
+        <button
+        _="
+      on click
+      set modal to #modal-search
+      modal.show()
+      transition #modal-search opacity to 1 over 0.2s
+      "
+  class="w-full pl-10 pr-4 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm transition-colors duration-200"
+  
+  >
+  Search</button>
+<dialog id="modal-search" class="fixed top-0 z-[920] h-full w-full overflow-scroll p-4 opacity-0 open:bg-slate-950 open:bg-opacity-60 open:backdrop-blur-lg sm:p-10">
+  <div class="flex flex-col gap-10">
+    <button
+      aria-label="Close image"
+      class="sticky top-0 self-end font-bold text-white opacity-60"
+      _="
+          on click
+          set modal to #modal-search
+          transition #modal-search opacity to 0 over 0.1s settle then
+          modal.close()
+          ">
+      {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'large' roundedBorder: false color: "#ffffff" %}
+    </button>
+    <div class="self-center w-full max-w-[90%] {% if resource._bookshop_name != "generic/videoEmbed" %}flex justify-center{% endif %}">
+
+      {% if resource._bookshop_name == "simple/formBuilder" %}
+
+        {% assign color_group = form_color_group %}
+        <div class=" bg-{{form_color_group}}-backgroundcolor bg-opacity-70 p-5 {{theme.container_rounding}} w-full max-w-[512px] flex-1 min-w-[300px]">{% bookshop "{{resource._bookshop_name}}" bind: resource class: "max-w-[90%] object-cover object-center" %}</div>
+      {% else %}
+
+        {% bookshop "{{resource._bookshop_name}}" bind: resource class: "max-w-[90%] object-cover object-center" %}
+      {% endif %}
+    </div>
+  </div>
+</dialog>
+<!-- End Modal -->
       </div>
       {% if docCollections.size > 1 %}
         
