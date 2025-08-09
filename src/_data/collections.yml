@@ -1,0 +1,14 @@
+[
+  "collection":{
+    "key": "other",
+    "name":"Other",
+    "icon":"icon-folder",
+    "path":"/collections/"
+  },
+  "collection":{
+    "key": "docs",
+    "name":"Docs",
+    "icon":"icon-folder",
+    "path":"/collections/"
+  }
+]

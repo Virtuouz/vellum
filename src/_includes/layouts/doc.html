@@ -1,8 +1,15 @@
 {% layout "layouts/base.html" %}
+{% assign primaryTag = tags | first  %}
+{% assign navPages = collections[primaryTag]  %}
+{% assign navPages = navPages | eleventyNavigation | log  %}
 
-{% assign navPages = collections.all | eleventyNavigation %}
+{% for tag in tags %}
+{% assign navPages = navPages | concat: collections[tag]  %}
+{% endfor %}
+{% assign navPages = navPages | eleventyNavigation %}
 
 {% block content %}
+<p>{{navPages | log}}</p>
 <div class="flex min-h-screen text-gray-100 bg-gray-950 font-inter">
   
   <!-- Left Sidebar Navigation -->
