@@ -1,5 +1,18 @@
 {% layout "layouts/base.html" %}
 
+{% assign primaryCollection = tags | first %}
+{% for collection in docCollections %}
+ {% if collection.key == primaryCollection %}
+ {% capture primaryCollectionName %}
+  {% if collection.name and collection.name != "" %}
+  {{ collection.name }}
+   {% else  %}
+{{ collection.key }}
+  {% endif %}
+ {% endcapture %} 
+ {% endif %} 
+{% endfor %}
+
 {% for tag in tags %}
 {% assign navPages = navPages | concat: collections[tag]  %}
 {% endfor %}
@@ -20,6 +33,8 @@
         </span>
         <input type="text" placeholder="Search" class="w-full pl-10 pr-4 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm transition-colors duration-200" />
       </div>
+      {% if docCollections.size > 1 %}
+        
     <!-- Collection Selection Section -->
     <div class="relative">
         <button
@@ -42,7 +57,7 @@
             end
           "
         >
-          Select a Collection
+          {{ primaryCollectionName }}
           <div class="absolute inset-y-1 right-0 flex items-center pr-3 pointer-events-none">
             <svg id="dropdown-arrow" class="w-5 h-4 text-gray-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
@@ -57,12 +72,16 @@
           "
         >
 
-          {% assign temp = docCollections | log %}
           {% for collection in docCollections %}
+          {% if primaryCollection == collection.key %}
+           {% else  %}
+             
             <a href="{{ collection.path }}" class="block px-5 py-2 text-sm text-gray-200 hover:bg-gray-700 hover:text-white">{{ collection.name }}</a>
+          {% endif %}
           {% endfor %}
         </div>
       </div>
+      {% endif %}
     </div>
 
     
