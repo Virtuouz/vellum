@@ -1,8 +1,11 @@
 const { execSync } = require("child_process");
 
 const fileSubstringFilter = require("./src/filters/extract-file-substring-filter.js");
-const pluginBookshop = require("@bookshop/eleventy-bookshop");
 const uuidFilter = require("./src/filters/uuid-filter.js");
+
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const pluginBookshop = require("@bookshop/eleventy-bookshop");
+
 const markdownItAnchor = require("markdown-it-anchor");
 const pluginTOC = require('eleventy-plugin-nesting-toc');
 const markdownIt = require("markdown-it"),
@@ -40,6 +43,7 @@ module.exports = async function (eleventyConfig) {
     })
   );
   eleventyConfig.addPlugin(pluginTOC);
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   eleventyConfig.addFilter("fileSubstringFilter", fileSubstringFilter);
   eleventyConfig.addFilter("uuidFilter", uuidFilter);

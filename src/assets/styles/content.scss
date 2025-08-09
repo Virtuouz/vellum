@@ -1,0 +1,163 @@
+.cs-mainContent {
+  margin-bottom: 20px;
+
+  /* Headings with spacing to match your base. */
+  h1 {
+    font-size: 3rem;
+    line-height: 1;
+  }
+  h2 {
+    margin-top: 48px;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  h3 {
+    margin-top: 32px;
+    font-size: 2rem;
+    line-height: 2.25rem;
+  }
+  h4 {
+    margin-top: 32px;
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+  h5 {
+    margin-top: 28px;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  h6 {
+    margin-top: 24px;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  
+  /* Paragraphs */
+  p {
+    margin-top: 12px;
+  }
+
+  /* Lists */
+  ol,
+  ul {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-left: 32px;
+  }
+  ul > li {
+    list-style-type: disc; /* Use 'disc' for a solid circle */
+  }
+  ol > li {
+    list-style-type: decimal;
+  }
+
+  /* Links */
+  a {
+    color: #5fb6e0;
+    text-decoration: underline;
+    transition: color 0.2s ease-in-out;
+  }
+  a:hover {
+    color: #7cc9f0;
+  }
+  
+  /* Horizontal Rule */
+  hr {
+    margin: 48px 0;
+    border: 0;
+    border-top: 1px solid #333;
+  }
+
+  /*
+    Code Blocks & Inline Code
+    This section is crucial for replicating the Fumadocs look.
+  */
+  :not(pre) > code {
+    background-color: #212529; /* Darker background for inline code */
+    color: #e0b467; /* A contrasting color for inline text */
+    padding: 0.2em 0.4em;
+    border-radius: 6px;
+    font-size: 0.875em;
+  }
+
+  pre {
+    background-color: #1a1e22;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 24px 0;
+    overflow-x: auto;
+    font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /*
+    Tables
+    A clean, minimalist style that matches the dark theme.
+  */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 0.95rem;
+  }
+  thead {
+    border-bottom: 2px solid #5fb6e0;
+    color: #f7f7f7;
+  }
+  th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+  }
+  tr:last-child td {
+    border-bottom: none;
+  }
+  tr:nth-child(even) {
+    background-color: #1a1e22; /* Subtle stripe for readability */
+  }
+  
+  /* Blockquotes */
+  blockquote {
+    margin: 24px 0;
+    padding-left: 1.5rem;
+    border-left: 4px solid #5fb6e0;
+    opacity: 0.85;
+    font-style: italic;
+  }
+
+  /*
+    Callout components (for future Bookshop components)
+    Define these classes to be used by your Bookshop components.
+    They match the visual style of Fumadocs' callouts with icons and borders.
+  */
+  .callout {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    margin: 24px 0;
+    border-left: 4px solid;
+    border-radius: 8px;
+  }
+  .callout-icon {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+  }
+  .callout-content {
+    flex: 1;
+  }
+
+  .callout-info {
+    border-color: #2196f3;
+    background-color: #111a24;
+  }
+  .callout-warning {
+    border-color: #ff9800;
+    background-color: #221b0b;
+  }
+  .callout-error {
+    border-color: #f44336;
+    background-color: #241312;
+  }
+}
