@@ -1,14 +1,14 @@
 [
   {
-    "key": "docs",
-    "name":"Docs",
+    "key": "other",
+    "name":"Other",
     "icon":"icon-folder",
-    "path":"/collections/"
+    "path":"/"
 },
   {
-    "key": "components",
-    "name":"Components",
+    "key": "else",
+    "name":"Else",
     "icon":"icon-folder",
-    "path":"/components/"
+    "path":"/items/something/"
 }
 ]

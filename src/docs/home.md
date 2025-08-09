@@ -18,7 +18,7 @@ permalink: >-
 metaDesc: 
 layout: layouts/doc.html
 tags:
-  - else
+  - other
 hero:
 content_blocks: []
 ---

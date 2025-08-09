@@ -3,7 +3,7 @@
 {% for tag in tags %}
 {% assign navPages = navPages | concat: collections[tag]  %}
 {% endfor %}
-{% assign navPages = navPages | eleventyNavigation %}
+{% assign navPages = navPages | eleventyNavigation | uniq %}
 
 {% block content %}
 <div class="flex min-h-screen text-gray-100 bg-gray-950 font-inter">
@@ -28,17 +28,17 @@
           _="
             on click
               toggle .invisible on #collection-dropdown
-              toggle .scale-y-1 on #collection-dropdown
-              toggle .scale-y-101 on #collection-dropdown
+              toggle .scale-y-0 on #collection-dropdown
+              toggle .scale-y-100 on #collection-dropdown
               toggle .transform on #dropdown-arrow
-              toggle .rotate-181 on #dropdown-arrow
+              toggle .rotate-180 on #dropdown-arrow
                           halt
             end
             on click from elsewhere
-                add .scale-y-1 to #collection-dropdown
+                add .scale-y-0 to #collection-dropdown
                 add .invisible to #collection-dropdown 
-                remove .scale-y-101 from #collection-dropdown
-                remove .rotate-181 from #dropdown-arrow
+                remove .scale-y-100 from #collection-dropdown
+                remove .rotate-180 from #dropdown-arrow
             end
           "
         >
