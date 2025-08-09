@@ -8,6 +8,7 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginBookshop = require("@bookshop/eleventy-bookshop");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const svgContents = require("eleventy-plugin-svg-contents");
+const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 
 const markdownItAnchor = require("markdown-it-anchor");
 const pluginTOC = require('eleventy-plugin-nesting-toc');
@@ -51,6 +52,7 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
   eleventyConfig.addPlugin(svgContents);
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin);
 
   eleventyConfig.addFilter("fileSubstringFilter", fileSubstringFilter);
   eleventyConfig.addFilter("uuidFilter", uuidFilter);
