@@ -38,10 +38,10 @@
     </div>
   </div>
 </dialog>
-<div class="relative flex min-h-screen text-gray-100 bg-gray-950 font-inter">
+<div class=" relative flex min-h-screen text-gray-100 bg-gray-950 font-inter">
   
   <!-- Left Sidebar Navigation -->
-  <aside class="fixed invisible scale-x-0 z-20 right-0 lg:visible lg: scale-x-100 lg:sticky order-4 lg:order-1  lg:flex lg:flex-col w-72 h-screen border-r border-gray-800 p-4  top-0 bg-gray-900 overflow-y-auto">
+  <aside class="fixed invisible scale-x-0 z-20 right-0 lg:visible lg:scale-x-100 lg:sticky order-4 lg:order-1  lg:flex lg:flex-col w-72 h-screen border-r border-gray-800 p-4  top-0 bg-gray-900 overflow-y-auto">
     <!-- Search and Collection Selection Section -->
     <div class="flex flex-col gap-2 pb-4 mb-4 border-b border-gray-800">
       <div class="relative">
@@ -131,14 +131,27 @@
           entry: entry, level:-1, page:page, eleventyNavigation: eleventyNavigation, navPages: navPages %} {% endfor %}
       </ul>
     </nav>
+    
   </aside>
   <div class="order-2 flex flex-col flex-1">
     <!-- Mobile TOC Dropdown -->
     <div class="xl:hidden sticky top-0 z-10 w-full bg-gray-950 p-4">
-       <div class="lg:hidden  w-full bg-gray-950 p-4">
-  testing
+       <div class="lg:hidden flex gap-4 justify-end opacity-75 w-full bg-gray-950 ">
+          <button
+            _="
+            on click
+            set modal to #modal-search
+            modal.show()
+            transition #modal-search opacity to 1 over 0.2s
+            "
+            >
+            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "magnifying-glass" iconType: "solid" iconSize: 'xsmall' roundedBorder: false color: "#ffffff" %}
+          </button>
+          <button>
+            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "bars-3-bottom-right" iconType: "solid" iconSize: 'xsmall' roundedBorder: false color: "#ffffff" %}
+          </button>
  </div> 
-      <div class="relative w-full">
+      <div class="mt-2 relative w-full">
         <button
           id="mobile-toc-button"
           class="flex items-center opacity-50 justify-between w-full px-4 py-3 bg-gray-800 border border-transparent rounded-md text-white font-medium focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
