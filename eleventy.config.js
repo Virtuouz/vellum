@@ -60,7 +60,33 @@ module.exports = async function (eleventyConfig) {
     console.log(itemUrl, pageUrl);
     return itemUrl.length > 1 && pageUrl.indexOf(itemUrl) === 0
   });
-    eleventyConfig.addFilter("pathExists", pathExistsFilter);
+  eleventyConfig.addFilter("pathExists", pathExistsFilter);
+  eleventyConfig.addLiquidFilter("isDescendantOf", function(entry, currentPage) {
+  /**
+   * Recursively checks if a page is a descendant of a given navigation entry.
+   * @param {object} navEntry - The navigation entry to check.
+   * @param {object} page - The current 11ty page object.
+   * @returns {boolean} - True if the page is a descendant, false otherwise.
+   */
+  function hasDescendant(navEntry, page) {
+    if (!navEntry.children || navEntry.children.length === 0) {
+      return false;
+    }
+    
+    for (const child of navEntry.children) {
+      // Check if the current child's URL matches the page's URL
+      // or if the child has a descendant that matches.
+      if (child.url === page.url || hasDescendant(child, page)) {
+        return true;
+      }
+    }
+    
+    return false;
+  }
+  
+  // Start the recursive check from the top-level entry.
+  return hasDescendant(entry, currentPage);
+});
 
   return {
     markdownTemplateEngine: "liquid",

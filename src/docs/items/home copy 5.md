@@ -1,13 +1,13 @@
 ---
 _schema: default
 draft: false
-title: Something
+title: Testing normal page
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  key: Something
+  key: Testign normal page
   order: 
   title:
-  parent: Items
+  parent:
   url:
 pageLink: 
 permalink: >-

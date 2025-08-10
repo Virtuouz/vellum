@@ -35,7 +35,7 @@
     Determine if the accordion should be open. This happens if the current page is a child of this entry.
     We check the page's parent key against the current entry's key.
   {% endcomment %}
-  {% assign isOpen = navPages.parent == entry.key %}
+  {% assign isOpen = entry | isDescendantOf: page %}
   {% assign isActive = entry.url == page.url %}
   {% assign isToplevel = level < 1 %}
   <div class="relative">
