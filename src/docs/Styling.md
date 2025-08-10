@@ -1,11 +1,11 @@
 ---
 _schema: default
 draft: false
-title: Styling
+title: Documentation Style Guide
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   key: Styling 
-  order: 
+  order: 999
   title:
   parent: 
   url:
@@ -17,12 +17,11 @@ permalink: >-
   %}/{% assign title = title | slugify %}{{ page.filePathStem | fileSubstringFilter | append: title | downcase }}/index.html{%endif %}
 metaDesc: 
 layout: layouts/doc.html
-tags: other
+tags: vellum
 hero:
 content_blocks: []
 ---
 
-# Documentation Style Guide
 
 Welcome to the Documentation Style Guide! This document serves as a comprehensive reference for all the formatting options available in **Markdown**. You can use it as a template to see how various elements are rendered and to ensure consistency in your own documentation.
 
@@ -149,6 +148,17 @@ A horizontal rule is a line that separates content. It's great for visually brea
 ---
 
 You can create a horizontal rule using three or more hyphens (`---`), asterisks (`***`), or underscores (`___`). All three will produce the same result.
+
+---
+## Mermaid support
+
+```mermaid
+  graph TD;
+  A[Want graphs in 11ty] -->|Search Plugin| B(Found plugin);
+  B --> C{Use plugin?};
+  C -->|Yes| D[NICE GRAPHS];
+  C -->|No| E[NO GRAPHS];
+```
 
 ---
 

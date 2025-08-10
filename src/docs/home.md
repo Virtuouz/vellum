@@ -1,11 +1,11 @@
 ---
 _schema: default
 draft: false
-title: Home
+title: Vellum Overview
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  key: Home
-  order: 
+  key: Vellum Overview 
+  order: 1
   title:
   parent:
   url:
@@ -17,171 +17,23 @@ permalink: >-
   %}/{% assign title = title | slugify %}{{ page.filePathStem | fileSubstringFilter | append: title | downcase }}/index.html{%endif %}
 metaDesc: 
 layout: layouts/doc.html
-tags:
-  - other
+tags: vellum
 hero:
 content_blocks: []
 ---
 
-# Documentation Style Guide
+## What is Vellum?
 
-Welcome to the Documentation Style Guide! This document serves as a comprehensive reference for all the formatting options available in **Markdown**. You can use it as a template to see how various elements are rendered and to ensure consistency in your own documentation.
+Vellum is a modern documentation template designed to serve a diverse audience, from non-technical content editors to experienced developers. It bridges the gap between simple, unscalable solutions and complex, development-heavy frameworks.
 
----
-
-## Headers
-
-Headers are essential for structuring your document. Markdown provides six levels of headers.
-
-## H2 Header (A major section)
-### H3 Header (A sub-section)
-#### H4 Header (Further sub-division)
-##### H5 Header (Used for fine-grained organization)
-###### H6 Header (The smallest header)
+In the past, creating web-based documentation was primarily a technical task, often requiring developers to set up a site from scratch. This left many businesses, internal teams, and non-profit organizations without an easy way to build and maintain their own knowledge bases. Vellum was created to address this accessibility gap, providing a ready-to-use solution that's simple enough for anyone to get started, yet powerful enough to grow with your needs.
 
 ---
 
-## Paragraphs and Basic Text Formatting
+## Why Vellum?
 
-This is a standard paragraph. You can create a new paragraph by leaving a blank line. This paragraph contains **bold text** and *italic text*. You can also use ***bold and italic text together***. Strikethrough text is also supported.
+Many documentation solutions present a trade-off: they are either simple to start with but become difficult to manage as they grow, or they are powerful but require a steep learning curve and constant maintenance from a technical team.
 
-You can also create a new line within a paragraph using two spaces at the end of the line.  
-Like this.
+Vellum solves this by prioritizing both **ease of use** and **scalability**. The template is designed to be ready out of the box, allowing you to focus on your content from day one. At the same time, it is built to handle hundreds of documentation pages effortlessly through a powerful **collections system**. Think of collections as a digital filing cabinet, allowing you to logically organize pages into groups, making navigation and content management intuitive for everyone.
 
-> This is a blockquote. It's often used for quoting a passage from another source or for emphasizing a particular point.
-> You can have multiple paragraphs within a blockquote.
->
-> > This is a nested blockquote.
-> > It's useful for quoting a quote!
-
----
-
-## Lists
-
-Lists are great for organizing information. There are ordered lists, unordered lists, and even nested lists.
-
-### Unordered Lists
-
-* Item one
-* Item two
-    * A nested item
-    * Another nested item
-* Item three
-
-### Ordered Lists
-
-1.  First item
-2.  Second item
-3.  Third item
-    1.  A nested ordered item
-    2.  Another nested ordered item
-4.  Fourth item
-
----
-
-## Code
-
-Code blocks are crucial for technical documentation. Markdown supports both inline code and multi-line code blocks.
-
-### Inline Code
-
-Use backticks to show `inline code`. This is great for mentioning a variable name like `my_variable` or a function `my_function()`.
-
-### Code Blocks
-
-You can create a code block using three backticks. You can also specify the language for syntax highlighting.
-
-```python
-def hello_world():
-  print("Hello, world!")
-
-# Call the function
-hello_world()
-```
-
-## Tables
-
-Tables are useful for presenting data in a structured format.
-
-|Header 1|Header 2|Header 3|
-|---|---|---|
-|Row 1, Col 1|Row 1, Col 2|Row 1, Col 3|
-|Row 2, Col 1|Row 2, Col 2|Row 2, Col 3|
-|Row 3, Col 1|Row 3, Col 2|Row 3, Col 3|
-
-
-You can align columns by using colons (`:`) in the separator line.
-
-|Left-Aligned|Center-Aligned|Right-Aligned|
-|:---|:---:|---:|
-|Left|Center|Right|
-|Aligned|Aligned|Aligned|
-
-mardown of the table above 
-
-```md
-|Left-Aligned|Center-Aligned|Right-Aligned|
-|:---|:---:|---:|
-|Left|Center|Right|
-|Aligned|Aligned|Aligned|
-```
-
-
-## Links and Images
-
-Links and images are essential for connecting to other resources and adding visual context.
-
-### Links
-
-This is a [link to Google](https://www.google.com). You can also use reference-style links, which can make your markdown cleaner for multiple links to the same URL.
-
-Here's an example: [Google Home Page](https://www.google.com).
-
-### Images
-
-You can embed images in your documentation. They use similar syntax to links but with an exclamation mark at the beginning.
-
----
-
-## Horizontal Rules
-
-A horizontal rule is a line that separates content. It's great for visually breaking up sections.
-
----
-
-You can create a horizontal rule using three or more hyphens (`---`), asterisks (`***`), or underscores (`___`). All three will produce the same result.
-
----
-
-## Task Lists
-
-Task lists (or checkboxes) are a great way to track to-do items.
-
-- [x] This is a completed task.
-    
-- [ ] This is an incomplete task.
-    
-- [ ] Another incomplete task.
-    
-
----
-
-## Escaping Characters
-
-Sometimes you need to display a character that Markdown would normally format, like an asterisk or a hashtag. You can use a backslash to escape it.
-
-\*This text is not italic.\* \#This is not a header.
-
----
-
-## Conclusion
-
-This concludes the Markdown Style Guide. By using these elements, you can create rich, well-structured, and easy-to-read documentation.
-
-```mermaid
-  graph TD;
-  A[Want graphs in 11ty] -->|Search Plugin| B(Found plugin);
-  B --> C{Use plugin?};
-  C -->|Yes| D[NICE GRAPHS];
-  C -->|No| E[NO GRAPHS];
-```
+Furthermore, many popular documentation frameworks rely on complex technologies like React, which can be an unnecessary overhead for building static, text-heavy sites. Vellum is built with **Eleventy (11ty)**, a simple yet incredibly fast static site generator. This choice of technology ensures that Vellum is lightweight, produces highly performant pages, and remains accessible to a wide variety of users.

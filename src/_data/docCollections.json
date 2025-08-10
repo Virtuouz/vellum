@@ -1,14 +1,14 @@
 [
   {
-    "key": "other",
-    "name":"Other",
-    "icon":"foldr",
+    "key": "vellum",
+    "name":"Vellum",
+    "icon":"pencil",
     "path":"/"
-},
+  },
   {
-    "key": "else",
-    "name":"Else",
-    "icon":"academic-cap",
-    "path":"src/docs/items/home-copy-2.md"
-}
+    "key": "future",
+    "name":"Future Improvements",
+    "icon":"beaker",
+    "path":"src/docs/future/home-copy-2.md"
+  }
 ]

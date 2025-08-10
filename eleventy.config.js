@@ -15,7 +15,7 @@ const pluginTOC = require('eleventy-plugin-nesting-toc');
 const markdownIt = require("markdown-it"),
   md = markdownIt({
     html: true,
-    linkify: false,
+    linkify: true,
     typographer: true,
   });
 md.disable(["code", "blockquote"]);
@@ -25,6 +25,7 @@ module.exports = async function (eleventyConfig) {
   const { default: pluginMermaid } = await import ("@kevingimbel/eleventy-plugin-mermaid");
 
     eleventyConfig.addPassthroughCopy("./src/assets/js");
+    eleventyConfig.addPassthroughCopy("./src/assets/uploads/**");
 
   // Markdown
   let options = {

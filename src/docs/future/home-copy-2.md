@@ -1,15 +1,15 @@
 ---
 _schema: default
 draft: false
-title: Items
+title: Areas for improvement
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  key: Items
+  key: Areas for improvement
   order: 
   title:
-  parent: else stuff
+  parent:
   url:
-pageLink: 
+pageLink: /
 permalink: >-
   {% if pageLink == 'blog' or pageLink == 'Blog' %}/{{pageLink | slugify}}{% if
   pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber }}{% endif
@@ -17,7 +17,7 @@ permalink: >-
   %}/{% assign title = title | slugify %}{{ page.filePathStem | fileSubstringFilter | append: title | downcase }}/index.html{%endif %}
 metaDesc: 
 layout: layouts/doc.html
-tags: else
+tags: future
 hero:
 content_blocks: []
 ---

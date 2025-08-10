@@ -227,11 +227,12 @@
     
     <!-- Main Content Area -->
     <main class=" flex w-full mx-auto overflow-y-auto p-8">
-      <div class="flex flex-col w-full">
+      <div class="cs-mainContent flex flex-col w-full cs-mainContent max-w-4xl mx-auto flex-1">
+        <h1>{{ title }}</h1>
         <!-- Bookshop component for page content -->
         {% bookshop_include "page" content_blocks: content_blocks %}
         {% if content and content != "" %}
-          <article class="cs-mainContent w-full max-w-4xl mx-auto flex-1 prose prose-invert">
+          <article class=" ">
             {{ content }}
           </article>
         {% endif %}
