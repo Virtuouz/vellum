@@ -97,6 +97,12 @@ module.exports = async function (eleventyConfig) {
   return hasDescendant(entry, currentPage);
 });
 
+  eleventyConfig.on("eleventy.after", () => {
+    execSync(
+      "npx tailwindcss -i ./src/css/main.css -o ./dist/css/styles.css --minify",
+    );
+  });
+
   return {
     markdownTemplateEngine: "liquid",
     dataTemplateEngine: "liquid",
