@@ -6,17 +6,17 @@
 
 {% assign primaryCollection = collection %}
  {% capture primaryCollectionName %}
-  {% if collection.name and collection.name != "" %}
-  {{ collection.name }}
-   {% else  %}
+ {% if collection.name and collection.name != "" %}
+ {{ collection.name }}
+  {% else %}
 {{ collection.key }}
-  {% endif %}
+ {% endif %}
  {% endcapture %} 
  {% endif %} 
 {% endfor %}
 
 {% for tag in tags %}
-{% assign navPages = navPages | concat: collections[tag]  %}
+{% assign navPages = navPages | concat: collections[tag] %}
 {% endfor %}
 {% assign navPages = navPages | eleventyNavigation | uniq %}
 
@@ -26,11 +26,11 @@
     <button
       class="sticky top-0 self-end font-bold text-white opacity-60"
       _="
-          on click
-          set modal to #modal-search
-          transition #modal-search opacity to 0 over 0.1s settle then
-          modal.close()
-          ">
+       on click
+       set modal to #modal-search
+       transition #modal-search opacity to 0 over 0.1s settle then
+       modal.close()
+       ">
       {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'large' roundedBorder: false color: "#ffffff" %}
     </button>
     <div class="self-center w-full max-w-[90%] {% if resource._bookshop_name != "generic/videoEmbed" %}flex justify-center{% endif %}">
@@ -57,10 +57,10 @@
       modal.show()
       transition #modal-search opacity to 1 over 0.2s
       "
-  class="w-full pl-10 pr-4 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm transition-colors duration-200"
-  
-  >
-  Search</button>
+ class="w-full pl-10 pr-4 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm transition-colors duration-200"
+ 
+ >
+ Search</button>
 <!-- End Modal -->
       </div>
       {% if docCollections.size > 1 %}
@@ -71,20 +71,20 @@
           id="collection-button"
           class="w-full pl-5 pr-10 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm appearance-none cursor-pointer transition-colors duration-200 text-left"
           _="
-            on click
-              toggle .invisible on #collection-dropdown
-              toggle .scale-y-0 on #collection-dropdown
-              toggle .scale-y-100 on #collection-dropdown
-              toggle .transform on #dropdown-arrow
-              toggle .rotate-180 on #dropdown-arrow
-                          halt
-            end
-            on click from elsewhere
-                add .scale-y-0 to #collection-dropdown
-                add .invisible to #collection-dropdown 
-                remove .scale-y-100 from #collection-dropdown
-                remove .rotate-180 from #dropdown-arrow
-            end
+           on click
+            toggle .invisible on #collection-dropdown
+            toggle .scale-y-0 on #collection-dropdown
+            toggle .scale-y-100 on #collection-dropdown
+            toggle .transform on #dropdown-arrow
+            toggle .rotate-180 on #dropdown-arrow
+              halt
+           end
+           on click from elsewhere
+             add .scale-y-0 to #collection-dropdown
+             add .invisible to #collection-dropdown 
+             remove .scale-y-100 from #collection-dropdown
+             remove .rotate-180 from #dropdown-arrow
+           end
           "
         >
           <div class="flex items-center gap-2">
@@ -109,8 +109,8 @@
 
           {% for collection in docCollections %}
           {% if primaryCollectionTag == collection.key %}
-           {% else  %}
-             
+            {% else %}
+            
             <a href="{{ collection.path }}" class="py-2 text-sm text-gray-200 hover:bg-gray-700 hover:text-white flex items-center gap-2">
 
             <div class="opacity-60 pl-5">
@@ -135,8 +135,50 @@
   </aside>
   
   <!-- Main Content Area -->
-  <main class="flex flex-1 w-full mx-auto overflow-y-auto p-8">
-    <div class="flex flex-col w-full">
+  <main class="flex flex-col flex-1 w-full mx-auto overflow-y-auto ">
+    <!-- Mobile TOC Dropdown -->
+      <div class="xl:hidden fixed top-0 w-full mb-8">
+        <div class="relative w-full">
+          <button
+            id="mobile-toc-button"
+            class="flex items-center justify-between w-full px-4 py-3 bg-gray-800 border border-transparent rounded-md text-white font-medium focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
+            _="
+           on click
+            toggle .invisible on #mobile-toc-dropdown
+            toggle .scale-y-0 on #mobile-toc-dropdown
+            toggle .scale-y-100 on #mobile-toc-dropdown
+            toggle .transform on #toc-dropdown-arrow
+            toggle .rotate-180 on #toc-dropdown-arrow
+              halt
+           end
+           on click from elsewhere
+             add .scale-y-0 to #mobile-toc-dropdown
+             add .invisible to #mobile-toc-dropdown 
+             remove .scale-y-100 from #mobile-toc-dropdown
+             remove .rotate-180 from #toc-dropdown-arrow
+           end
+            "
+          >
+            <span class="text-sm opacity-80">On This Page</span>
+            <span id="toc-dropdown-arrow"  class="transition-transform duration-300">
+              <svg  xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </button>
+          <div
+            id="mobile-toc-dropdown"
+            aria-expanded="false"
+            class="absolute top-full left-1 mt-1 w-full bg-gray-800 border border-gray-700 rounded-md shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[80vh] overflow-y-auto z-10"
+          >
+            <div class="p-4 opacity-80 text-sm">
+              {{ content | toc }}
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <div class="p-8 mt-8 flex flex-col w-full">
       <!-- Bookshop component for page content -->
       {% bookshop_include "page" content_blocks: content_blocks %}
       {% if content and content != "" %}
