@@ -35,11 +35,21 @@
     Determine if the accordion should be open. This happens if the current page is a child of this entry.
     We check the page's parent key against the current entry's key.
   {% endcomment %}
-  {% assign isOpen = navPages.parent == entry.key or level < 1%}
+  {% assign isOpen = navPages.parent == entry.key %}
   {% assign isActive = entry.url == page.url %}
+  {% assign isToplevel = level < 1 %}
   <div class="relative">
     <div class="w-full">
       <li class="w-full">
+        {% if isToplevel %}
+        <div
+          class="flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors duration-200 font-bold opacity-80
+            {% if isActive %}bg-gray-800 font-medium{% endif %}"
+        >
+          <p>{{ entry.title }}</p>
+        </div>
+        {% else  %}
+          
         <button
           aria-expanded="{{ isOpen  }}"
           class="flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-gray-800
@@ -60,9 +70,10 @@
             </svg>
           </span>
         </button>
+        {% endif %}
       </li>
     </div>
-    <div class="lg-accordian overflow-hidden transition-all duration-300 ease-in-out {% if isOpen %}{% else %}h-0{% endif %}">
+    <div class="lg-accordian overflow-hidden transition-all duration-300 ease-in-out {% if isOpen or isToplevel %}{% else %}h-0{% endif %}">
       <ul class="pl-3 flex flex-col gap-1">
         {% for child in entry.children %}
           {% render "partials/render-sidebar.html"
