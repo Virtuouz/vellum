@@ -22,6 +22,9 @@ md.disable(["code", "blockquote"]);
 
 module.exports = async function (eleventyConfig) {
   const { InputPathToUrlTransformPlugin } = await import("@11ty/eleventy");
+  const { default: pluginMermaid } = await import ("@kevingimbel/eleventy-plugin-mermaid");
+
+    eleventyConfig.addPassthroughCopy("./src/assets/js");
 
   // Markdown
   let options = {
@@ -53,6 +56,12 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
   eleventyConfig.addPlugin(svgContents);
   eleventyConfig.addPlugin(eleventyImageTransformPlugin);
+    eleventyConfig.addPlugin(pluginMermaid, {
+    mermaid_config: {
+      startOnLoad: true,
+      'theme': 'dark'
+    }
+  });
 
   eleventyConfig.addFilter("fileSubstringFilter", fileSubstringFilter);
   eleventyConfig.addFilter("uuidFilter", uuidFilter);

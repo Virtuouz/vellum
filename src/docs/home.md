@@ -177,3 +177,11 @@ Sometimes you need to display a character that Markdown would normally format, l
 ## Conclusion
 
 This concludes the Markdown Style Guide. By using these elements, you can create rich, well-structured, and easy-to-read documentation.
+
+```mermaid
+  graph TD;
+  A[Want graphs in 11ty] -->|Search Plugin| B(Found plugin);
+  B --> C{Use plugin?};
+  C -->|Yes| D[NICE GRAPHS];
+  C -->|No| E[NO GRAPHS];
+```
