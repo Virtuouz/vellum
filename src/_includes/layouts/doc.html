@@ -21,7 +21,7 @@
 {% assign navPages = navPages | eleventyNavigation | uniq %}
 
 {% block content %}
-<dialog id="modal-search" class="fixed top-0 z-[920] h-full w-full overflow-x-scroll p-4 opacity-0 open:bg-slate-950 open:bg-opacity-60 open:backdrop-blur-lg sm:p-10">
+<dialog id="modal-search" class="fixed top-0 z-[920] h-full w-full overflow-scroll p-4 opacity-0 open:bg-slate-950 open:bg-opacity-60 open:backdrop-blur-lg sm:p-10">
   <div class="flex flex-col gap-10">
     <button
       class="sticky top-0 self-end font-bold text-white opacity-60"
@@ -129,7 +129,7 @@
     <nav>
       <ul class="flex flex-col gap-1">
         {% for entry in navPages %} {% render "partials/render-sidebar.html",
-          entry: entry, level:level, page:page, eleventyNavigation: eleventyNavigation, navPages: navPages %} {% endfor %}
+          entry: entry, level:-1, page:page, eleventyNavigation: eleventyNavigation, navPages: navPages %} {% endfor %}
       </ul>
     </nav>
   </aside>
