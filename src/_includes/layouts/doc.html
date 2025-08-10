@@ -135,9 +135,11 @@
   </aside>
   
   <!-- Main Content Area -->
-  <main class="flex flex-col flex-1 w-full mx-auto overflow-y-auto ">
+  <main class="flex flex-col flex-1  mx-auto overflow-y-auto ">
+    
+    <div class="p-8 mt-8 flex flex-col w-full">
     <!-- Mobile TOC Dropdown -->
-      <div class="xl:hidden fixed top-0 w-full mb-8">
+      <div class="xl:hidden sticky top-0 w-full mb-8">
         <div class="relative w-full">
           <button
             id="mobile-toc-button"
@@ -177,8 +179,6 @@
           </div>
         </div>
       </div>
-    
-    <div class="p-8 mt-8 flex flex-col w-full">
       <!-- Bookshop component for page content -->
       {% bookshop_include "page" content_blocks: content_blocks %}
       {% if content and content != "" %}
