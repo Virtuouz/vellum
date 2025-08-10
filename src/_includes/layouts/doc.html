@@ -41,7 +41,7 @@
 <div class=" relative flex min-h-screen text-gray-100 bg-gray-950 font-inter">
   
   <!-- Left Sidebar Navigation -->
-  <aside class="fixed invisible scale-x-0 z-20 right-0 lg:visible lg:scale-x-100 lg:sticky order-4 lg:order-1  lg:flex lg:flex-col w-72 h-screen border-r border-gray-800 p-4  top-0 bg-gray-900 overflow-y-auto">
+  <aside id="navigation-bar" class="transition-all duration-300 origin-right fixed invisible scale-x-0 z-20 right-0 lg:visible lg:scale-x-100 lg:sticky order-4 lg:order-1  lg:flex lg:flex-col w-72 h-screen border-r border-gray-800 p-4  top-0 bg-gray-900 overflow-y-auto">
     <!-- Search and Collection Selection Section -->
     <div class="flex flex-col gap-2 pb-4 mb-4 border-b border-gray-800">
       <div class="relative">
@@ -147,7 +147,22 @@
             >
             {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "magnifying-glass" iconType: "solid" iconSize: 'xsmall' roundedBorder: false color: "#ffffff" %}
           </button>
-          <button>
+          <button
+            
+            _="
+            on click
+              toggle .invisible on #navigation-bar
+              toggle .scale-x-0 on #navigation-bar
+              toggle .scale-x-100 on #navigation-bar
+              halt
+            end
+            on click from elsewhere
+              add .scale-x-0 to #navigation-bar
+              add .invisible to #navigation-bar
+              remove .scale-x-100 from #navigation-bar
+            end
+            "
+          >
             {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "bars-3-bottom-right" iconType: "solid" iconSize: 'xsmall' roundedBorder: false color: "#ffffff" %}
           </button>
  </div> 
