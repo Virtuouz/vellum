@@ -1,13 +1,13 @@
 ---
 _schema: default
 draft: false
-title: Other
+title: Styling
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  key: other
-  order: 1
+  key: Styling 
+  order: 
   title:
-  parent: Home
+  parent: 
   url:
 pageLink: 
 permalink: >-
@@ -108,16 +108,23 @@ Tables are useful for presenting data in a structured format.
 |Row 2, Col 1|Row 2, Col 2|Row 2, Col 3|
 |Row 3, Col 1|Row 3, Col 2|Row 3, Col 3|
 
-Export to Sheets
 
 You can align columns by using colons (`:`) in the separator line.
 
 |Left-Aligned|Center-Aligned|Right-Aligned|
-|---|---|---|
+|:---|:---:|---:|
 |Left|Center|Right|
 |Aligned|Aligned|Aligned|
 
-Export to Sheets
+mardown of the table above 
+
+```md
+|Left-Aligned|Center-Aligned|Right-Aligned|
+|:---|:---:|---:|
+|Left|Center|Right|
+|Aligned|Aligned|Aligned|
+```
+
 
 ## Links and Images
 

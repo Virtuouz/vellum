@@ -5,7 +5,7 @@ title: Home
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   key: Home
-  order: 1
+  order: 
   title:
   parent:
   url:
@@ -109,16 +109,23 @@ Tables are useful for presenting data in a structured format.
 |Row 2, Col 1|Row 2, Col 2|Row 2, Col 3|
 |Row 3, Col 1|Row 3, Col 2|Row 3, Col 3|
 
-Export to Sheets
 
 You can align columns by using colons (`:`) in the separator line.
 
 |Left-Aligned|Center-Aligned|Right-Aligned|
-|---|---|---|
+|:---|:---:|---:|
 |Left|Center|Right|
 |Aligned|Aligned|Aligned|
 
-Export to Sheets
+mardown of the table above 
+
+```md
+|Left-Aligned|Center-Aligned|Right-Aligned|
+|:---|:---:|---:|
+|Left|Center|Right|
+|Aligned|Aligned|Aligned|
+```
+
 
 ## Links and Images
 

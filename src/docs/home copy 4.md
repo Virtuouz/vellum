@@ -5,7 +5,7 @@ title: No Group
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   key: no group
-  order: 1
+  order: 
   title:
   parent: 
   url:

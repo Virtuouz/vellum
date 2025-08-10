@@ -5,7 +5,7 @@ title: Items
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   key: Items
-  order: 1
+  order: 
   title:
   parent: else stuff
   url:
@@ -17,7 +17,7 @@ permalink: >-
   %}/{% assign title = title | slugify %}{{ page.filePathStem | fileSubstringFilter | append: title | downcase }}/index.html{%endif %}
 metaDesc: 
 layout: layouts/doc.html
-tags: other
+tags: else
 hero:
 content_blocks: []
 ---
