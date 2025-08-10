@@ -47,8 +47,8 @@
             on click
             set content to the next <div/>
             set @aria-expanded to ( @aria-expanded == 'false' )
-            set *height of content to (content's scrollHeight * ( @aria-expanded == 'true' )) + 'px'
             toggle .rotate-90 on <span/> in me
+            toggle .h-0 on the next <div/>
           end
           "
         >
