@@ -38,18 +38,3 @@ Vellum solves this by prioritizing both **ease of use** and **scalability**. The
 
 Furthermore, many popular documentation frameworks rely on complex technologies like React, which can be an unnecessary overhead for building static, text-heavy sites. Vellum is built with **Eleventy (11ty)**, a simple yet incredibly fast static site generator. This choice of technology ensures that Vellum is lightweight, produces highly performant pages, and remains accessible to a wide variety of users.
 
-
-::: info
-**Information**
-This is a standard informational message. It uses the primary accent color.
-:::
-
-::: warning
-**Warning**
-You should pay attention to this. It's not critical, but it's important.
-:::
-
-::: error
-**Error!**
-Something went wrong. This requires immediate attention.
-:::
