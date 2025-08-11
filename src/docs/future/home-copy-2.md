@@ -21,6 +21,8 @@ tags: future
 hero:
 content_blocks: []
 ---
+These are all things taht need to be done before the template is ready to share with the world.
+
 ## 11tydata.js file
 I still need to create a 11tydata.js for computed data. This would support the draft flag and to give eleventyNavigation.key a default value equal to the page title if no key value was provided. This default value is to reduce friction when using the template as remebering to set that key value can be tedious if there are many pages.
 
@@ -45,5 +47,6 @@ I reused code from previous projects in some areas to save time. For the most pa
 	* Warning
 	* Error
 * Tabbed content 
-	* I am considering creating a developer focused version of this could be written with just markdown
+	* ~~I am considering creating a developer focused version of this could be written with just markdown~~
+    * I did create this. 
 * Accordion

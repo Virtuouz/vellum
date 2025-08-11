@@ -139,6 +139,10 @@ Here's an example: [Google Home Page](https://www.google.com).
 
 You can embed images in your documentation. They use similar syntax to links but with an exclamation mark at the beginning.
 
+These images are automatically optimized by using 11ty img plugin
+
+![Example Image](/assets/images/uploads/aliensunrise_1.jpg)
+
 ---
 
 ## Horizontal Rules
@@ -184,6 +188,12 @@ Sometimes you need to display a character that Markdown would normally format, l
 ---
 
 ## Out of the box markdown containers
+
+Markdown-it container plugin is installed. 
+
+https://www.npmjs.com/package/markdown-it-container
+
+The following containers come defined and styled out of the box
 
 ::: info
 **Information**
@@ -248,8 +258,20 @@ This is a tab about **oranges**
 :::
 ```
 
+This is possible through markdown it tab plugin. Out of the box only a `tabs` container is configured, styled, and has the js to make it work.
+
+https://www.npmjs.com/package/@mdit/plugin-tab
+
 ---
 ## Bracketed spans
+
+This template comes with the following markdown-it plugins installed
+* https://www.npmjs.com/package/markdown-it-bracketed-spans
+* https://www.npmjs.com/package/markdown-it-attrs
+
+The styles below come out of the box.
+
+---
 
 To save the file, press [Ctrl]{.kbd} + [S]{.kbd}.
 
