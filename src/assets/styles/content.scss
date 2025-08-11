@@ -173,6 +173,69 @@
   background-color: #241312;
 }
 
+.tabs-tabs-wrapper {
+  margin: 24px 0; /* Consistent vertical spacing */
+}
+
+.tabs-tabs-header {
+  display: flex;
+  border-bottom: 1px solid #333; /* Separator line for the tabs */
+}
+
+.tabs-tab-button {
+  /* Reset default button styles */
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid transparent; /* Placeholder for active state */
+  
+  /* Spacing & Typography */
+  padding: 12px 16px;
+  cursor: pointer;
+  color: #a0a0a0; /* A neutral, non-active color */
+  font-size: 0.95rem;
+  font-weight: 500;
+  
+  /* Positioning & Transitions */
+  margin-bottom: -1px; /* Aligns the bottom border with the header's border */
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
+  /* Hover State */
+  &:hover {
+    color: #f7f7f7; /* Brighter text on hover */
+  }
+
+  /* Active State */
+  &.active {
+    color: #5fb6e0; /* Your primary accent color */
+    border-bottom-color: #5fb6e0; /* Highlights the active tab */
+  }
+}
+
+.tabs-tabs-container {
+  /* Styling for the content area, matches your <pre> blocks */
+  background-color: #1a1e22;
+  border: 1px solid #333;
+  border-top: none; /* Avoids double border with the header */
+  border-radius: 0 0 8px 8px; /* Rounded corners only on the bottom */
+  padding: 1.25rem;
+}
+
+.tabs-tab-content {
+  display: none; /* Hide all tab content by default */
+
+  &.active {
+    display: block; /* Show only the active tab's content */
+  }
+
+  /* Reset spacing for elements inside the tab for a cleaner look */
+  > :first-child {
+    margin-top: 0;
+  }
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
   /*
     Callout components (for future Bookshop components)
     Define these classes to be used by your Bookshop components.

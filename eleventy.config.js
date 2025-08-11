@@ -28,6 +28,7 @@ module.exports = async function (eleventyConfig) {
   const { default: pluginMermaid } = await import(
     "@kevingimbel/eleventy-plugin-mermaid"
   );
+  const { tab } = await import("@mdit/plugin-tab");
 
   eleventyConfig.addPassthroughCopy("./src/assets/js");
   eleventyConfig.addPassthroughCopy("./src/assets/uploads/**");
@@ -47,6 +48,7 @@ module.exports = async function (eleventyConfig) {
       .use(markdownItContainer, "info")
       .use(markdownItContainer, "warning")
       .use(markdownItContainer, "error")
+      .use(tab, { name: "tabs" })
       .use(markdownItAttrs)
   );
 

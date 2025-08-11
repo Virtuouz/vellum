@@ -219,6 +219,39 @@ Something went wrong. This requires immediate attention.
 
 ---
 
+## Mardown Tabs
+
+::: tabs#fruit
+
+@tab:active Apple#apple
+This is a tab about **apples**
+
+@tab Banana#banana
+This is a tab about **bananas**
+
+@tab Oranges#orange
+This is a tab about **oranges**
+:::
+
+
+```md
+::: tabs#fruit
+
+@tab:active Apple#apple
+This is a tab about **apples**
+
+@tab Banana#banana
+This is a tab about **bananas**
+
+@tab Oranges#orange
+This is a tab about **oranges**
+:::
+```
+
+---
+
+---
+
 ## Conclusion
 
 This concludes the Markdown Style Guide. By using these elements, you can create rich, well-structured, and easy-to-read documentation.
