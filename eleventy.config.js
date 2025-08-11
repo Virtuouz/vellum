@@ -12,6 +12,7 @@ const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 
 const markdownItAttrs = require("markdown-it-attrs");
 const markdownItContainer = require("markdown-it-container");
+const markdownItBracketedSpans = require("markdown-it-bracketed-spans");
 
 const markdownItAnchor = require("markdown-it-anchor");
 const pluginTOC = require("eleventy-plugin-nesting-toc");
@@ -49,6 +50,7 @@ module.exports = async function (eleventyConfig) {
       .use(markdownItContainer, "warning")
       .use(markdownItContainer, "error")
       .use(tab, { name: "tabs" })
+      .use(markdownItBracketedSpans)
       .use(markdownItAttrs)
   );
 

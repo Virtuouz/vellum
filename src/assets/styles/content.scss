@@ -236,6 +236,64 @@
   }
 }
 
+.kbd {
+  /* Box & Border */
+  background-color: #2d3339;
+  border: 1px solid #4a5056;
+  border-bottom-width: 2px; /* 3D effect */
+  border-radius: 5px;
+  box-shadow: inset 0 -1px 0 #4a5056; /* Subtle inner shadow */
+
+  /* Typography */
+  color: #e0e0e0;
+  font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', monospace; /* Match your code font */
+  font-size: 0.9em;
+  font-weight: 600;
+
+  /* Spacing */
+  padding: 0.2em 0.5em;
+  white-space: nowrap; /* Prevents keys like 'Shift' from line-breaking */
+}
+
+/*
+  Status Label Styling (.label)
+  For categories, statuses, and tags in business documentation.
+*/
+.label {
+  /* Shape & Alignment */
+  display: inline-block;
+  padding: 0.2em 0.65em;
+  border-radius: 9999px; /* Pill shape */
+  vertical-align: middle;
+
+  /* Typography */
+  font-size: 0.85em;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* --- Color Modifiers --- */
+
+.label.green {
+  color: #66bb6a; /* Bright green text */
+  background-color: rgba(76, 175, 80, 0.15); /* Soft green background */
+}
+
+.label.blue {
+  color: #5fb6e0; /* Your existing accent blue */
+  background-color: rgba(33, 150, 243, 0.15); /* Soft blue background */
+}
+
+.label.orange {
+  color: #ffa726; /* Bright orange text */
+  background-color: rgba(255, 152, 0, 0.15); /* Soft orange background */
+}
+
+.label.red {
+  color: #ef5350; /* Bright red text */
+  background-color: rgba(244, 67, 54, 0.15); /* Soft red background */
+}
   /*
     Callout components (for future Bookshop components)
     Define these classes to be used by your Bookshop components.

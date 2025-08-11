@@ -249,6 +249,35 @@ This is a tab about **oranges**
 ```
 
 ---
+## Bracketed spans
+
+To save the file, press [Ctrl]{.kbd} + [S]{.kbd}.
+
+To open the command palette, use [Ctrl]{.kbd} + [Shift]{.kbd} + [P]{.kbd}.
+
+Project status: [Completed]{.label .green}
+
+Document version: [v2.1 (In Review)]{.label .orange}
+
+Action required: [Approval Needed]{.label .red}
+
+Category: [Marketing Collateral]{.label .blue}
+
+```md
+To save the file, press [Ctrl]{.kbd} + [S]{.kbd}.
+
+To open the command palette, use [Ctrl]{.kbd} + [Shift]{.kbd} + [P]{.kbd}.
+
+Project status: [Completed]{.label .green}
+
+Document version: [v2.1 (In Review)]{.label .orange}
+
+Action required: [Approval Needed]{.label .red}
+
+Category: [Marketing Collateral]{.label .blue}
+```
+
+---
 
 ---
 
