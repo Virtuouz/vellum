@@ -127,6 +127,52 @@
     font-style: italic;
   }
 
+  /* --- Add This Code To Your SCSS File --- */
+
+/*
+  Custom Containers (info, warning, error)
+  Styled to match your existing dark theme and callout components.
+*/
+.info,
+.warning,
+.error {
+  padding: 1rem 1.5rem;
+  margin: 24px 0;
+  border-radius: 8px;
+  border-left: 4px solid;
+
+  /* Resets spacing for paragraphs inside the container for a cleaner look */
+  > :first-child {
+    margin-top: 0;
+  }
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  /* Makes bold text stand out as a title */
+  strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+}
+
+/* 🎨 Color Variants */
+.info {
+  border-color: #2196f3; /* Blue */
+  background-color: #111a24;
+}
+
+.warning {
+  border-color: #ff9800; /* Orange */
+  background-color: #221b0b;
+}
+
+.error {
+  border-color: #f44336; /* Red */
+  background-color: #241312;
+}
+
   /*
     Callout components (for future Bookshop components)
     Define these classes to be used by your Bookshop components.

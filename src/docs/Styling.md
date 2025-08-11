@@ -183,6 +183,42 @@ Sometimes you need to display a character that Markdown would normally format, l
 
 ---
 
+## Out of the box markdown containers
+
+::: info
+**Information**
+This is a standard informational message. It uses the primary accent color.
+:::
+
+::: warning
+**Warning**
+You should pay attention to this. It's not critical, but it's important.
+:::
+
+::: error
+**Error!**
+Something went wrong. This requires immediate attention.
+:::
+
+```md
+::: info
+**Information**
+This is a standard informational message. It uses the primary accent color.
+:::
+
+::: warning
+**Warning**
+You should pay attention to this. It's not critical, but it's important.
+:::
+
+::: error
+**Error!**
+Something went wrong. This requires immediate attention.
+:::
+```
+
+---
+
 ## Conclusion
 
 This concludes the Markdown Style Guide. By using these elements, you can create rich, well-structured, and easy-to-read documentation.
