@@ -6,7 +6,7 @@ eleventyExcludeFromCollections: false
 eleventyNavigation:
   key: nested top
   order: 9
-  title:
+  title: Nested Pages
   parent:
   url:
 pageLink: /
