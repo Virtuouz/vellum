@@ -5,7 +5,7 @@ title: Getting Started
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   key: Getting Started 
-  order: 990
+  order: 3
   title:
   parent:
   url:

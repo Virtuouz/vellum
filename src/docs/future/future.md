@@ -60,3 +60,6 @@ I still need to create schema file for for doc pages. Part of this would be to g
 I still need to write some documentation for the template. Naturally the documentation would be written using this template. There would likely be collection for "Developers" and "Visual Editors". Visual editing would be about getting it set up in cloudcannon and writing content. The developer documentation would be about how to extend the functionality of the template and what plugins are available to do so.
 
 A guide will be needed on a suggested way to organize pages through folders as 11ty navigation becomes hard to keep track of the more pages there are and if everything is in one gigantic folder. Perhaps innclude a simple "order" guide / system that uses 4 digit system for order pages as a sub organization technique. This would exist to reduce how much manual reordering needs to be redone if a page is added that would needs to go between two existing ordered pages. More thought is needed here.
+
+## Page duplicates
+I am considering adding a preprocessing step that will check and prevent duplicate permalinked pages for the visual editors. Duplicate permalinks will cause 11ty build to which can be overwhelming for a non technical user.

@@ -5,7 +5,7 @@ title: Documentation Style Guide
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   key: Styling 
-  order: 999
+  order: 5
   title:
   parent: 
   url:
