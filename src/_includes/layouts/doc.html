@@ -125,7 +125,7 @@
 
         <div
           id="collection-dropdown"
-          class="absolute top-full left-1 mt-1 w-full bg-slate-950 border border-gray-700 rounded-md shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[80vh] overflow-y-auto z-10"
+          class="absolute top-full left-1 mt-1 w-full bg-slate-950 border border-gray-700 rounded-md shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[60vh] overflow-y-auto z-10"
           _="
           "
         >
@@ -159,7 +159,7 @@
   </aside>
   <div class="overflow-hidden order-2 flex flex-col flex-1">
     <!-- Mobile TOC Dropdown -->
-    <div class="xl:hidden sticky top-0 z-10 w-full bg-gray-950 p-4">
+    <div class="xl:hidden fixed top-0 z-10 w-full bg-gray-950 p-4">
        <div class="lg:hidden flex gap-4 justify-end opacity-75 w-full bg-gray-950 ">
           <button
             _="
@@ -216,7 +216,7 @@
         <div
           id="mobile-toc-dropdown"
           aria-expanded="false"
-          class="absolute top-full left-1 mt-1 w-[calc(100%-8px)] bg-gray-800 border border-gray-700 rounded-md shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[80vh] overflow-y-auto z-10"
+          class="absolute top-full left-1 mt-1 w-[calc(100%-8px)] bg-gray-800 border border-gray-700 rounded-md shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[60vh] overflow-y-auto z-10"
         >
           <div class="p-4 opacity-80 text-sm">
             {{ content | toc }}
@@ -227,7 +227,7 @@
     
     <!-- Main Content Area -->
     <main class=" flex w-full mx-auto p-8">
-      <div class="cs-mainContent flex flex-col w-full cs-mainContent max-w-4xl mx-auto flex-1">
+      <div class="cs-mainContent mt-32 lg:mt-0 flex flex-col w-full cs-mainContent max-w-4xl mx-auto flex-1">
         <h1>{{ title }}</h1>
         <!-- Bookshop component for page content -->
         {% bookshop_include "page" content_blocks: content_blocks %}
