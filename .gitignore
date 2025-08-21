@@ -18,4 +18,5 @@ src/images/favicon
 # Node modules and output
 **/node_modules/**
 dist
+_site
 .unlighthouse
