@@ -9,8 +9,8 @@ const fs = require('fs');
 const path = require('path');
 
 // Define the input and output file paths.
-const themeJsonPath = path.join(__dirname, 'src', '_data', 'theme.json');
-const outputScssPath = path.join(__dirname, 'src', 'assets', 'styles', 'variables.scss');
+const themeJsonPath = path.join(process.cwd(), 'src', '_data', 'theme.json');
+const outputScssPath = path.join(process.cwd(), 'src', 'assets', 'styles', 'variables.scss');
 
 /**
  * Converts a JSON object of theme colors into a string of CSS custom properties.
