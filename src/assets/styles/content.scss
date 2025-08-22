@@ -75,12 +75,16 @@
     Code Blocks & Inline Code
   */
   :not(pre) > code {
+    background-color: var(--code-inline-background);
+    color: var(--code-inline-text);
     padding: 0.2em 0.4em;
     border-radius: 6px;
     font-size: 0.875em;
   }
 
   pre {
+    background-color: var(--code-block-background);
+    border: 1px solid var(--border-primary);
     border-radius: 8px;
     padding: 1.25rem;
     margin: 24px 0;
