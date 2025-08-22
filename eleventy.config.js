@@ -116,6 +116,12 @@ module.exports = async function (eleventyConfig) {
     }
   );
 
+  eleventyConfig.on("eleventy.before", () => {
+    execSync(
+      "node ./utils/build-theme.js"
+    );
+  });
+
   eleventyConfig.on("eleventy.after", () => {
     execSync(
       "npx tailwindcss -i ./src/css/main.css -o ./dist/css/styles.css --minify"
