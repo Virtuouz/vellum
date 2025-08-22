@@ -24,24 +24,24 @@
 <dialog id="modal-search" class="fixed top-0 z-[920] h-full w-full overflow-scroll p-4 opacity-0 open:bg-surface open:bg-opacity-80 open:backdrop-blur-lg sm:p-10">
   <div class="flex flex-col gap-10">
     <button
-      class="sticky top-0 self-end font-bold text-primary opacity-60"
+      class="sticky top-0 self-end font-bold text-textColor-primary opacity-60"
       _="
         on click
         set modal to #modal-search
         transition #modal-search opacity to 0 over 0.1s settle then
         modal.close()
         ">
-      {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'large' roundedBorder: false %}
+      {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'large' roundedBorder: false themeColor: true %}
     </button>
     <div class="self-center w-full max-w-[90%] {% if resource._bookshop_name != "generic/videoEmbed" %}flex justify-center{% endif %}">
 <div id="search" class="w-full md:max-w-[80%]"></div>
     </div>
   </div>
 </dialog>
-<div class="relative flex min-h-screen text-primary bg-body font-inter">
+<div class=" relative flex min-h-screen text-textColor-primary bg-body font-inter ">
  
   <!-- Left Sidebar Navigation -->
-  <aside id="navigation-bar" class="transition-all duration-300 origin-right fixed invisible scale-x-0 z-20 right-0 lg:visible lg:scale-x-100 lg:sticky order-4 lg:order-1  lg:flex lg:flex-col w-72 h-screen border-r border-primary p-4  top-0 bg-surface overflow-y-auto"
+  <aside id="navigation-bar" class="transition-all duration-300 origin-right fixed invisible scale-x-0 z-20 right-0 lg:visible lg:scale-x-100 lg:sticky order-4 lg:order-1  lg:flex lg:flex-col w-72 h-screen border-r border-borderColor-primary p-4  top-0 bg-surface overflow-y-auto"
   _="
           on click from elsewhere
           add .scale-x-0 to #navigation-bar
@@ -51,7 +51,7 @@
   "
   >
     <!-- Search and Collection Selection Section -->
-    <div class="flex flex-col gap-2 pb-4 mb-4 border-b border-primary">
+    <div class="flex flex-col gap-2 pb-4 mb-4 border-b border-borderColor-primary">
       <!-- Search Bar -->
       <button class="hidden lg:block relative bg-interactive-hover rounded-md"
         _="
@@ -125,7 +125,7 @@
 
         <div
           id="collection-dropdown"
-          class="absolute top-full left-1 mt-1 w-full bg-surface border border-primary rounded-md shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[60vh] overflow-y-auto z-10"
+          class="absolute top-full left-1 mt-1 w-full bg-surface border border-borderColor-primary rounded-md shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[60vh] overflow-y-auto z-10"
           _="
           "
         >
@@ -134,7 +134,7 @@
           {% if primaryCollectionTag == collection.key %}
             {% else %}
             
-            <a href="{{ collection.path }}" class="py-2 text-sm text-primary hover:bg-interactive-hover flex items-center gap-2">
+            <a href="{{ collection.path }}" class="py-2 text-sm text-textColor-primary hover:bg-interactive-hover flex items-center gap-2">
 
             <div class="opacity-60 pl-5">
               {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: collection.icon iconType: "solid" iconSize: 'micro' roundedBorder: false %}
@@ -188,7 +188,7 @@
       <div class="mt-2 relative w-full">
         <button
           id="mobile-toc-button"
-          class="flex items-center opacity-50 justify-between w-full px-4 py-3 bg-interactive-hover border border-transparent rounded-md text-primary font-medium focus:outline-none focus:ring-1 focus:ring-accent transition-colors duration-200"
+          class="flex items-center opacity-50 justify-between w-full px-4 py-3 bg-interactive-hover border border-transparent rounded-md text-textColor-primary font-medium focus:outline-none focus:ring-1 focus:ring-accent transition-colors duration-200"
           _="
             on click
             toggle .invisible on #mobile-toc-dropdown
@@ -216,7 +216,7 @@
         <div
           id="mobile-toc-dropdown"
           aria-expanded="false"
-          class="absolute top-full left-1 mt-1 w-[calc(100%-8px)] bg-interactive-hover border border-primary rounded-md shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[60vh] overflow-y-auto z-10"
+          class="absolute top-full left-1 mt-1 w-[calc(100%-8px)] bg-interactive-hover border border-borderColor-primary rounded-md shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[60vh] overflow-y-auto z-10"
         >
           <div class="p-4 opacity-80 text-sm">
             {{ content | toc }}

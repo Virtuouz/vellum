@@ -13,7 +13,7 @@
 {% endcapture %}
 {% capture iconStrokeColor %}
     {% if themeColor %}
-        stroke-{{color_group}}-textcolor
+        stroke-textColor-primary 
         {% elsif classOverride and classOverride != "" %}
             {{classOverride}}
         {% else %}
@@ -22,7 +22,7 @@
 {% endcapture %}
 {% capture iconFillColor %}
     {% if themeColor %}
-        fill-{{color_group}}-textcolor
+        fill-textColor-primary
         {% elsif classOverride and classOverride != "" %}
             {{classOverride}}
         {% else %}
