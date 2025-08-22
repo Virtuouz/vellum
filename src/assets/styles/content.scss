@@ -31,7 +31,7 @@
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
-  
+ 
   /* Paragraphs */
   p {
     margin-top: 12px;
@@ -53,7 +53,7 @@
 
   /* Links */
   a {
-    color: #5fb6e0;
+    color: var(--accent-primary);
     text-decoration: underline;
     transition: color 0.2s ease-in-out;
     word-break: break-word;
@@ -61,31 +61,26 @@
     overflow-wrap: break-word
   }
   a:hover {
-    color: #7cc9f0;
+    color: var(--accent-hover);
   }
-  
+ 
   /* Horizontal Rule */
   hr {
     margin: 48px 0;
     border: 0;
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--border-primary);
   }
 
   /*
     Code Blocks & Inline Code
-    This section is crucial for replicating the Fumadocs look.
   */
   :not(pre) > code {
-    background-color: #212529; /* Darker background for inline code */
-    color: #e0b467; /* A contrasting color for inline text */
     padding: 0.2em 0.4em;
     border-radius: 6px;
     font-size: 0.875em;
   }
 
   pre {
-    background-color: #1a1e22;
-    border: 1px solid #333;
     border-radius: 8px;
     padding: 1.25rem;
     margin: 24px 0;
@@ -97,7 +92,6 @@
 
   /*
     Tables
-    A clean, minimalist style that matches the dark theme.
   */
   table {
     width: 100%;
@@ -106,45 +100,43 @@
     font-size: 0.95rem;
   }
   thead {
-    border-bottom: 2px solid #5fb6e0;
-    color: #f7f7f7;
+    border-bottom: 2px solid var(--accent-primary);
+    color: var(--text-primary);
   }
   th, td {
     padding: 12px 16px;
     text-align: left;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--border-primary);
   }
   tr:last-child td {
     border-bottom: none;
   }
   tr:nth-child(even) {
-    background-color: #1a1e22; /* Subtle stripe for readability */
+    background-color: var(--code-block-background); /* Using code-block for consistency */
   }
-  
+ 
   /* Blockquotes */
   blockquote {
     margin: 24px 0;
     padding-left: 1.5rem;
-    border-left: 4px solid #5fb6e0;
+    border-left: 4px solid var(--accent-primary);
     opacity: 0.85;
     font-style: italic;
   }
 
-  /* --- Add This Code To Your SCSS File --- */
-
 /*
   Custom Containers (info, warning, error)
-  Styled to match your existing dark theme and callout components.
+  These colors are intentionally hardcoded to maintain their semantic meaning.
 */
 .info,
 .warning,
 .error {
+  color: #fff;
   padding: 1rem 1.5rem;
   margin: 24px 0;
   border-radius: 8px;
   border-left: 4px solid;
 
-  /* Resets spacing for paragraphs inside the container for a cleaner look */
   > :first-child {
     margin-top: 0;
   }
@@ -152,7 +144,6 @@
     margin-bottom: 0;
   }
 
-  /* Makes bold text stand out as a title */
   strong {
     display: block;
     margin-bottom: 0.5rem;
@@ -176,61 +167,55 @@
   background-color: #241312;
 }
 
+/*
+  Tabs Component
+*/
 .tabs-tabs-wrapper {
-  margin: 24px 0; /* Consistent vertical spacing */
+  margin: 24px 0;
 }
 
 .tabs-tabs-header {
   display: flex;
-  border-bottom: 1px solid #333; /* Separator line for the tabs */
+  border-bottom: 1px solid var(--border-primary);
 }
 
 .tabs-tab-button {
-  /* Reset default button styles */
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid transparent; /* Placeholder for active state */
-  
-  /* Spacing & Typography */
+  border-bottom: 2px solid transparent;
   padding: 12px 16px;
   cursor: pointer;
-  color: #a0a0a0; /* A neutral, non-active color */
+  color: var(--text-muted);
   font-size: 0.95rem;
   font-weight: 500;
-  
-  /* Positioning & Transitions */
-  margin-bottom: -1px; /* Aligns the bottom border with the header's border */
+  margin-bottom: -1px;
   transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 
-  /* Hover State */
   &:hover {
-    color: #f7f7f7; /* Brighter text on hover */
+    color: var(--text-primary);
   }
 
-  /* Active State */
   &.active {
-    color: #5fb6e0; /* Your primary accent color */
-    border-bottom-color: #5fb6e0; /* Highlights the active tab */
+    color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
   }
 }
 
 .tabs-tabs-container {
-  /* Styling for the content area, matches your <pre> blocks */
-  background-color: #1a1e22;
-  border: 1px solid #333;
-  border-top: none; /* Avoids double border with the header */
-  border-radius: 0 0 8px 8px; /* Rounded corners only on the bottom */
+  background-color: var(--code-block-background);
+  border: 1px solid var(--border-primary);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
   padding: 1.25rem;
 }
 
 .tabs-tab-content {
-  display: none; /* Hide all tab content by default */
+  display: none;
 
   &.active {
-    display: block; /* Show only the active tab's content */
+    display: block;
   }
 
-  /* Reset spacing for elements inside the tab for a cleaner look */
   > :first-child {
     margin-top: 0;
   }
@@ -239,69 +224,63 @@
   }
 }
 
+/*
+  Keyboard Key Component (.kbd)
+  These colors are static and not part of the main theme.
+*/
 .kbd {
-  /* Box & Border */
   background-color: #2d3339;
   border: 1px solid #4a5056;
-  border-bottom-width: 2px; /* 3D effect */
+  border-bottom-width: 2px;
   border-radius: 5px;
-  box-shadow: inset 0 -1px 0 #4a5056; /* Subtle inner shadow */
-
-  /* Typography */
+  box-shadow: inset 0 -1px 0 #4a5056;
   color: #e0e0e0;
-  font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', monospace; /* Match your code font */
+  font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
   font-size: 0.9em;
   font-weight: 600;
-
-  /* Spacing */
   padding: 0.2em 0.5em;
-  white-space: nowrap; /* Prevents keys like 'Shift' from line-breaking */
+  white-space: nowrap;
 }
 
 /*
   Status Label Styling (.label)
-  For categories, statuses, and tags in business documentation.
+  These colors are intentionally hardcoded.
 */
 .label {
-  /* Shape & Alignment */
   display: inline-block;
   padding: 0.2em 0.65em;
-  border-radius: 9999px; /* Pill shape */
+  border-radius: 9999px;
   vertical-align: middle;
-
-  /* Typography */
   font-size: 0.85em;
   font-weight: 600;
   line-height: 1.4;
   white-space: nowrap;
 }
 
-/* --- Color Modifiers --- */
-
 .label.green {
-  color: #66bb6a; /* Bright green text */
-  background-color: rgba(76, 175, 80, 0.15); /* Soft green background */
+  color: #66bb6a;
+  background-color: rgba(76, 175, 80, 0.15);
 }
 
 .label.blue {
-  color: #5fb6e0; /* Your existing accent blue */
-  background-color: rgba(33, 150, 243, 0.15); /* Soft blue background */
+  color: #5fb6e0;
+  background-color: rgba(33, 150, 243, 0.15);
 }
 
 .label.orange {
-  color: #ffa726; /* Bright orange text */
-  background-color: rgba(255, 152, 0, 0.15); /* Soft orange background */
+  color: #ffa726;
+  background-color: rgba(255, 152, 0, 0.15);
 }
 
 .label.red {
-  color: #ef5350; /* Bright red text */
-  background-color: rgba(244, 67, 54, 0.15); /* Soft red background */
+  color: #ef5350;
+  background-color: rgba(244, 67, 54, 0.15);
 }
-  /*
-    Callout components (for future Bookshop components)
-    Define these classes to be used by your Bookshop components.
-    They match the visual style of Fumadocs' callouts with icons and borders.
-  */
+
+/*
+  Callout Components
+  These are also static.
+*/
   .callout {
     display: flex;
     align-items: flex-start;
