@@ -21,39 +21,39 @@
 {% assign navPages = navPages | eleventyNavigation | uniq %}
 
 {% block content %}
-<dialog id="modal-search" class="fixed top-0 z-[920] h-full w-full overflow-scroll p-4 opacity-0 open:bg-slate-950 open:bg-opacity-60 open:backdrop-blur-lg sm:p-10">
+<dialog id="modal-search" class="fixed top-0 z-[920] h-full w-full overflow-scroll p-4 opacity-0 open:bg-surface open:bg-opacity-80 open:backdrop-blur-lg sm:p-10">
   <div class="flex flex-col gap-10">
     <button
-      class="sticky top-0 self-end font-bold text-white opacity-60"
+      class="sticky top-0 self-end font-bold text-primary opacity-60"
       _="
-       on click
-       set modal to #modal-search
-       transition #modal-search opacity to 0 over 0.1s settle then
-       modal.close()
-       ">
-      {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'large' roundedBorder: false color: "#ffffff" %}
+        on click
+        set modal to #modal-search
+        transition #modal-search opacity to 0 over 0.1s settle then
+        modal.close()
+        ">
+      {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'large' roundedBorder: false %}
     </button>
     <div class="self-center w-full max-w-[90%] {% if resource._bookshop_name != "generic/videoEmbed" %}flex justify-center{% endif %}">
 <div id="search" class="w-full md:max-w-[80%]"></div>
     </div>
   </div>
 </dialog>
-<div class=" relative flex min-h-screen text-gray-100 bg-gray-950 font-inter">
-  
+<div class="relative flex min-h-screen text-primary bg-body font-inter">
+ 
   <!-- Left Sidebar Navigation -->
-  <aside id="navigation-bar" class="transition-all duration-300 origin-right fixed invisible scale-x-0 z-20 right-0 lg:visible lg:scale-x-100 lg:sticky order-4 lg:order-1  lg:flex lg:flex-col w-72 h-screen border-r border-gray-800 p-4  top-0 bg-gray-900 overflow-y-auto"
+  <aside id="navigation-bar" class="transition-all duration-300 origin-right fixed invisible scale-x-0 z-20 right-0 lg:visible lg:scale-x-100 lg:sticky order-4 lg:order-1  lg:flex lg:flex-col w-72 h-screen border-r border-primary p-4  top-0 bg-surface overflow-y-auto"
   _="
-              on click from elsewhere
-              add .scale-x-0 to #navigation-bar
-              add .invisible to #navigation-bar
-              remove .scale-x-100 from #navigation-bar
-            end
+          on click from elsewhere
+          add .scale-x-0 to #navigation-bar
+          add .invisible to #navigation-bar
+          remove .scale-x-100 from #navigation-bar
+        end
   "
   >
     <!-- Search and Collection Selection Section -->
-    <div class="flex flex-col gap-2 pb-4 mb-4 border-b border-gray-800">
+    <div class="flex flex-col gap-2 pb-4 mb-4 border-b border-primary">
       <!-- Search Bar -->
-      <button class="hidden lg:block relative bg-gray-800 rounded-md"
+      <button class="hidden lg:block relative bg-interactive-hover rounded-md"
         _="
       on click
       set modal to #modal-search
@@ -62,62 +62,62 @@
       "
       >
         <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </span>
         <div
-        class=" opacity-40 text-left w-full pl-10 pr-4 py-2 bg-gray-800 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm transition-colors duration-200"
- 
+        class="opacity-40 text-left w-full pl-10 pr-4 py-2 bg-transparent border border-transparent focus:border-accent rounded-md focus:outline-none focus:ring-1 focus:ring-accent text-sm transition-colors duration-200"
+
       >
     Search</div>
       </button>
 
-          <button class="lg:hidden inline self-end opacity-75"
-            
-            _="
-            on click
-              toggle .invisible on #navigation-bar
-              toggle .scale-x-0 on #navigation-bar
-              toggle .scale-x-100 on #navigation-bar
-              halt
-            end
-            "
-          >
-            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'xsmall' roundedBorder: false color: "#ffffff" %}
-          </button>
+        <button class="lg:hidden inline self-end opacity-75"
+          
+          _="
+          on click
+            toggle .invisible on #navigation-bar
+            toggle .scale-x-0 on #navigation-bar
+            toggle .scale-x-100 on #navigation-bar
+            halt
+          end
+          "
+        >
+          {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'xsmall' roundedBorder: false %}
+        </button>
       {% if docCollections.size > 1 %}
-        
+      
     <!-- Collection Selection Section -->
     <div class="relative">
         <button
           id="collection-button"
-          class="w-full pl-5 pr-10 py-2 bg-slate-950 border border-transparent focus:border-blue-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm appearance-none cursor-pointer transition-colors duration-200 text-left"
+          class="w-full pl-5 pr-10 py-2 bg-body border border-transparent focus:border-accent rounded-md focus:outline-none focus:ring-1 focus:ring-accent text-sm appearance-none cursor-pointer transition-colors duration-200 text-left"
           _="
-           on click
+            on click
             toggle .invisible on #collection-dropdown
             toggle .scale-y-0 on #collection-dropdown
             toggle .scale-y-100 on #collection-dropdown
             toggle .transform on #dropdown-arrow
             toggle .rotate-180 on #dropdown-arrow
               halt
-           end
-           on click from elsewhere
-             add .scale-y-0 to #collection-dropdown
-             add .invisible to #collection-dropdown 
-             remove .scale-y-100 from #collection-dropdown
-             remove .rotate-180 from #dropdown-arrow
-           end
+            end
+            on click from elsewhere
+              add .scale-y-0 to #collection-dropdown
+              add .invisible to #collection-dropdown 
+              remove .scale-y-100 from #collection-dropdown
+              remove .rotate-180 from #dropdown-arrow
+            end
           "
         >
           <div class="flex items-center gap-2">
             <div class="opacity-60 ">
-              {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: primaryCollection.icon iconType: "solid" iconSize: 'micro' roundedBorder: false color: "#ffffff" %}
+              {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: primaryCollection.icon iconType: "solid" iconSize: 'micro' roundedBorder: false %}
             </div>
             <p>{{ primaryCollectionName }}</p>
           </div>
           <div class="absolute inset-y-1 right-0 flex items-center pr-3 pointer-events-none">
-            <svg id="dropdown-arrow" class="w-5 h-4 text-gray-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg id="dropdown-arrow" class="w-5 h-4 text-muted transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
             </svg>
           </div>
@@ -125,7 +125,7 @@
 
         <div
           id="collection-dropdown"
-          class="absolute top-full left-1 mt-1 w-full bg-slate-950 border border-gray-700 rounded-md shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[60vh] overflow-y-auto z-10"
+          class="absolute top-full left-1 mt-1 w-full bg-surface border border-primary rounded-md shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[60vh] overflow-y-auto z-10"
           _="
           "
         >
@@ -134,10 +134,10 @@
           {% if primaryCollectionTag == collection.key %}
             {% else %}
             
-            <a href="{{ collection.path }}" class="py-2 text-sm text-gray-200 hover:bg-gray-700 hover:text-white flex items-center gap-2">
+            <a href="{{ collection.path }}" class="py-2 text-sm text-primary hover:bg-interactive-hover flex items-center gap-2">
 
             <div class="opacity-60 pl-5">
-              {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: collection.icon iconType: "solid" iconSize: 'micro' roundedBorder: false color: "#ffffff" %}
+              {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: collection.icon iconType: "solid" iconSize: 'micro' roundedBorder: false %}
             </div>
               <p>{{ collection.name }}</p></a>
           {% endif %}
@@ -159,8 +159,8 @@
   </aside>
   <div class="overflow-hidden order-2 flex flex-col flex-1">
     <!-- Mobile TOC Dropdown -->
-    <div class="xl:hidden fixed top-0 z-10 w-full bg-gray-950 p-4">
-       <div class="lg:hidden flex gap-4 justify-end opacity-75 w-full bg-gray-950 ">
+    <div class="xl:hidden fixed top-0 z-10 w-full bg-body p-4">
+       <div class="lg:hidden flex gap-4 justify-end opacity-75 w-full bg-body ">
           <button
             _="
             on click
@@ -169,7 +169,7 @@
             transition #modal-search opacity to 1 over 0.2s
             "
             >
-            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "magnifying-glass" iconType: "solid" iconSize: 'xsmall' roundedBorder: false color: "#ffffff" %}
+            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "magnifying-glass" iconType: "solid" iconSize: 'xsmall' roundedBorder: false %}
           </button>
           <button
             
@@ -182,33 +182,33 @@
             end
             "
           >
-            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "bars-3-bottom-right" iconType: "solid" iconSize: 'xsmall' roundedBorder: false color: "#ffffff" %}
+            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "bars-3-bottom-right" iconType: "solid" iconSize: 'xsmall' roundedBorder: false %}
           </button>
  </div> 
       <div class="mt-2 relative w-full">
         <button
           id="mobile-toc-button"
-          class="flex items-center opacity-50 justify-between w-full px-4 py-3 bg-gray-800 border border-transparent rounded-md text-white font-medium focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
+          class="flex items-center opacity-50 justify-between w-full px-4 py-3 bg-interactive-hover border border-transparent rounded-md text-primary font-medium focus:outline-none focus:ring-1 focus:ring-accent transition-colors duration-200"
           _="
-           on click
+            on click
             toggle .invisible on #mobile-toc-dropdown
             toggle .scale-y-0 on #mobile-toc-dropdown
             toggle .scale-y-100 on #mobile-toc-dropdown
             toggle .transform on #toc-dropdown-arrow
             toggle .rotate-180 on #toc-dropdown-arrow
               halt
-           end
-           on click from elsewhere
-             add .scale-y-0 to #mobile-toc-dropdown
-             add .invisible to #mobile-toc-dropdown 
-             remove .scale-y-100 from #mobile-toc-dropdown
-             remove .rotate-180 from #toc-dropdown-arrow
-           end
+            end
+            on click from elsewhere
+              add .scale-y-0 to #mobile-toc-dropdown
+              add .invisible to #mobile-toc-dropdown 
+              remove .scale-y-100 from #mobile-toc-dropdown
+              remove .rotate-180 from #toc-dropdown-arrow
+            end
           "
         >
           <span class="text-sm opacity-80">On This Page</span>
           <span id="toc-dropdown-arrow"  class="transition-transform duration-300">
-            <svg  xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg  xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </span>
@@ -216,7 +216,7 @@
         <div
           id="mobile-toc-dropdown"
           aria-expanded="false"
-          class="absolute top-full left-1 mt-1 w-[calc(100%-8px)] bg-gray-800 border border-gray-700 rounded-md shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[60vh] overflow-y-auto z-10"
+          class="absolute top-full left-1 mt-1 w-[calc(100%-8px)] bg-interactive-hover border border-primary rounded-md shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[60vh] overflow-y-auto z-10"
         >
           <div class="p-4 opacity-80 text-sm">
             {{ content | toc }}
@@ -239,7 +239,7 @@
       </div>
     </main>
   </div>
-  
+ 
   <!-- Right Table of Contents (TOC) -->
   <div class="order-3 hidden xl:block w-72 h-screen p-4 sticky top-0 overflow-y-auto">
     <div class="flex flex-col gap-4">
@@ -249,6 +249,6 @@
       </div>
     </div>
   </div>
-  
+ 
 </div>
 {% endblock %}
