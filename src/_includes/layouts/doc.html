@@ -84,7 +84,7 @@
           end
           "
         >
-          {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'xsmall' roundedBorder: false %}
+          {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'xsmall' roundedBorder: false, themeColor: true  %}
         </button>
       {% if docCollections.size > 1 %}
       
@@ -112,7 +112,7 @@
         >
           <div class="flex items-center gap-2">
             <div class="opacity-60 ">
-              {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: primaryCollection.icon iconType: "solid" iconSize: 'micro' roundedBorder: false %}
+              {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: primaryCollection.icon iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true %}
             </div>
             <p>{{ primaryCollectionName }}</p>
           </div>
@@ -137,7 +137,7 @@
             <a href="{{ collection.path }}" class="py-2 text-sm text-textColor-primary hover:bg-interactive-hover flex items-center gap-2">
 
             <div class="opacity-60 pl-5">
-              {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: collection.icon iconType: "solid" iconSize: 'micro' roundedBorder: false %}
+              {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: collection.icon iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true %}
             </div>
               <p>{{ collection.name }}</p></a>
           {% endif %}
@@ -169,7 +169,7 @@
             transition #modal-search opacity to 1 over 0.2s
             "
             >
-            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "magnifying-glass" iconType: "solid" iconSize: 'xsmall' roundedBorder: false %}
+            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "magnifying-glass" iconType: "solid" iconSize: 'xsmall' roundedBorder: false, themeColor: true %}
           </button>
           <button
             
@@ -182,7 +182,7 @@
             end
             "
           >
-            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "bars-3-bottom-right" iconType: "solid" iconSize: 'xsmall' roundedBorder: false %}
+            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "bars-3-bottom-right" iconType: "solid" iconSize: 'xsmall' roundedBorder: false, themeColor: true %}
           </button>
  </div> 
       <div class="mt-2 relative w-full">
