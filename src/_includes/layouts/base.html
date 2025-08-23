@@ -475,6 +475,83 @@ const listener = (event) => {
 document.querySelectorAll('.tabs-tabs-header button').forEach(tabClick)
 </script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Get references to the DOM elements
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    const toggleButtons = document.querySelectorAll('#dark-toggle, #dark-toggle-mobile');
+
+    /**
+     * Applies the theme to the DOM by updating classes on the html tag and icons.
+     * @param {string} theme - The theme to apply ('system', 'light', or 'dark').
+     */
+    const applyTheme = (theme) => {
+      // Update the <html> element class
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else { // 'system'
+        // Respect the OS preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', prefersDark);
+      }
+
+      // Update icon visibility
+      if (sunIcon && moonIcon) {
+        if (theme === 'light') {
+          sunIcon.classList.remove('hidden');
+          moonIcon.classList.add('hidden');
+        } else if (theme === 'dark') {
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
+        } else { // 'system'
+          sunIcon.classList.remove('hidden');
+          moonIcon.classList.remove('hidden');
+        }
+      }
+    };
+
+    /**
+     * Handles the click event to cycle through themes.
+     */
+    const handleThemeToggle = () => {
+      let currentTheme = localStorage.getItem('theme') || 'system';
+
+      // Cycle through the states: system -> dark -> light -> system
+      if (currentTheme === 'system') {
+        currentTheme = 'dark';
+      } else if (currentTheme === 'dark') {
+        currentTheme = 'light';
+      } else {
+        currentTheme = 'system';
+      }
+
+      // Update localStorage
+      if (currentTheme === 'system') {
+        localStorage.removeItem('theme');
+      } else {
+        localStorage.setItem('theme', currentTheme);
+      }
+
+      // Apply the new theme to the page
+      applyTheme(currentTheme);
+    };
+
+    // --- Initialization ---
+
+    // 1. Set the initial theme on page load
+    const initialTheme = localStorage.getItem('theme') || 'system';
+    applyTheme(initialTheme);
+
+    // 2. Add click listeners to all toggle buttons
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', handleThemeToggle);
+    });
+  });
+</script>
+
 {% mermaid_js %}
 
 

@@ -126,8 +126,6 @@
         <div
           id="collection-dropdown"
           class="absolute top-full left-1 mt-1 w-full bg-surface border border-borderColor-primary rounded-md shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[60vh] overflow-y-auto z-10"
-          _="
-          "
         >
 
           {% for collection in docCollections %}
@@ -155,10 +153,18 @@
           entry: entry, level:-1, page:page, eleventyNavigation: eleventyNavigation, navPages: navPages %} {% endfor %}
       </ul>
     </nav>
-    <div class="flex justify-between ">
-      <button class="flex gap-2 items-center p-1 text-sm opacity-75 border border-textColor-primary rounded-full" >
-          <div class="p-1 hover:bg-interactive-hover rounded-full">{% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "sun" iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true  %}</div>
-          <div class="">{% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "moon" iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true  %}</div>
+    <div class="flex justify-between">
+      <button 
+        id="dark-toggle"
+        class="flex gap-2 p-2 items-center text-sm opacity-75 border border-textColor-primary rounded-full"
+        aria-label="Toggle color theme"
+      >
+        <div id="sun-icon">
+          {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "sun" iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true %}
+        </div>
+        <div id="moon-icon">
+          {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "moon" iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true %}
+        </div>
       </button>
     </div>
     
