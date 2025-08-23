@@ -149,12 +149,18 @@
 
     
     <!-- Navigation List -->
-    <nav>
+    <nav class="overflow-y-auto flex-grow min-h-32">
       <ul class="flex flex-col gap-1">
         {% for entry in navPages %} {% render "partials/render-sidebar.html",
           entry: entry, level:-1, page:page, eleventyNavigation: eleventyNavigation, navPages: navPages %} {% endfor %}
       </ul>
     </nav>
+    <div class="flex justify-between ">
+      <button class="flex gap-2 items-center p-1 text-sm opacity-75 border border-textColor-primary rounded-full" >
+          <div class="p-1 hover:bg-interactive-hover rounded-full">{% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "sun" iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true  %}</div>
+          <div class="">{% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "moon" iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true  %}</div>
+      </button>
+    </div>
     
   </aside>
   <div class="overflow-hidden order-2 flex flex-col flex-1">
