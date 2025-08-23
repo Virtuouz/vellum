@@ -71,21 +71,37 @@
 
       >
     Search</div>
-      </button>
-
-        <button class="lg:hidden inline self-end opacity-75"
-          
-          _="
-          on click
-            toggle .invisible on #navigation-bar
-            toggle .scale-x-0 on #navigation-bar
-            toggle .scale-x-100 on #navigation-bar
-            halt
-          end
-          "
+      </button>      
+      <div class="self-end flex gap-3 items-center">
+        <!-- Theme Toggle -->
+            <div class="lg:hidden flex justify-between">
+        <button
+          id="dark-toggle-mobile"
+          class="flex gap-2 p-1 items-center text-sm opacity-75 border border-textColor-primary rounded-full"
+          aria-label="Toggle color theme"
         >
-          {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'xsmall' roundedBorder: false, themeColor: true  %}
+          <div id="sun-icon-mobile">
+            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "sun" iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true %}
+          </div>
+          <div id="moon-icon-mobile">
+            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "moon" iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true %}
+          </div>
         </button>
+            </div>
+          <button class="lg:hidden opacity-75"
+        
+            _="
+            on click
+              toggle .invisible on #navigation-bar
+              toggle .scale-x-0 on #navigation-bar
+              toggle .scale-x-100 on #navigation-bar
+              halt
+            end
+            "
+          >
+            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'xsmall' roundedBorder: false, themeColor: true  %}
+          </button>
+      </div>
       {% if docCollections.size > 1 %}
       
     <!-- Collection Selection Section -->
@@ -153,7 +169,8 @@
           entry: entry, level:-1, page:page, eleventyNavigation: eleventyNavigation, navPages: navPages %} {% endfor %}
       </ul>
     </nav>
-    <div class="flex justify-between">
+      <!-- Theme Toggle -->
+    <div class="hidden lg:flex justify-between">
       <button 
         id="dark-toggle"
         class="flex gap-2 p-2 items-center text-sm opacity-75 border border-textColor-primary rounded-full"

@@ -492,6 +492,8 @@ document.querySelectorAll('.tabs-tabs-header button').forEach(tabClick)
   document.addEventListener('DOMContentLoaded', () => {
     // Get references to the DOM elements
     const sunIcon = document.getElementById('sun-icon');
+    const sunIconMobile = document.getElementById('sun-icon-mobile');
+    const moonIconMobile = document.getElementById('moon-icon-mobile');
     const moonIcon = document.getElementById('moon-icon');
     const toggleButtons = document.querySelectorAll('#dark-toggle, #dark-toggle-mobile');
 
@@ -516,12 +518,18 @@ document.querySelectorAll('.tabs-tabs-header button').forEach(tabClick)
         if (theme === 'light') {
           sunIcon.classList.remove('hidden');
           moonIcon.classList.add('hidden');
+          sunIconMobile.classList.remove('hidden');
+          moonIconMobile.classList.add('hidden');
         } else if (theme === 'dark') {
           sunIcon.classList.add('hidden');
           moonIcon.classList.remove('hidden');
+          sunIconMobile.classList.add('hidden');
+          moonIconMobile.classList.remove('hidden');
         } else { // 'system'
           sunIcon.classList.remove('hidden');
           moonIcon.classList.remove('hidden');
+          sunIconMobile.classList.remove('hidden');
+          moonIconMobile.classList.remove('hidden');
         }
       }
     };
