@@ -211,9 +211,9 @@ Something went wrong. This requires immediate attention.
 |||| info
 **Information**
 This is a standard informational message. It uses the primary accent color.
-||| error
-**Error!**
-Something went wrong. This requires immediate attention.
+||| warning
+**Warning**
+You should pay attention to this. It's not critical, but it's important.
 |||
 ||||
 
@@ -236,9 +236,9 @@ Something went wrong. This requires immediate attention.
 |||| info
 **Information**
 This is a standard informational message. It uses the primary accent color.
-||| error
-**Error!**
-Something went wrong. This requires immediate attention.
+||| warning
+**Warning**
+You should pay attention to this. It's not critical, but it's important.
 |||
 ||||
 ```
@@ -281,9 +281,9 @@ This is a tab about **oranges**
 These acordions are possible through markdown-it-collapsible plugin:
 https://www.npmjs.com/package/markdown-it-collapsible
 
-The the default rendering of this plugin has been modified to allow for styling purposes and nested accordion support.
+The the default rendering of this plugin has been modified for styling purposes and nested accordion support.
 
-Accordions can be opened by default by using `++>` instead of the standard `+++` Nesting accordions is done by adding an extra `+` in the beginning of the markdown.
+Accordions can be opened by default by using `++>` instead of the standard `+++` Nesting accordions is done by adding an extra `+` in the beginning of the nested accordion.
 
 Other components, such as tabs, can also be nested.
 
@@ -302,33 +302,9 @@ Other components, such as tabs, can also be nested.
 ---
 ++> What is the purpose of an accordion?
 Accordions help organize content into collapsible sections. This allows users to scan topics quickly and expand only the information they need, reducing clutter and improving readability.
-::: tabs#fruit1
-
-@tab:active Apple#apple1
-This is a tab about **apples**
-
-+++ How do you create a "Prerequisites" section for a tutorial?
-Before you begin, make sure you have the following installed:
-
-* **Node.js**: Version 18 or higher.
-* **Git**: For version control.
-* **A code editor**: We recommend VS Code.
-+++
-
-
-@tab Banana#banana1
-This is a tab about **bananas**
-
-@tab Oranges#orange1
-This is a tab about **oranges**
-:::
 ++>
 
 +++ How do you create a "Prerequisites" section for a tutorial?
-||| info
-**Information**
-You can get wild nesting all of these coponents.
-|||
 Before you begin, make sure you have the following installed:
 
 * **Node.js**: Version 18 or higher.
@@ -351,33 +327,9 @@ email (string, optional): The user's email address.
 ```md
 ++> What is the purpose of an accordion?
 Accordions help organize content into collapsible sections. This allows users to scan topics quickly and expand only the information they need, reducing clutter and improving readability.
-::: tabs#fruit1
-
-@tab:active Apple#apple1
-This is a tab about **apples**
-
-+++ How do you create a "Prerequisites" section for a tutorial?
-Before you begin, make sure you have the following installed:
-
-* **Node.js**: Version 18 or higher.
-* **Git**: For version control.
-* **A code editor**: We recommend VS Code.
-+++
-
-
-@tab Banana#banana1
-This is a tab about **bananas**
-
-@tab Oranges#orange1
-This is a tab about **oranges**
-:::
 ++>
 
 +++ How do you create a "Prerequisites" section for a tutorial?
-||| info
-**Information**
-You can get wild nesting all of these coponents.
-|||
 Before you begin, make sure you have the following installed:
 
 * **Node.js**: Version 18 or higher.
