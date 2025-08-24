@@ -5,7 +5,7 @@
     _="
   on keydown
   log event.key
-  if event.ctrlKey and event.key == 'k'
+  if event.ctrlKey and event.key == 'k' or event.metaKey and event.key == 'k'
   then
   event.preventDefault()
   set modal to #modal-search
