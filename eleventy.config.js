@@ -13,6 +13,7 @@ const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 const markdownItAttrs = require("markdown-it-attrs");
 const markdownItContainer = require("markdown-it-container");
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans");
+const MarkdownItCollapsible = require("markdown-it-collapsible");
 
 const markdownItAnchor = require("markdown-it-anchor");
 const pluginTOC = require("eleventy-plugin-nesting-toc");
@@ -34,25 +35,69 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/assets/js");
   eleventyConfig.addPassthroughCopy("./src/assets/uploads/**");
 
-  // Markdown
   let options = {
     html: true,
     linkify: true,
     typographer: true,
   };
-  eleventyConfig.setLibrary(
-    "md",
-    markdownIt(options)
-      .disable(["code"])
-      .use(markdownItAnchor)
-      .use(markdownItContainer, "div")
-      .use(markdownItContainer, "info")
-      .use(markdownItContainer, "warning")
-      .use(markdownItContainer, "error")
-      .use(tab, { name: "tabs" })
-      .use(markdownItBracketedSpans)
-      .use(markdownItAttrs)
-  );
+
+  // Initialize markdown-it
+  const md = markdownIt(options)
+    .disable(["code"])
+    .use(markdownItAnchor)
+    .use(markdownItContainer, "div")
+    .use(markdownItContainer, "info")
+    .use(markdownItContainer, "warning")
+    .use(markdownItContainer, "error")
+    .use(tab, { name: "tabs" })
+    .use(markdownItBracketedSpans)
+    .use(markdownItAttrs)
+    .use(MarkdownItCollapsible);
+
+  // --- Add these renderer overrides ---
+
+  // Override the 'collapsible_open' rule
+  md.renderer.rules.collapsible_open = function(tokens, idx) {
+    const token = tokens[idx];
+    // The summary text is stored in the token's 'info' property
+    const summary = token.info.trim();
+    // Output the <details>, <summary>, and the opening .details-content div
+    return `<details><summary><span class="details-marker"></span>${md.utils.escapeHtml(summary)}</summary><div class="details-content">\n`;
+  };
+
+  // **THE FIX:** Override the summary rule to prevent the duplicate summary tag.
+  // We already render the summary in 'collapsible_open', so this rule should do nothing.
+  md.renderer.rules.collapsible_summary = function() {
+    return ''; 
+  };
+
+  // Override the 'collapsible_close' rule
+  md.renderer.rules.collapsible_close = function(/* tokens, idx, options, env, self */) {
+    // Output the closing tags for the content div and the details element
+    return '</div></details>\n';
+  };
+
+  eleventyConfig.setLibrary("md", md);
+  //// Markdown
+  //let options = {
+    //html: true,
+    //linkify: true,
+    //typographer: true,
+  //};
+  //eleventyConfig.setLibrary(
+    //"md",
+    //markdownIt(options)
+      //.disable(["code"])
+      //.use(markdownItAnchor)
+      //.use(markdownItContainer, "div")
+      //.use(markdownItContainer, "info")
+      //.use(markdownItContainer, "warning")
+      //.use(markdownItContainer, "error")
+      //.use(tab, { name: "tabs" })
+      //.use(markdownItBracketedSpans)
+      //.use(markdownItAttrs)
+      //.use(MarkdownItCollapsible)
+  //);
 
   eleventyConfig.on("eleventy.after", () => {
     execSync(

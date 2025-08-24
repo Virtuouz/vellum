@@ -252,6 +252,32 @@ This is a tab about **oranges**
 :::
 ```
 
+++> What is the purpose of an accordion?
+Accordions help organize content into collapsible sections. This allows users to scan topics quickly and expand only the information they need, reducing clutter and improving readability.
+
+Accordions can be opened by default by using `++>` instead of the standard `+++`
+++>
+
++++ How do you create a "Prerequisites" section for a tutorial?
+Before you begin, make sure you have the following installed:
+
+* **Node.js**: Version 18 or higher.
+* **Git**: For version control.
+* **A code editor**: We recommend VS Code.
++++
+
++++ Can I nest accordions?
+Yes, you can nest accordions to create hierarchical collapsible sections. For every nested accordion level you need to add an extra `+` in the beginning of the markdown.
+
+++++ Inner Accordion: API Parameters
+
+id (string, required): The unique identifier for the user.
+
+email (string, optional): The user's email address.
+
+++++
++++
+
 This is possible through markdown it tab plugin. Out of the box only a `tabs` container is configured, styled, and has the js to make it work.
 
 https://www.npmjs.com/package/@mdit/plugin-tab
