@@ -11,7 +11,6 @@ eleventyNavigation:
   url:
 pageLink: /
 metaDesc: 
-layout: layouts/doc.html
 tags: vellum
 hero:
 content_blocks: []
