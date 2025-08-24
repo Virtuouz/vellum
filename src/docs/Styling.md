@@ -224,6 +224,9 @@ Something went wrong. This requires immediate attention.
 ---
 
 ## Mardown Tabs
+This is possible through markdown it tab plugin. Out of the box only a `tabs` container is configured, styled, and has the js to make it work.
+
+https://www.npmjs.com/package/@mdit/plugin-tab
 
 ::: tabs#fruit
 
@@ -251,11 +254,43 @@ This is a tab about **bananas**
 This is a tab about **oranges**
 :::
 ```
+----
+## Accordion
+These acordions are possible through markdown-it-collapsible plugin:
+https://www.npmjs.com/package/markdown-it-collapsible
 
+The the default rendering of this plugin has been modified to allow for styling purposes and nested accordion support.
+
+Accordions can be opened by default by using `++>` instead of the standard `+++` Nesting accordions is done by adding an extra `+` in the beginning of the markdown.
+
+Other components, such as tabs, can also be nested.
+
+---
+
+### Use Cases for Accordions in Documentation
+
+**FAQs:** <br> They are perfect for frequently asked questions, where a user can quickly scan the questions and only expand the ones relevant to them.
+
+**Step-by-Step Guides:** <br> For tutorials with many steps, accordions can break down the process into manageable, collapsible chunks. This helps users focus on one step at a time.
+
+**Glossaries or Definitions:** <br> You can list terms and hide their definitions within an accordion, creating a clean, interactive glossary.
+
+**API Reference Details:** <br> When documenting API endpoints, you can place detailed information like parameter descriptions, example requests, and response schemas inside accordions to keep the main view tidy.
+
+---
 ++> What is the purpose of an accordion?
 Accordions help organize content into collapsible sections. This allows users to scan topics quickly and expand only the information they need, reducing clutter and improving readability.
+::: tabs#fruit1
 
-Accordions can be opened by default by using `++>` instead of the standard `+++`
+@tab:active Apple#apple1
+This is a tab about **apples**
+
+@tab Banana#banana1
+This is a tab about **bananas**
+
+@tab Oranges#orange1
+This is a tab about **oranges**
+:::
 ++>
 
 +++ How do you create a "Prerequisites" section for a tutorial?
@@ -278,9 +313,42 @@ email (string, optional): The user's email address.
 ++++
 +++
 
-This is possible through markdown it tab plugin. Out of the box only a `tabs` container is configured, styled, and has the js to make it work.
+```md
+++> What is the purpose of an accordion?
+Accordions help organize content into collapsible sections. This allows users to scan topics quickly and expand only the information they need, reducing clutter and improving readability.
+::: tabs#fruit1
 
-https://www.npmjs.com/package/@mdit/plugin-tab
+@tab:active Apple#apple1
+This is a tab about **apples**
+
+@tab Banana#banana1
+This is a tab about **bananas**
+
+@tab Oranges#orange1
+This is a tab about **oranges**
+:::
+++>
+
++++ How do you create a "Prerequisites" section for a tutorial?
+Before you begin, make sure you have the following installed:
+
+* **Node.js**: Version 18 or higher.
+* **Git**: For version control.
+* **A code editor**: We recommend VS Code.
++++
+
++++ Can I nest accordions?
+Yes, you can nest accordions to create hierarchical collapsible sections. For every nested accordion level you need to add an extra `+` in the beginning of the markdown.
+
+++++ Inner Accordion: API Parameters
+
+id (string, required): The unique identifier for the user.
+
+email (string, optional): The user's email address.
+
+++++
++++
+```
 
 ---
 ## Bracketed spans
