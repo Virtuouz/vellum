@@ -61,8 +61,12 @@ module.exports = async function (eleventyConfig) {
     const token = tokens[idx];
     // The summary text is stored in the token's 'info' property
     const summary = token.info.trim();
+    // This will automatically render any attributes the plugin adds to the token,
+    // including the 'open' attribute when '++>' is used.
+    const attrs = md.renderer.renderAttrs(token);
+
     // Output the <details>, <summary>, and the opening .details-content div
-    return `<details><summary><span class="details-marker"></span>${md.utils.escapeHtml(summary)}</summary><div class="details-content">\n`;
+    return `<details${attrs}><summary><span class="details-marker"></span>${md.utils.escapeHtml(summary)}</summary><div class="details-content">\n`;
   };
 
   // **THE FIX:** Override the summary rule to prevent the duplicate summary tag.
@@ -78,26 +82,6 @@ module.exports = async function (eleventyConfig) {
   };
 
   eleventyConfig.setLibrary("md", md);
-  //// Markdown
-  //let options = {
-    //html: true,
-    //linkify: true,
-    //typographer: true,
-  //};
-  //eleventyConfig.setLibrary(
-    //"md",
-    //markdownIt(options)
-      //.disable(["code"])
-      //.use(markdownItAnchor)
-      //.use(markdownItContainer, "div")
-      //.use(markdownItContainer, "info")
-      //.use(markdownItContainer, "warning")
-      //.use(markdownItContainer, "error")
-      //.use(tab, { name: "tabs" })
-      //.use(markdownItBracketedSpans)
-      //.use(markdownItAttrs)
-      //.use(MarkdownItCollapsible)
-  //);
 
   eleventyConfig.on("eleventy.after", () => {
     execSync(
