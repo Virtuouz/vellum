@@ -9,10 +9,7 @@ eleventyNavigation:
   title:
   parent: 
   url:
-pageLink: 
-permalink: >-
-  {% if pageLink %}/{% assign pagelink = pageLink | slugify %}{{  page.filePathStem | fileSubstringFilter | append: pagelink | downcase }}/index.html{% else
-  %}/{% assign title = title | slugify %}{{ page.filePathStem | fileSubstringFilter | append: title | downcase }}/index.html{%endif %}
+pageLink:
 metaDesc: 
 layout: layouts/doc.html
 tags: vellum
