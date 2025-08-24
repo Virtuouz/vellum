@@ -93,11 +93,32 @@ module.exports = async function (eleventyConfig) {
     };
 
   eleventyConfig.setLibrary("md", md);
+  /**
+   * Eleventy Transform to wrap all tables in a <table-saw> custom element.
+   * This makes tables responsive without needing to modify the source markdown.
+   */
+  eleventyConfig.addTransform("wrap-tables", function(content, outputPath) {
+    // 1. Check if the file is an HTML file before processing.
+    if (outputPath && outputPath.endsWith(".html")) {
+      
+      // 2. Use a regular expression to find all HTML tables.
+      // - The /g flag ensures we find ALL tables on the page.
+      // - The /s flag (dotAll) allows '.' to match newlines, which is crucial
+      //   because tables span multiple lines.
+      const tableRegex = /<table[\s\S]*?<\/table>/gs;
 
-  eleventyConfig.on("eleventy.after", () => {
-    execSync(
-      "npx tailwindcss -i ./src/css/main.css -o ./dist/css/styles.css --minify"
-    );
+      // 3. Use String.prototype.replace() to wrap each match.
+      // The callback function receives the matched table string (`match`)
+      // and returns it wrapped in the <table-saw> element.
+      const transformedContent = content.replace(tableRegex, (match) => {
+        return `<table-saw>${match}</table-saw>`;
+      });
+
+      return transformedContent;
+    }
+
+    // Return the content untouched for non-HTML files.
+    return content;
   });
 
   eleventyConfig.addPlugin(

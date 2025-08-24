@@ -144,7 +144,6 @@
     border-bottom: 1px solid var(--border-primary);
   }
   tr:last-child td {
-    border-bottom: none;
   }
   tr:nth-child(even) {
     background-color: var(--code-block-background); /* Using code-block for consistency */
