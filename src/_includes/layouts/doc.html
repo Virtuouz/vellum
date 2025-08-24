@@ -75,7 +75,7 @@
       </button>      
       <div class="self-end flex gap-3 items-center">
         <!-- Theme Toggle -->
-            <div class="lg:hidden flex justify-between">
+          <div class="lg:hidden flex justify-between">
         <button
           id="dark-toggle-mobile"
           class="flex gap-2 p-1 items-center text-sm opacity-75 border border-textColor-primary rounded-full"
@@ -88,20 +88,20 @@
             {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "moon" iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true %}
           </div>
         </button>
-            </div>
-          <button class="lg:hidden opacity-75"
+          </div>
+        <button class="lg:hidden opacity-75"
         
-            _="
-            on click
-              toggle .invisible on #navigation-bar
-              toggle .scale-x-0 on #navigation-bar
-              toggle .scale-x-100 on #navigation-bar
-              halt
-            end
-            "
-          >
-            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'xsmall' roundedBorder: false, themeColor: true  %}
-          </button>
+          _="
+          on click
+            toggle .invisible on #navigation-bar
+            toggle .scale-x-0 on #navigation-bar
+            toggle .scale-x-100 on #navigation-bar
+            halt
+          end
+          "
+        >
+          {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'xsmall' roundedBorder: false, themeColor: true  %}
+        </button>
       </div>
       {% if docCollections.size > 1 %}
       
@@ -187,9 +187,10 @@
     </div>
     
   </aside>
-  <div class="overflow-hidden order-2 flex flex-col flex-1">
+
+  <div class="order-2 flex flex-col flex-1 min-w-0">
     <!-- Mobile TOC Dropdown -->
-    <div class="xl:hidden fixed top-0 z-10 w-full bg-body p-4">
+    <div class="xl:hidden sticky top-0 z-10 w-full bg-body p-4 border-b border-borderColor-primary">
        <div class="lg:hidden flex gap-4 justify-end opacity-75 w-full bg-body ">
           <button
             _="
@@ -255,19 +256,21 @@
       </div>
     </div>
     
-    <!-- Main Content Area -->
-    <main class=" flex w-full mx-auto p-8">
-      <div class="cs-mainContent mt-32 xl:mt-0 flex flex-col w-full cs-mainContent max-w-4xl mx-auto flex-1">
-        <h1>{{ title }}</h1>
-        <!-- Bookshop component for page content -->
-        {% bookshop_include "page" content_blocks: content_blocks %}
-        {% if content and content != "" %}
-          <article class=" ">
-            {{ content }}
-          </article>
-        {% endif %}
-      </div>
-    </main>
+    <div class="flex-1 overflow-x-auto">
+      <!-- Main Content Area -->
+      <main class=" flex w-full mx-auto p-8">
+        <div class="cs-mainContent mt-16 xl:mt-0 flex flex-col w-full cs-mainContent max-w-4xl mx-auto flex-1">
+          <h1>{{ title }}</h1>
+          <!-- Bookshop component for page content -->
+          {% bookshop_include "page" content_blocks: content_blocks %}
+          {% if content and content != "" %}
+            <article class=" ">
+              {{ content }}
+            </article>
+          {% endif %}
+        </div>
+      </main>
+    </div>
   </div>
  
   <!-- Right Table of Contents (TOC) -->

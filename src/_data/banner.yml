@@ -1,5 +1,5 @@
 enable_banner: true
-markdown: "**This is a banner** https://google.com" 
+markdown: "**This is a banner** https://vellumdocs.netlify.app/" 
 id: alto-banner-1
 show_until: 2027-07-27T00:00:00Z
 backgroundColor: '#000'
