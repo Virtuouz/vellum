@@ -179,6 +179,7 @@ module.exports = async function (eleventyConfig) {
 
   eleventyConfig.on("eleventy.before", () => {
     execSync("node ./utils/build-theme.js");
+    execSync("node ./utils/permalinkDupCheck.js");
   });
 
   eleventyConfig.on("eleventy.after", () => {
