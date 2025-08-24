@@ -131,48 +131,7 @@
     font-style: italic;
   }
 
-/*
-  Custom Containers (info, warning, error)
-  These colors are intentionally hardcoded to maintain their semantic meaning.
-*/
-.info,
-.warning,
-.error {
-  color: #fff;
-  padding: 1rem 1.5rem;
-  margin: 24px 0;
-  border-radius: 8px;
-  border-left: 4px solid;
 
-  > :first-child {
-    margin-top: 0;
-  }
-  > :last-child {
-    margin-bottom: 0;
-  }
-
-  strong {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
-}
-
-/* 🎨 Color Variants */
-.info {
-  border-color: #2196f3; /* Blue */
-  background-color: #111a24;
-}
-
-.warning {
-  border-color: #ff9800; /* Orange */
-  background-color: #221b0b;
-}
-
-.error {
-  border-color: #f44336; /* Red */
-  background-color: #241312;
-}
 
 /*
   Tabs Component
@@ -233,15 +192,25 @@
 
 /*
   Keyboard Key Component (.kbd)
-  These colors are static and not part of the main theme.
 */
 .kbd {
-  background-color: #2d3339;
-  border: 1px solid #4a5056;
+  // --- Light Mode (Default) ---
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  box-shadow: inset 0 -1px 0 #d1d5db;
+  color: #374151;
+
+  // --- Dark Mode ---
+  .dark & {
+    background-color: #2d3339;
+    border-color: #4a5056;
+    box-shadow: inset 0 -1px 0 #4a5056;
+    color: #e0e0e0;
+  }
+
+  // --- Base Styles (Shared) ---
   border-bottom-width: 2px;
   border-radius: 5px;
-  box-shadow: inset 0 -1px 0 #4a5056;
-  color: #e0e0e0;
   font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
   font-size: 0.9em;
   font-weight: 600;
@@ -251,9 +220,9 @@
 
 /*
   Status Label Styling (.label)
-  These colors are intentionally hardcoded.
 */
 .label {
+  // --- Base Styles (Shared) ---
   display: inline-block;
   padding: 0.2em 0.65em;
   border-radius: 9999px;
@@ -264,58 +233,97 @@
   white-space: nowrap;
 }
 
+// --- Light Mode Colors (Default) ---
 .label.green {
-  color: #66bb6a;
-  background-color: rgba(76, 175, 80, 0.15);
+  color: #166534;
+  background-color: #dcfce7;
+  .dark & {
+    color: #66bb6a;
+    background-color: rgba(76, 175, 80, 0.15);
+  }
 }
-
 .label.blue {
-  color: #5fb6e0;
-  background-color: rgba(33, 150, 243, 0.15);
+  color: #1e40af;
+  background-color: #dbeafe;
+  .dark & {
+    color: #5fb6e0;
+    background-color: rgba(33, 150, 243, 0.15);
+  }
 }
-
 .label.orange {
-  color: #ffa726;
-  background-color: rgba(255, 152, 0, 0.15);
+  color: #9a3412;
+  background-color: #ffedd5;
+  .dark & {
+    color: #ffa726;
+    background-color: rgba(255, 152, 0, 0.15);
+  }
+}
+.label.red {
+  color: #991b1b;
+  background-color: #fee2e2;
+  .dark & {
+    color: #ef5350;
+    background-color: rgba(244, 67, 54, 0.15);
+  }
 }
 
-.label.red {
-  color: #ef5350;
-  background-color: rgba(244, 67, 54, 0.15);
-}
 
 /*
-  Callout Components
-  These are also static.
+  Custom Containers (info, warning, error)
 */
-  .callout {
-    display: flex;
-    align-items: flex-start;
-    padding: 1rem;
-    margin: 24px 0;
-    border-left: 4px solid;
-    border-radius: 8px;
+.info,
+.warning,
+.error {
+  padding: 1rem 1.5rem;
+  margin: 24px 0;
+  border-radius: 8px;
+  border-left: 4px solid;
+
+  > :first-child {
+    margin-top: 0;
   }
-  .callout-icon {
-    margin-right: 1rem;
-    font-size: 1.5rem;
-  }
-  .callout-content {
-    flex: 1;
+  > :last-child {
+    margin-bottom: 0;
   }
 
-  .callout-info {
-    border-color: #2196f3;
+  strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+}
+
+// --- Light Mode Colors (Default) ---
+.info {
+  border-color: #2196f3; /* Blue */
+  background-color: #cedef3;
+  .dark & {
+    
+    border-color: #2196f3; /* Blue */
     background-color: #111a24;
   }
-  .callout-warning {
-    border-color: #ff9800;
+}
+.warning {
+  border-color: #ff9800; /* Orange */
+  background-color: #f0e9cc;
+  .dark & {
+    
+    border-color: #ff9800; /* Orange */
     background-color: #221b0b;
   }
-  .callout-error {
-    border-color: #f44336;
+}
+.error {
+  border-color: #f44336; /* Red */
+  background-color: #f0d5d5;
+  .dark & {
+    
+    border-color: #f44336; /* Red */
     background-color: #241312;
   }
+}
+
+
+
 }
 
 /* --- Responsive Heading Styles for Mobile --- */
