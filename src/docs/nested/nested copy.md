@@ -6,14 +6,16 @@ eleventyExcludeFromCollections: false
 eleventyNavigation:
   key: nested 4
   order: 9
-  title:
+  title: null
   parent: nested 3
-  url:
-pageLink: 
-metaDesc: 
+  url: 
+  icon:
+pageLink: null
+metaDesc: null
 tags: vellum
-hero:
+hero: null
 content_blocks: []
+permalink: /nested/nested-4-copy1/index.html
 ---
 
 ## What is Vellum?

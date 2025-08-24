@@ -1,15 +1,15 @@
 ---
 _schema: default
 draft: false
-title: Nested 3
+title: Outlink
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  key: nested 3
-  order: 9
+  key: outlink
+  order: 8
   title:
-  parent: nested 2
-  url:
-  icon:
+  parent: nested 3
+  url: https://heroicons.com/
+  icon: arrow-top-right-on-square
 pageLink: 
 metaDesc: 
 tags: vellum

@@ -9,6 +9,7 @@ eleventyNavigation:
   title:
   parent:
   url:
+  icon: star
 pageLink:
 metaDesc: 
 tags: vellum
