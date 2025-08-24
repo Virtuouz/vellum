@@ -31,6 +31,7 @@ module.exports = async function (eleventyConfig) {
     "@kevingimbel/eleventy-plugin-mermaid"
   );
   const { tab } = await import("@mdit/plugin-tab");
+  const { tasklist } = await import("@mdit/plugin-tasklist");
 
   eleventyConfig.addPassthroughCopy("./src/assets/js");
   eleventyConfig.addPassthroughCopy("./src/assets/uploads/**");
@@ -52,6 +53,7 @@ module.exports = async function (eleventyConfig) {
     .use(tab, { name: "tabs" })
     .use(markdownItBracketedSpans)
     .use(markdownItAttrs)
+    .use(tasklist)
     .use(MarkdownItCollapsible);
 
   // --- Add these renderer overrides ---
@@ -69,7 +71,6 @@ module.exports = async function (eleventyConfig) {
     return `<details${attrs}><summary><span class="details-marker"></span>${md.utils.escapeHtml(summary)}</summary><div class="details-content">\n`;
   };
 
-  // **THE FIX:** Override the summary rule to prevent the duplicate summary tag.
   // We already render the summary in 'collapsible_open', so this rule should do nothing.
   md.renderer.rules.collapsible_summary = function() {
     return ''; 

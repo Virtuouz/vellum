@@ -159,7 +159,104 @@
     font-style: italic;
   }
 
+/*
+  Task List Styling
+  For markdown-it-task-lists plugin output.
+*/
 
+// --- Container ---
+// Removes default list styling.
+.task-list-container {
+  list-style: none;
+  padding-left: 0;
+  margin: 24px 0;
+}
+
+// --- List Item ---
+.task-list-item {
+  // Use flexbox for easy alignment of the checkbox and label.
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+
+  // The plugin wraps the input/label in a <p> tag, so we reset its margin.
+  p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+}
+
+// --- Checkbox ---
+.task-list-item-checkbox {
+  // Hide the default browser checkbox.
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+// --- Label (Acts as the custom checkbox and text) ---
+.task-list-item-label {
+  position: relative;
+  // Space for the custom checkbox.
+  padding-left: 28px;
+  cursor: default; // It's disabled, so no pointer.
+  color: var(--text-primary);
+  transition: color 0.2s ease-in-out;
+
+  // --- Custom Checkbox Box (::before) ---
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-primary);
+    border-radius: 4px;
+    background-color: var(--surface);
+    transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  }
+
+  // --- Custom Checkmark (::after) ---
+  // This is hidden by default and appears when the checkbox is checked.
+  &::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    // Start hidden and rotated.
+    transform: translateY(-65%) rotate(45deg) scale(0);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+// --- Checked State ---
+// When the hidden checkbox is checked...
+.task-list-item-checkbox:checked + .task-list-item-label {
+  // Style the label text to look "completed".
+  color: var(--text-muted);
+  text-decoration: line-through;
+
+  // Style the custom checkbox box to look "checked".
+  &::before {
+    background-color: var(--accent-primary);
+    border-color: var(--accent-primary);
+  }
+
+  // Reveal the checkmark.
+  &::after {
+    transform: translateY(-65%) rotate(45deg) scale(1);
+    opacity: 1;
+  }
+}
 
 /*
   Tabs Component
