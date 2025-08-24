@@ -9,6 +9,7 @@ eleventyNavigation:
   title:
   parent: 
   url:
+  icon: paint-brush
 pageLink:
 metaDesc: 
 tags: vellum

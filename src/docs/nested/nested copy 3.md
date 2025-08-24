@@ -9,6 +9,7 @@ eleventyNavigation:
   title:
   parent: nested 2
   url:
+  icon: arrow-down-on-square-stack
 pageLink: 
 metaDesc: 
 tags: vellum

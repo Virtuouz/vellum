@@ -9,6 +9,7 @@ eleventyNavigation:
   title: Nested Pages
   parent:
   url:
+  icon: book-open
 pageLink: /
 metaDesc: 
 tags: vellum

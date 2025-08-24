@@ -16,11 +16,12 @@
   <li>
     <a
       data-umami-event="{{entry.title}}-navbar"
-      class="px-3 py-2 text-sm rounded-md block transition-colors duration-200 hover:bg-interactive-hover 
+      class="flex items-center gap-2 px-4 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-interactive-hover 
         {% if entry.url == page.url %}bg-interactive-hover font-medium{% endif %}"
       href="{{ entry.url }}"
     >
-      {{ entry.title }}
+      <div class="opacity-70">{% bookshop "generic/heroLibraryIcon" heroLibraryIconName: entry.icon iconType: "outline" iconSize: 'xxsmall' roundedBorder: false, themeColor: true %}</div>
+      <p>{{ entry.title }}</p>
     </a>
   </li>
 {% endif %}
@@ -42,28 +43,30 @@
       <li class="w-full">
         {% if isToplevel %}
         <div
-          class="flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors duration-200 font-bold opacity-80
+          class="flex items-center gap-2 w-full px-1 py-2 text-sm rounded-md transition-colors duration-200 font-bold opacity-80
             {% if isActive %}bg-interactive-hover font-medium{% endif %}"
         >
+          <div class="opacity-70">{% bookshop "generic/heroLibraryIcon" heroLibraryIconName: entry.icon iconType: "outline" iconSize: 'xxsmall' roundedBorder: false, themeColor: true %}</div>
           <p>{{ entry.title }}</p>
         </div>
         {% else %}
         
         <button
           aria-expanded="{{ isOpen  }}"
-          class="flex items-center justify-between w-full px-3 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-interactive-hover
+          class="flex items-center gap-2 w-full px-3 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-interactive-hover
             {% if isActive %}bg-interactive-hover font-medium{% endif %}"
           _="
             on click
             set content to the next <div/>
             set @aria-expanded to ( @aria-expanded == 'false' )
-            toggle .rotate-90 on <span/> in me
+            toggle .rotate-90 on #{{ navUUID }} in me
             toggle .h-0 on the next <div/>
           end
           "
         >
+          <div class="opacity-70">{% bookshop "generic/heroLibraryIcon" heroLibraryIconName: entry.icon iconType: "outline" iconSize: 'xxsmall' roundedBorder: false, themeColor: true %}</div>
           <p>{{ entry.title }}</p>
-          <span class="transition-all duration-300 ease-in-out {% if isOpen %}rotate-90{% endif %}">
+          <span id="{{ navUUID }}" class="transition-all duration-300 ease-in-out {% if isOpen %}rotate-90{% endif %}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
             </svg>
@@ -79,7 +82,6 @@
             , entry: child
             , level: level
             , page: page
-            , eleventyNavigation: eleventyNavigation
             , navPages: navPages %}
         {% endfor %}
       </ul>
