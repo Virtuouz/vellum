@@ -15,6 +15,8 @@ const markdownItContainer = require("markdown-it-container");
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans");
 const MarkdownItCollapsible = require("markdown-it-collapsible");
 
+const yaml = require("js-yaml");
+
 const markdownItAnchor = require("markdown-it-anchor");
 const pluginTOC = require("eleventy-plugin-nesting-toc");
 const markdownIt = require("markdown-it"),
@@ -127,6 +129,10 @@ module.exports = async function (eleventyConfig) {
       pathPrefix: "",
     })
   );
+
+  eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
+  eleventyConfig.addDataExtension("yml", (contents) => yaml.load(contents));
+
   eleventyConfig.addPlugin(pluginTOC);
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
@@ -140,6 +146,7 @@ module.exports = async function (eleventyConfig) {
     },
   });
 
+  eleventyConfig.addFilter("markdownify", (markdown) => md.render(markdown));
   eleventyConfig.addFilter("fileSubstringFilter", fileSubstringFilter);
   eleventyConfig.addFilter("uuidFilter", uuidFilter);
   eleventyConfig.addFilter("startsWith", function (itemUrl, pageUrl) {
