@@ -47,7 +47,16 @@ module.exports = async function (eleventyConfig) {
     .disable(["code"])
     .use(markdownItAnchor)
     .use(markdownItContainer, "div")
-    .use(markdownItContainer, "info")
+    .use(markdownItContainer, "info", {
+      marker: "|",
+    })
+    // For consistency, you should probably update the others as well
+    .use(markdownItContainer, "warning", {
+      marker: "|",
+    })
+    .use(markdownItContainer, "error", {
+      marker: "|",
+    })
     .use(markdownItContainer, "warning")
     .use(markdownItContainer, "error")
     .use(tab, { name: "tabs" })
@@ -59,7 +68,7 @@ module.exports = async function (eleventyConfig) {
   // --- Add these renderer overrides ---
 
   // Override the 'collapsible_open' rule
-  md.renderer.rules.collapsible_open = function(tokens, idx) {
+  md.renderer.rules.collapsible_open = function (tokens, idx) {
     const token = tokens[idx];
     // The summary text is stored in the token's 'info' property
     const summary = token.info.trim();
@@ -72,15 +81,16 @@ module.exports = async function (eleventyConfig) {
   };
 
   // We already render the summary in 'collapsible_open', so this rule should do nothing.
-  md.renderer.rules.collapsible_summary = function() {
-    return ''; 
+  md.renderer.rules.collapsible_summary = function () {
+    return "";
   };
 
   // Override the 'collapsible_close' rule
-  md.renderer.rules.collapsible_close = function(/* tokens, idx, options, env, self */) {
-    // Output the closing tags for the content div and the details element
-    return '</div></details>\n';
-  };
+  md.renderer.rules.collapsible_close =
+    function (/* tokens, idx, options, env, self */) {
+      // Output the closing tags for the content div and the details element
+      return "</div></details>\n";
+    };
 
   eleventyConfig.setLibrary("md", md);
 
@@ -147,9 +157,7 @@ module.exports = async function (eleventyConfig) {
   );
 
   eleventyConfig.on("eleventy.before", () => {
-    execSync(
-      "node ./utils/build-theme.js"
-    );
+    execSync("node ./utils/build-theme.js");
   });
 
   eleventyConfig.on("eleventy.after", () => {

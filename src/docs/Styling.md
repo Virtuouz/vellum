@@ -189,36 +189,58 @@ https://www.npmjs.com/package/markdown-it-container
 
 The following containers come defined and styled out of the box
 
-::: info
+Either `:::` or `|||` can be used to create a container. If you are trying to place a container inside of a tabs you need to use the `|||` syntax.
+
+Nesting can be done by increasing the marker of the outer container
+
+||| info
 **Information**
 This is a standard informational message. It uses the primary accent color.
-:::
+|||
 
 ::: warning
 **Warning**
 You should pay attention to this. It's not critical, but it's important.
 :::
 
-::: error
+||| error
 **Error!**
 Something went wrong. This requires immediate attention.
-:::
+|||
+
+|||| info
+**Information**
+This is a standard informational message. It uses the primary accent color.
+||| error
+**Error!**
+Something went wrong. This requires immediate attention.
+|||
+||||
 
 ```md
-::: info
+||| info
 **Information**
 This is a standard informational message. It uses the primary accent color.
-:::
+|||
 
 ::: warning
 **Warning**
 You should pay attention to this. It's not critical, but it's important.
 :::
 
-::: error
+||| error
 **Error!**
 Something went wrong. This requires immediate attention.
-:::
+|||
+
+|||| info
+**Information**
+This is a standard informational message. It uses the primary accent color.
+||| error
+**Error!**
+Something went wrong. This requires immediate attention.
+|||
+||||
 ```
 
 ---
@@ -285,6 +307,15 @@ Accordions help organize content into collapsible sections. This allows users to
 @tab:active Apple#apple1
 This is a tab about **apples**
 
++++ How do you create a "Prerequisites" section for a tutorial?
+Before you begin, make sure you have the following installed:
+
+* **Node.js**: Version 18 or higher.
+* **Git**: For version control.
+* **A code editor**: We recommend VS Code.
++++
+
+
 @tab Banana#banana1
 This is a tab about **bananas**
 
@@ -294,6 +325,10 @@ This is a tab about **oranges**
 ++>
 
 +++ How do you create a "Prerequisites" section for a tutorial?
+||| info
+**Information**
+You can get wild nesting all of these coponents.
+|||
 Before you begin, make sure you have the following installed:
 
 * **Node.js**: Version 18 or higher.
@@ -321,6 +356,15 @@ Accordions help organize content into collapsible sections. This allows users to
 @tab:active Apple#apple1
 This is a tab about **apples**
 
++++ How do you create a "Prerequisites" section for a tutorial?
+Before you begin, make sure you have the following installed:
+
+* **Node.js**: Version 18 or higher.
+* **Git**: For version control.
+* **A code editor**: We recommend VS Code.
++++
+
+
 @tab Banana#banana1
 This is a tab about **bananas**
 
@@ -330,6 +374,10 @@ This is a tab about **oranges**
 ++>
 
 +++ How do you create a "Prerequisites" section for a tutorial?
+||| info
+**Information**
+You can get wild nesting all of these coponents.
+|||
 Before you begin, make sure you have the following installed:
 
 * **Node.js**: Version 18 or higher.
