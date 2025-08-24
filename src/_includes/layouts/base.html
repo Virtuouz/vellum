@@ -2,6 +2,17 @@
 <html
   lang="en"
   class=" mx-auto my-0 scroll-smooth scroll-pt-32 overflow-x-hidden"
+    _="
+  on keydown
+  log event.key
+  if event.ctrlKey and event.key == 'k'
+  then
+  event.preventDefault()
+  set modal to #modal-search
+  modal.show()
+  transition #modal-search opacity to 1 over 0.2s
+  end
+"
 >
   <head>
     <meta charset="UTF-8" />
