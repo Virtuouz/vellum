@@ -95,12 +95,22 @@ hello_world()
 
 Tables are useful for presenting data in a structured format.
 
+These tables are made responsive at small sizes through table-saw, which is injected by 11ty transform as a final build step.
+
+
 |Header 1|Header 2|Header 3|
 |---|---|---|
 |Row 1, Col 1|Row 1, Col 2|Row 1, Col 3|
 |Row 2, Col 1|Row 2, Col 2|Row 2, Col 3|
 |Row 3, Col 1|Row 3, Col 2|Row 3, Col 3|
 
+```md
+|Header 1|Header 2|Header 3|
+|---|---|---|
+|Row 1, Col 1|Row 1, Col 2|Row 1, Col 3|
+|Row 2, Col 1|Row 2, Col 2|Row 2, Col 3|
+|Row 3, Col 1|Row 3, Col 2|Row 3, Col 3|
+```
 
 You can align columns by using colons (`:`) in the separator line.
 
