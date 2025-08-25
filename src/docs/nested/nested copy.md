@@ -15,7 +15,6 @@ metaDesc: null
 tags: vellum
 hero: null
 content_blocks: []
-permalink: /nested/nested-4-copy1/index.html
 ---
 
 ## What is Vellum?
