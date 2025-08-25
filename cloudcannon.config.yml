@@ -1,0 +1,253 @@
+source: src
+paths:
+  uploads: assets/uploads/:title
+  static: ''
+data_config:
+  banner:
+    path: _data/banner.yml
+  docCollections:
+    path: _data/docCollections.json
+  site:
+    path: _data/site.json
+  theme:
+    path: _data/theme.json
+collections_config_override: true
+collections_config:
+  data:
+    path: _data
+    icon: settings
+    disable_url: true
+    disable_add: true 
+    disable_add_folder: true 
+    disable_file_actions: true 
+  docs:
+    path: docs
+    output: true
+    glob:
+      - '!robots.njk'
+      - '!rss.njk'
+      - '!sitemap.njk'
+      - '!404.md'
+    name: Pages
+    description: All your docs
+    icon: description
+    documentation: null
+    preview:
+      gallery: description
+    sort: null
+    sort_options: null
+    singular_name: null
+    singular_key: null
+    _editables: null
+    _enabled_editors:
+      - content
+      - visual
+    _inputs:
+      title:
+        label: Page Title
+        comment: Seo focused page title
+      removeFromNavigation:
+        type: switch
+        label: Remove from navigation
+        comment: Will remove this page from top navigation top nav and footer
+      eleventyExcludeFromCollections:
+        hidden: true
+      eleventyNavigation:
+        label: Navigation
+      eleventyNavigation.key:
+        comment: How this page is identified in the navigation
+      eleventyNavigation.order:
+        comment: What order in the navigation
+      eleventyNavigation.title:
+        label: Display Title
+        comment: >-
+          What website visitors will see. Leave blank if you want to use the key
+          as Display Title
+      eleventyNavigation.parent:
+        comment: What key this should be grouped with. Leave blank for no grouping
+      eleventyNavigation.url:
+        label: External Link
+        comment: >-
+          If you want to have a link to another website or file on your site,
+          place that link here. Leave blank for all other situations. WARNING:
+          this will prevent this page from building and showing up in your
+          website.
+      pageLink:
+        label: Page Location
+        comment: The location of this page on your webiste i.e. Example.com/mylocation. Leave blank if you want to just use the page title as the page location.
+        type: text
+      metaDesc:
+        type: textarea
+        label: Meta Description
+        comment: SEO focused page summary
+      permalink:
+        hidden: true
+      pagination:
+        hidden: true
+      layout:
+        hidden: true
+    _select_data: null
+    _structures: null
+    add_options: null
+    create: null
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    new_preview_url: null
+    schemas:
+      default:
+        path: .cloudcannon/schemas/doc.md
+    schema_key: null
+_inputs:
+  pagination:
+    hidden: true
+  layout:
+    hidden: true
+  description:
+    type: markdown
+    options:
+      link: true
+      bold: true
+      italic: true
+      undo: true
+      redo: true
+      initial_height: 135
+  socialImage:
+    type: image
+    hidden: false
+  color_group:
+    type: select
+    options:
+      allow_empty: false
+      value_key: id
+      preview:
+        text:
+          - key: name
+        icon:
+          - key: icon
+      values:
+        - id: primary
+          name: Primary
+        - &ref_0
+          name: Primary Dark
+          id: primary_dark0
+  nav_color_group:
+    type: select
+    options:
+      allow_empty: false
+      value_key: id
+      preview:
+        text:
+          - key: name
+        icon:
+          - key: icon
+      values:
+        - id: primary
+          name: Primary
+        - *ref_0
+  footer_color_group:
+    type: select
+    options:
+      allow_empty: false
+      value_key: id
+      preview:
+        text:
+          - key: name
+        icon:
+          - key: icon
+      values:
+        - id: primary
+          name: Primary
+        - *ref_0
+  card_color_group:
+    type: select
+    options:
+      allow_empty: false
+      value_key: id
+      preview:
+        text:
+          - key: name
+        icon:
+          - key: icon
+      values:
+        - id: primary
+          name: Primary
+        - *ref_0
+  form_color_group:
+    type: select
+    options:
+      allow_empty: false
+      value_key: id
+      preview:
+        text:
+          - key: name
+        icon:
+          - key: icon
+      values:
+        - id: primary
+          name: Primary
+        - *ref_0
+  id:
+    hidden: true
+    instance_value: UUID
+  heading_font:
+    comment: >-
+      Write the name of any font from
+      [https://fonts.google.com/](https://fonts.google.com/) in data/fonts to
+      access it here. Note: fonts needs to have at least style 400 and 700
+      available
+    type: text
+  content_font:
+    comment: >-
+      Write the name of any font from
+      [https://fonts.google.com/](https://fonts.google.com/) in data/fonts to
+      access it here. Note: fonts needs to have at least style 400 and 700
+      available
+    type: text 
+  logo_font:
+    comment: >-
+      Write the name of any font from
+      [https://fonts.google.com/](https://fonts.google.com/) in data/fonts to
+      access it here. Note: fonts needs to have at least style 400 and 700
+      available
+    type: text 
+  showNote:
+    type: switch
+    comment: >-
+      Hide/Show the note that contains helpful information about the live
+      editing of this component. This note doesn't show up on the live site.
+_snippets:
+  videoEmbed:
+    template: eleventy_liquid_bookshop_component
+    inline: false
+    preview:
+      text: Youtube or Vimeo
+    definitions:
+      component_name: snippets/videoEmbed
+      named_args:
+        - editor_key: platform
+          type: string
+        - editor_key: videoId
+          type: string
+    _inputs:
+      videoId:
+        comment: "You can find this in the URL of the video you want to embed. For example, https://www.youtube.com/watch?v=YOUR_VIDEO_ID, or for vimeo https://vimeo.com/YOUR_VIDEO_ID"
+      platform:
+        comment: "Youtube or Vimeo"
+        type: choice
+        options:
+          allow_empty: false
+          value_key: id
+          values:
+            - id: youtube
+              name: Youtube
+            - id: vimeo
+              name: Vimeo
+_select_data: {}
+_structures:
+  content_blocks:
+    style: modal
+  editorial_blocks:
+    style: modal
+_editables: {}
+timezone: Etc/UTC
