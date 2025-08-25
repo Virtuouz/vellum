@@ -28,13 +28,19 @@
     <script>
   // Immediately-invoked function to set the theme on initial load.
   (function() {
+    const lightLogo = document.getElementById('logoLight');
+    const darkLogo = document.getElementById('logoDark');
     if (
       localStorage.theme === 'dark' || 
       (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
       document.documentElement.classList.add('dark');
+      lightLogo.classList.add('hidden');
+      darkLogo.classList.remove('hidden');
     } else {
       document.documentElement.classList.remove('dark');
+      lightLogo.classList.remove('hidden');
+      darkLogo.classList.add('hidden');
     }
   })();
 </script>
@@ -508,6 +514,8 @@ document.querySelectorAll('.tabs-tabs-header button').forEach(tabClick)
     const sunIconMobile = document.getElementById('sun-icon-mobile');
     const moonIconMobile = document.getElementById('moon-icon-mobile');
     const moonIcon = document.getElementById('moon-icon');
+    const lightLogo = document.getElementById('logoLight');
+    const darkLogo = document.getElementById('logoDark');
     const toggleButtons = document.querySelectorAll('#dark-toggle, #dark-toggle-mobile');
 
     /**
@@ -533,16 +541,32 @@ document.querySelectorAll('.tabs-tabs-header button').forEach(tabClick)
           moonIcon.classList.add('hidden');
           sunIconMobile.classList.remove('hidden');
           moonIconMobile.classList.add('hidden');
+          lightLogo.classList.remove('hidden');
+          darkLogo.classList.add('hidden');
         } else if (theme === 'dark') {
           sunIcon.classList.add('hidden');
           moonIcon.classList.remove('hidden');
           sunIconMobile.classList.add('hidden');
           moonIconMobile.classList.remove('hidden');
+          lightLogo.classList.add('hidden');
+          darkLogo.classList.remove('hidden');
         } else { // 'system'
           sunIcon.classList.remove('hidden');
           moonIcon.classList.remove('hidden');
           sunIconMobile.classList.remove('hidden');
           moonIconMobile.classList.remove('hidden');
+          if (
+      localStorage.theme === 'dark' || 
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+          
+              darkLogo.classList.remove('hidden');
+              lightLogo.classList.add('hidden');
+        }else {
+          
+              darkLogo.classList.add('hidden');
+              lightLogo.classList.remove('hidden');
+        }
         }
       }
     };
