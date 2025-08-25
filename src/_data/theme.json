@@ -24,5 +24,8 @@
     "code-inline-background": "#212529",
     "code-inline-text": "#e0b467",
     "code-block-background": "#1a1e22"
-  }
+  },
+  "heading_font": "Lato",
+  "content_font": "Lato",
+  "logo_font": "Lato"
 }
