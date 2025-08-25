@@ -16,7 +16,7 @@
                 add .hidden to me
             end">
                 <div>{{ banner.markdown | markdownify }}</div>
-                <button class="absolute top-2 -right-5 sm:-right-8" id="banner_button_{{ banner.id | slug | remove: '-' }}">{% bookshop "generic/heroLibraryIcon" heroLibraryIconName:"x-mark" iconType:"solid" iconSize:'small' roundedBorder:false color: banner.textColor  %}</button>
+                <button class="absolute top-2 -right-4 sm:-right-8" id="banner_button_{{ banner.id | slug | remove: '-' }}">{% bookshop "generic/heroLibraryIcon" heroLibraryIconName:"x-mark" iconType:"solid" iconSize:'small' roundedBorder:false color: banner.textColor  %}</button>
             </header>
         </div>
     </div>
