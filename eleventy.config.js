@@ -37,6 +37,7 @@ module.exports = async function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("./src/assets/js");
   eleventyConfig.addPassthroughCopy("./src/assets/uploads/**");
+    eleventyConfig.addPassthroughCopy({ "./src/images/favicon": "/" });
 
   let options = {
     html: true,
@@ -185,6 +186,7 @@ module.exports = async function (eleventyConfig) {
   );
 
   eleventyConfig.on("eleventy.before", () => {
+    execSync("node ./utils/generateFavicon.js");
     execSync("node ./utils/build-theme.js");
     execSync("node ./utils/permalinkDupCheck.js");
   });
