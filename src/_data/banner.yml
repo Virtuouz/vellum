@@ -1,6 +1,6 @@
 enable_banner: true
-markdown: "**This is a banner** https://vellumdocs.netlify.app/" 
-id: alto-banner-1
+markdown: "**This is a banner** It is set up to automatically expire on **2027-07-27**" 
+id: vellum banner 1
 show_until: 2027-07-27T00:00:00Z
 backgroundColor: '#2721a6'
 textColor: '#ffffff'
