@@ -148,6 +148,29 @@ These images are automatically optimized by using 11ty img plugin
 
 ![Example Image](/assets/images/uploads/aliensunrise_1.jpg)
 
+## Video Embeds (Youtube and Vimeo)
+
+There is a dedicated component for embedding YouTube and Vimeo videos.
+
+They are powered by:
+* https://github.com/paulirish/lite-youtube-embed
+* https://github.com/luwes/lite-vimeo-embed
+
+{% bookshop 'snippets/videoEmbed' platform: "youtube" videoId: "tKrJTc2DgbY" %}
+
+---
+
+{% bookshop 'snippets/videoEmbed' platform: "vimeo" videoId: "1025941874" %}
+
+They are rendered using a bookshop snippet. `\` has been added to the liquid tags to prevent the liquid from being interpreted.
+
+```liquid
+\{\% bookshop 'snippets/videoEmbed' platform: "youtube" videoId: "tKrJTc2DgbY" \%\}
+
+
+\{\% bookshop 'snippets/videoEmbed' platform: "vimeo" videoId: "1025941874" \%\}
+```
+
 ---
 
 ## Horizontal Rules
