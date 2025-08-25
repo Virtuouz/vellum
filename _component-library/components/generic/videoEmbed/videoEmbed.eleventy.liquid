@@ -1,0 +1,14 @@
+<div class="c-videoEmbed {% if thumbOnly %}  w-full h-full {% endif %}">
+  {% if platform == 'youtube' %}
+    <lite-youtube  videoid="{{videoId}}" style="background-image: url('https://i.ytimg.com/vi/{{videoId}}/hqdefault.jpg');">
+  <a href="https://youtube.com/watch?v={{videoId}}" class="lty-playbtn" title="Play Video">
+    <span class="lyt-visually-hidden">Play Video</span>
+  </a>
+</lite-youtube>
+    {% elsif platform == 'vimeo' %}
+        <lite-vimeo  videoid="{{videoId}}" style="background-image: url('https://i.vimeocdn.com/video/{{videoId}}.webp?mw=1600&mh=900&q=70');">
+  <div class="ltv-playbtn"></div>
+</lite-vimeo>
+  {% endif %}
+</div>
+
