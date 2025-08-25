@@ -155,6 +155,9 @@ module.exports = async function (eleventyConfig) {
     return itemUrl.length > 1 && pageUrl.indexOf(itemUrl) === 0;
   });
   eleventyConfig.addFilter("pathExists", pathExistsFilter);
+  eleventyConfig.addFilter("removeExtraWhitespace", function (str) {
+    return str.replace(/\s+/g, " ").trim();
+  });
   eleventyConfig.addLiquidFilter(
     "isDescendantOf",
     function (entry, currentPage) {
