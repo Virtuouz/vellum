@@ -20,6 +20,8 @@ tags: vellum
 editorial_blocks: []
 ---
 
+![Vellum Logo](</assets/images/uploads/Vellum Logo Gray.png>)
+
 ## What is Vellum?
 
 Vellum is a modern documentation template designed to serve a diverse audience, from non-technical content editors to experienced developers. It bridges the gap between simple, unscalable solutions and complex, development-heavy frameworks.
