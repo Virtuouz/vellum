@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "new": "npx @bookshop/init --component",
     "sass:build": "sass --no-source-map --load-path=node_modules src/assets/styles:src/css",
     "bookshop-sass:build": "bookshop-sass -b _component-library -o dist/css/bookshop.css",
     "build:theme": "node ./utils/build-theme.js",
