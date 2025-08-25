@@ -52,22 +52,6 @@
         end
   "
   >
- {% assign lightLogo = site.logoLightPath | pathExists %} 
- {% assign darkLogo = site.logoDarkPath | pathExists %} 
-  <div id="logoLight" class="">
-    {% if lightLogo and lightLogo != "" %}
-    <img  class="max-w-[150px]" src="{{ lightLogo }}" alt="logo for {{ site.name }}">
-    {% else  %}
-     <div class="cs-logoFont text-2xl hover:underline">{{ site.name }}</div> 
-    {% endif %}
-  </div>
-  <div id="logoDark" class="hidden">
-    {% if darkLogo and darkLogo != "" %}
-    <img class="max-w-[150px]" src="{{ darkLogo }}" alt="logo for {{ site.name }}">
-    {% else  %}
-     <div class="cs-logoFont text-2xl hover:underline">{{ site.name }}</div> 
-    {% endif %}
-  </div>
     <!-- Search and Collection Selection Section -->
     <div class="mt-4 flex flex-col gap-2 pb-4 mb-4 border-b border-borderColor-primary">
       <!-- Search Bar -->
@@ -119,8 +103,27 @@
           {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'xsmall' roundedBorder: false, themeColor: true  %}
         </button>
       </div>
+      <!-- Logo -->
+      {% assign lightLogo = site.logoLightPath | pathExists %} 
+      {% assign darkLogo = site.logoDarkPath | pathExists %} 
+        <div class="flex  justify-end lg:block lg:-order-1">
+          <div id="logoLight" class="">
+            {% if lightLogo and lightLogo != "" %}
+            <img  class="max-w-[150px]" src="{{ lightLogo }}" alt="logo for {{ site.name }}">
+            {% else  %}
+            <div class="cs-logoFont text-2xl hover:underline">{{ site.name }}</div>
+            {% endif %}
+          </div>
+          <div id="logoDark" class="hidden">
+            {% if darkLogo and darkLogo != "" %}
+            <img class="max-w-[150px]" src="{{ darkLogo }}" alt="logo for {{ site.name }}">
+            {% else  %}
+            <div class="cs-logoFont text-2xl hover:underline">{{ site.name }}</div>
+            {% endif %}
+          </div>
+        </div>
+
       {% if docCollections.size > 1 %}
-      
     <!-- Collection Selection Section -->
     <div class="relative">
         <button
