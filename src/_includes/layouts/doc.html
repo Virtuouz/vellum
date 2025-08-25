@@ -106,7 +106,7 @@
       <!-- Logo -->
       {% assign lightLogo = site.logoLightPath | pathExists %} 
       {% assign darkLogo = site.logoDarkPath | pathExists %} 
-        <div class="flex  justify-end lg:block lg:-order-1">
+        <a href="/" class="flex  justify-end lg:block lg:-order-1">
           <div id="logoLight" class="">
             {% if lightLogo and lightLogo != "" %}
             <img  class="max-w-[150px]" src="{{ lightLogo }}" alt="logo for {{ site.name }}">
@@ -121,7 +121,7 @@
             <div class="cs-logoFont text-2xl hover:underline">{{ site.name }}</div>
             {% endif %}
           </div>
-        </div>
+        </a>
 
       {% if docCollections.size > 1 %}
     <!-- Collection Selection Section -->
