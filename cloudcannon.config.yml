@@ -89,6 +89,10 @@ collections_config:
         hidden: true
       layout:
         hidden: true
+      tags:
+        type: select
+        options:
+          values: data.docCollections[*].key
     _select_data: null
     _structures: null
     add_options: null
