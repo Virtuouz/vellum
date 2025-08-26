@@ -1,9 +1,9 @@
-{% if text and env_bookshop_live %}
+{% if markdownContent and env_bookshop_live %}
     <div class="c-textBlock">    
         {{ markdownContent | markdownify  }}
     </div>
-{% elsif text %}
+{% elsif markdownContent %}
 <div class="c-textBlock">    
-        {{ markdownContent | render | markdownify  }}
+        {{ markdownContent | renderContent | markdownify  }}
     </div>
 {% endif %}
