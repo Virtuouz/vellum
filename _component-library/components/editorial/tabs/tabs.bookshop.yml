@@ -11,7 +11,7 @@ spec:
 blueprint:
   tabs:
     - title: Tab 1
-      editorial_block: bookshop:structure:editorial_blocks
+      editorial_blocks: [bookshop:structure:editorial_blocks]
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:

@@ -9,7 +9,8 @@
         checked="checked"
         {% endif %}
         disabled="disabled"><label class="task-list-item-label" for="task-item-{{ forloop.index }}">
-        {{ task.markdownContent }}</label>
+            {% bookshop "generic/textBlock" markdownContent: task.markdownContent %}
+        </label>
     </p>
   </li>
     {% endfor %}
