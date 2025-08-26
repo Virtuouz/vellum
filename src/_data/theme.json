@@ -34,76 +34,76 @@
       "comment": "Background color for the body of the page",
       "options": {
         "required": true
-      },
-      "background-surface": {
-        "type": "color",
-        "comment": "Background color for the main content area",
-        "options": {
-          "required": true
-        }
-      },
-      "background-interactive-hover": {
-        "type": "color",
-        "comment": "Background color for interactive elements when hovered",
-        "options": {
-          "required": true
-        }
-      },
-      "text-primary": {
-        "type": "color",
-        "comment": "Primary text color",
-        "options": {
-          "required": true
-        }
-      },
-      "text-muted": {
-        "type": "color",
-        "comment": "Secondary text color",
-        "options": {
-          "required": true
-        }
-      },
-      "border-primary": {
-        "type": "color",
-        "comment": "Border color for elements",
-        "options": {
-          "required": true
-        }
-      },
-      "accent-primary": {
-        "type": "color",
-        "comment": "Primary accent color",
-        "options": {
-          "required": true
-        }
-      },
-      "accent-hover": {
-        "type": "color",
-        "comment": "Accent color when hovered",
-        "options": {
-          "required": true
-        }
-      },
-      "code-inline-background": {
-        "type": "color",
-        "comment": "Background color for inline code blocks",
-        "options": {
-          "required": true
-        }
-      },
-      "code-inline-text": {
-        "type": "color",
-        "comment": "Text color for inline code blocks",
-        "options": {
-          "required": true
-        }
-      },
-      "code-block-background": {
-        "type": "color",
-        "comment": "Background color for code blocks",
-        "options": {
-          "required": true
-        }
+      }
+    },
+    "background-surface": {
+      "type": "color",
+      "comment": "Background color for the main content area",
+      "options": {
+        "required": true
+      }
+    },
+    "background-interactive-hover": {
+      "type": "color",
+      "comment": "Background color for interactive elements when hovered",
+      "options": {
+        "required": true
+      }
+    },
+    "text-primary": {
+      "type": "color",
+      "comment": "Primary text color",
+      "options": {
+        "required": true
+      }
+    },
+    "text-muted": {
+      "type": "color",
+      "comment": "Secondary text color",
+      "options": {
+        "required": true
+      }
+    },
+    "border-primary": {
+      "type": "color",
+      "comment": "Border color for elements",
+      "options": {
+        "required": true
+      }
+    },
+    "accent-primary": {
+      "type": "color",
+      "comment": "Primary accent color",
+      "options": {
+        "required": true
+      }
+    },
+    "accent-hover": {
+      "type": "color",
+      "comment": "Accent color when hovered",
+      "options": {
+        "required": true
+      }
+    },
+    "code-inline-background": {
+      "type": "color",
+      "comment": "Background color for inline code blocks",
+      "options": {
+        "required": true
+      }
+    },
+    "code-inline-text": {
+      "type": "color",
+      "comment": "Text color for inline code blocks",
+      "options": {
+        "required": true
+      }
+    },
+    "code-block-background": {
+      "type": "color",
+      "comment": "Background color for code blocks",
+      "options": {
+        "required": true
       }
     }
   }
