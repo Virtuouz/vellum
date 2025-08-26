@@ -189,7 +189,6 @@ module.exports = async function (eleventyConfig) {
   );
 
   eleventyConfig.on("eleventy.before", () => {
-    execSync("node ./utils/generateFavicon.js");
     execSync("node ./utils/build-theme.js");
     execSync("node ./utils/permalinkDupCheck.js");
   });
