@@ -36,3 +36,21 @@ When loading the project into cloud cannon please have the project settings matc
   }
 }
 ```
+
+## Commit to 1 editing format per page
+Vellum is designed to be able to create the exact same documentation output whethe you are writing raw markdown, or using the visual editor.
+
+That being said, it is not recommended to use both the visual editor or raw markdown on a single page. 
+
+If you are using the content editor, you will not have access to the the more complicated components such as tabs, accordions, callouts, and tasklists as they are not supported. To use them, you will need to use the raw markdown editor or the visual content block based editor.
+
+## Raw markdown vs Content editor
+I say raw markdown instead of the content editor because it is really easy to start writing markdown in the source editor, load up the visual editor or content editor, and then everything in your markdown editor gets escaped breaking your formatting.
+
+```md
+[my label]{.label .blue}
+
+then becomes
+
+\[my label\]\{.label .blue\}
+```
