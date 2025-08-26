@@ -27,7 +27,7 @@ collections_config:
       - '!robots.njk'
       - '!sitemap.njk'
       - '!404.md'
-    name: Pages
+    name: Docs
     description: All your docs
     icon: description
     documentation: null
