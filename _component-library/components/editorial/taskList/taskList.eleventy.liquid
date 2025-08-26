@@ -1,7 +1,5 @@
 <ul class="task-list-container">
     {% for task in tasks %}
-        
-    {% endfor %}
   <li class="task-list-item">
     <p><input
         type="checkbox"
@@ -14,4 +12,5 @@
         {{ task.markdownContent }}</label>
     </p>
   </li>
+    {% endfor %}
 </ul>
