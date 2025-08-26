@@ -1,0 +1,6 @@
+{% if env_bookshop_live %}
+{{text  | markdownify}}
+   {% else %}     
+{{text | renderContent | markdownify}}
+{% endif %}
+
