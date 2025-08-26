@@ -1,29 +1,22 @@
 {
+  "name": "Vellum",
+  "url": "https://example.com",
   "logoLightPath": "/assets/images/uploads/Vellum Logo Gray.png",
   "logoDarkPath": "/assets/images/uploads/Vellum Logo Gray.png",
   "faviconPath": "/assets/images/uploads/Vellum Favicon.png",
-  "name": "Vellum",
-  "url": "https://example.com",
+  "socialImage": "",
   "customCode": {
     "headCode": "",
     "bodyCode": ""
   },
-  "socialMediaLinks": [
-    {
-      "label": "Xwitter",
-      "linkUrl": "https://twitter.com/"
-    },
-    {
-      "label": "Facebook",
-      "linkUrl": "https://www.facebook.com/"
-    },
-    {
-      "label": "Dribble",
-      "linkUrl": "https://dribbble.com/"
-    }
-  ],
-  "socialImage": "",
   "_inputs": {
+    "name": {
+      "type": "text",
+      "comment": "The name of your website"
+    },
+    "url": {
+      "comment": "The URL of your website"
+    },
     "headCode": {
       "comment": "Add code at the end of the <head> tag",
       "type": "code"
