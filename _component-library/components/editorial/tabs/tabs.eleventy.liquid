@@ -4,13 +4,13 @@
        
         
         
-    <button type="button" class="tabs-tab-button{% if tabs.first == tab %}active{% endif %} "  data-tab="{{ forloop.index }}" data-id="{{tab.title | slug}}" >{{ tab.title }}</button>
+    <button type="button" class="tabs-tab-button {% if tabs.first == tab %}active{% endif %} "  data-tab="{{ forloop.index }}" data-id="{{tab.title | slug}}" {% if tabs.first == tab %}data-active{% endif %} >{{ tab.title }}</button>
     {% endfor %}
   </div>
   <div class="tabs-tabs-container">
     {% for tab in tabs %}
         
-<div class="tabs-tab-content {% if tabs.first == tab %}active{% endif %}" data-tab="{{ forloop.index }}" data-id="{{tab.title | slug}}" {% if tabs.first == tab %}data-active=""{% endif %}>
+<div class="tabs-tab-content {% if tabs.first == tab %}active{% endif %}" data-tab="{{ forloop.index }}" data-id="{{tab.title | slug}}" {% if tabs.first == tab %}data-active{% endif %}>
     {% for editorial_block in tab.editorials %}
         
     {% bookshop {{editorial_block._bookshop_name}} bind: editorial_block %}

@@ -10,7 +10,7 @@ spec:
 # Defines the structure of this component, as well as the default values
 blueprint:
   tabs:
-    - title: Tab 1
+    - title: 
       editorials: [bookshop:structure:editorial_blocks!(generic/textBlock)]
 
 # Overrides any fields in the blueprint when viewing this component in the component browser

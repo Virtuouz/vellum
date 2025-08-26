@@ -10,7 +10,7 @@ spec:
 # Defines the structure of this component, as well as the default values
 blueprint:
   accordions:
-    - title: Accordion 1
+    - title: 
       opened: false
       editorials: [bookshop:structure:editorial_blocks!(generic/textBlock)]
 
