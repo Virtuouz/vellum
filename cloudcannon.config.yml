@@ -511,13 +511,13 @@ _snippets:
         options:
           value_key: id
           values:
-            - id: .green .label
+            - id: green label
               name: Green Label
-            - id: .red .label
+            - id: red label
               name: Red Label
-            - id: .blue .label
+            - id: blue label
               name: Blue Label
-            - id: .kbd
+            - id: kbd
               name: Keyboard
 _select_data: {}
 _structures:

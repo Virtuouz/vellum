@@ -21,11 +21,11 @@ _inputs:
     options:
       value_key: id
       values:
-        - id: .green .label
+        - id: label green
           name: Green Label
-        - id: .red .label
+        - id: label red 
           name: Red Label
-        - id: .blue .label
+        - id: label blue 
           name: Blue Label
-        - id: .kbd
+        - id: kbd
           name: Keyboard
