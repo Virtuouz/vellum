@@ -25,7 +25,6 @@ collections_config:
     output: true
     glob:
       - '!robots.njk'
-      - '!rss.njk'
       - '!sitemap.njk'
       - '!404.md'
     name: Pages
@@ -49,9 +48,11 @@ collections_config:
       removeFromNavigation:
         type: switch
         label: Remove from navigation
-        comment: Will remove this page from top navigation top nav and footer
+        comment: 
       eleventyExcludeFromCollections:
-        hidden: true
+        type: switch
+        label: Exclude from collections
+        comment: Exclude this page from collections, this wont show up in navigation or sitemap
       eleventyNavigation:
         label: Navigation
       eleventyNavigation.key:
@@ -72,6 +73,8 @@ collections_config:
           place that link here. Leave blank for all other situations. WARNING:
           this will prevent this page from building and showing up in your
           website.
+      eleventyNavigation.icon:
+        comment: What icon to use in the navigation
       pageLink:
         label: Page Location
         comment: The location of this page on your webiste i.e. Example.com/mylocation. Leave blank if you want to just use the page title as the page location.
@@ -99,10 +102,6 @@ collections_config:
         path: .cloudcannon/schemas/doc.md
     schema_key: null
 _inputs:
-  pagination:
-    hidden: true
-  layout:
-    hidden: true
   description:
     type: markdown
     options:
@@ -115,101 +114,24 @@ _inputs:
   socialImage:
     type: image
     hidden: false
-  color_group:
-    type: select
-    options:
-      allow_empty: false
-      value_key: id
-      preview:
-        text:
-          - key: name
-        icon:
-          - key: icon
-      values:
-        - id: primary
-          name: Primary
-        - &ref_0
-          name: Primary Dark
-          id: primary_dark0
-  nav_color_group:
-    type: select
-    options:
-      allow_empty: false
-      value_key: id
-      preview:
-        text:
-          - key: name
-        icon:
-          - key: icon
-      values:
-        - id: primary
-          name: Primary
-        - *ref_0
-  footer_color_group:
-    type: select
-    options:
-      allow_empty: false
-      value_key: id
-      preview:
-        text:
-          - key: name
-        icon:
-          - key: icon
-      values:
-        - id: primary
-          name: Primary
-        - *ref_0
-  card_color_group:
-    type: select
-    options:
-      allow_empty: false
-      value_key: id
-      preview:
-        text:
-          - key: name
-        icon:
-          - key: icon
-      values:
-        - id: primary
-          name: Primary
-        - *ref_0
-  form_color_group:
-    type: select
-    options:
-      allow_empty: false
-      value_key: id
-      preview:
-        text:
-          - key: name
-        icon:
-          - key: icon
-      values:
-        - id: primary
-          name: Primary
-        - *ref_0
   id:
     hidden: true
     instance_value: UUID
   heading_font:
     comment: >-
       Write the name of any font from
-      [https://fonts.google.com/](https://fonts.google.com/) in data/fonts to
-      access it here. Note: fonts needs to have at least style 400 and 700
-      available
+      [https://fonts.google.com/](https://fonts.google.com/) 
     type: text
   content_font:
     comment: >-
       Write the name of any font from
-      [https://fonts.google.com/](https://fonts.google.com/) in data/fonts to
-      access it here. Note: fonts needs to have at least style 400 and 700
+      [https://fonts.google.com/](https://fonts.google.com/) 
       available
     type: text 
   logo_font:
     comment: >-
       Write the name of any font from
-      [https://fonts.google.com/](https://fonts.google.com/) in data/fonts to
-      access it here. Note: fonts needs to have at least style 400 and 700
-      available
+      [https://fonts.google.com/](https://fonts.google.com/) 
     type: text 
   showNote:
     type: switch
