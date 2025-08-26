@@ -25,6 +25,9 @@ function generateCssVariables(themeObject) {
   return Object.entries(themeObject)
     .map(([key, value]) => {
       // Convert snake_case keys (like 'heading_font') to kebab-case (--heading-font)
+      if(key === '_inputs'){
+        return '';
+      }
       const cssVarName = key.replace(/_/g, '-');
       return `${indent}--${cssVarName}: ${value};`;
     })
