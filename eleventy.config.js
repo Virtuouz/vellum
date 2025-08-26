@@ -34,6 +34,8 @@ module.exports = async function (eleventyConfig) {
   );
   const { tab } = await import("@mdit/plugin-tab");
   const { tasklist } = await import("@mdit/plugin-tasklist");
+  const { RenderPlugin } = await import("@11ty/eleventy");
+
 
   eleventyConfig.addPassthroughCopy("./src/assets/js");
   eleventyConfig.addPassthroughCopy("./src/assets/uploads/**");
@@ -146,6 +148,7 @@ module.exports = async function (eleventyConfig) {
       theme: "dark",
     },
   });
+  eleventyConfig.addPlugin(RenderPlugin);
 
   eleventyConfig.addFilter("markdownify", (markdown) => md.render(markdown));
   eleventyConfig.addFilter("fileSubstringFilter", fileSubstringFilter);
