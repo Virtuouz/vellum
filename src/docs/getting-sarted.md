@@ -17,4 +17,22 @@ hero:
 content_blocks: []
 ---
 
-This would be where the getting started exists. In the future there would be a collection for people using the visual editor and for developers / technical users explaining how to extend the functionality of the template.
+## Cloudcannon editing
+This project uses the unified Cloudcannon configuration, please select the unified flag when first creating the site in Cloudcannon
+
+When loading the project into cloud cannon please have the project settings match the following:
+
+```json
+{
+  "ssg": "eleventy",
+  "mode": "hosted",
+  "build": {
+    "output": "dist",
+    "nodeVersion": "file",
+    "preserved_paths": "node_modules/,.cache/,dist/assets/images/",
+    "output_path": "dist",
+    "install_command": "npm i",
+    "build_command": "npm run build"
+  }
+}
+```

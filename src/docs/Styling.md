@@ -35,6 +35,8 @@ Headers are essential for structuring your document. Markdown provides six level
 ##### H5 Header (Used for fine-grained organization)
 ###### H6 Header (The smallest header)
 
+<h2 id="h2-header-a-major-section-11111">H2 Header (A major section)</h2>
+
 ---
 
 ## Paragraphs and Basic Text Formatting
