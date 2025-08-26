@@ -12,9 +12,12 @@ eleventyNavigation:
   icon: paint-brush
 pageLink:
 metaDesc: 
+socialImage:
+customCode:
+  headCode: ""
+  bodyCode: ""
 tags: vellum
-hero:
-content_blocks: []
+editorial_blocks: []
 ---
 
 
