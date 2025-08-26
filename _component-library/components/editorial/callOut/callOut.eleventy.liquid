@@ -1,3 +1,5 @@
 <div class="{{type}}">
-    {% bookshop "generic/textBlock" markdownContent: markdownContent %}
+    {% if editorial_block %}
+        {% bookshop {{editorial_block._bookshop_name}} bind: editorial_block %}    
+    {% endif %}
 </div>
