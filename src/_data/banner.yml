@@ -22,5 +22,7 @@ _inputs:
     type: date
     comment: Date to stop showing the banner
     hidden: '!enable_banner'
-  color_group:
+  backgroundColor:
+    hidden: '!enable_banner'
+  textColor:
     hidden: '!enable_banner'
