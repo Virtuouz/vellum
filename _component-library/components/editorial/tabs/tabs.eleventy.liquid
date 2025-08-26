@@ -11,9 +11,9 @@
     {% for tab in tabs %}
         
 <div class="tabs-tab-content {% if tabs.first == tab %}active{% endif %}" data-tab="{{ forloop.index }}" data-id="{{tab.title | slug}}" {% if tabs.first == tab %}data-active=""{% endif %}>
-    {% if tab.editorial_block %}
-        {% bookshop {{tab.editorial_block._bookshop_name}} bind: tab.editorial_block %}    
-    {% endif %}
+    {% for editorial_block in tab.editorials %}
+        
+    {% bookshop {{editorial_block._bookshop_name}} bind: editorial_block %}
 </div>
     {% endfor %}
 </div>

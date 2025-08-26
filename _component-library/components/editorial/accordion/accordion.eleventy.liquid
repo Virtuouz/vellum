@@ -6,7 +6,7 @@
   <summary>
     <span class="details-marker"></span>{{accordion.title}}</summary>
   <div class="details-content">
-    {% for editorial_block in accordion.editorial_blocks %}
+    {% for editorial_block in accordion.editorials %}
         
     {% bookshop {{editorial_block._bookshop_name}} bind: editorial_block %}
     {% endfor %}

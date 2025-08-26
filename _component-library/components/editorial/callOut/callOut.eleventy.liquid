@@ -1,5 +1,7 @@
 <div class="{{type}}">
-    {% if editorial_block %}
-        {% bookshop {{editorial_block._bookshop_name}} bind: editorial_block %}    
-    {% endif %}
+
+    {% for editorial_block in editorials %}
+        
+    {% bookshop {{editorial_block._bookshop_name}} bind: editorial_block %}
+    {% endfor %}
 </div>
