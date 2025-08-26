@@ -12,7 +12,7 @@ blueprint:
   accordions:
     - title: Accordion 1
       opened: false
-      editorial_blocks: [bookshop:structure:editorial_blocks!(generic/textBlock)]
+      editorials: [bookshop:structure:editorial_blocks!(generic/textBlock)]
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
