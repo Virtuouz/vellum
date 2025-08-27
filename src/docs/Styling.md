@@ -234,24 +234,29 @@ Nesting can be done by increasing the marker of the outer container
 
 ||| info
 **Information**
+
 This is a standard informational message. It uses the primary accent color.
 |||
 
 ::: warning
 **Warning**
+
 You should pay attention to this. It's not critical, but it's important.
 :::
 
 ||| error
 **Error!**
+
 Something went wrong. This requires immediate attention.
 |||
 
 |||| info
 **Information**
+
 This is a standard informational message. It uses the primary accent color.
 ||| warning
 **Warning**
+
 You should pay attention to this. It's not critical, but it's important.
 |||
 ||||
@@ -259,24 +264,29 @@ You should pay attention to this. It's not critical, but it's important.
 ```md
 ||| info
 **Information**
+
 This is a standard informational message. It uses the primary accent color.
 |||
 
 ::: warning
 **Warning**
+
 You should pay attention to this. It's not critical, but it's important.
 :::
 
 ||| error
 **Error!**
+
 Something went wrong. This requires immediate attention.
 |||
 
 |||| info
 **Information**
+
 This is a standard informational message. It uses the primary accent color.
 ||| warning
 **Warning**
+
 You should pay attention to this. It's not critical, but it's important.
 |||
 ||||
@@ -328,17 +338,6 @@ Other components, such as tabs, can also be nested.
 
 ---
 
-### Use Cases for Accordions in Documentation
-
-**FAQs:** <br> They are perfect for frequently asked questions, where a user can quickly scan the questions and only expand the ones relevant to them.
-
-**Step-by-Step Guides:** <br> For tutorials with many steps, accordions can break down the process into manageable, collapsible chunks. This helps users focus on one step at a time.
-
-**Glossaries or Definitions:** <br> You can list terms and hide their definitions within an accordion, creating a clean, interactive glossary.
-
-**API Reference Details:** <br> When documenting API endpoints, you can place detailed information like parameter descriptions, example requests, and response schemas inside accordions to keep the main view tidy.
-
----
 ++> What is the purpose of an accordion?
 Accordions help organize content into collapsible sections. This allows users to scan topics quickly and expand only the information they need, reducing clutter and improving readability.
 ++>
