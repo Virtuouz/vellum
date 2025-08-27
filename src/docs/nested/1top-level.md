@@ -1,21 +1,21 @@
 ---
 _schema: default
 draft: false
-title: Page
+title: Nested
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  key: page
-  order: 
-  title:
+  key: top-level
+  order: 99
+  title: Top Level
   parent:
   url:
-  icon:
+  icon: book-open
 pageLink: 
 metaDesc: 
 socialImage:
 customCode:
   headCode: ""
   bodyCode: ""
-tags:
+tags: vellum
 editorial_blocks: []
 ---

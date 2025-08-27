@@ -1,13 +1,13 @@
 ---
 _schema: default
 draft: false
-title: Page
+title: Nested 3
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  key: page
+  key: Third-Level
   order: 
-  title:
-  parent:
+  title: Third Level
+  parent: Second Level
   url:
   icon:
 pageLink: 
@@ -16,6 +16,6 @@ socialImage:
 customCode:
   headCode: ""
   bodyCode: ""
-tags:
+tags: vellum
 editorial_blocks: []
 ---
