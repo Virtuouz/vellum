@@ -18,9 +18,13 @@ content_blocks: []
 ---
 
 ## Cloudcannon editing
-This project uses the unified Cloudcannon configuration, please select the unified flag when first creating the site in Cloudcannon
+||| warning
+**Important**
 
-When loading the project into cloud cannon please have the project settings match the following:
+This project uses the unified Cloudcannon configuration, please select the unified flag when first creating the site in Cloudcannon
+|||
+
+When loading the project into cloud cannon please have the project build settings match the following:
 
 ```json
 {
@@ -28,7 +32,7 @@ When loading the project into cloud cannon please have the project settings matc
   "mode": "hosted",
   "build": {
     "output": "dist",
-    "nodeVersion": "file",
+    "nodeVersion": "file", // labeled as use .nvmrc file in the UI
     "preserved_paths": "node_modules/,.cache/,dist/assets/images/",
     "output_path": "dist",
     "install_command": "npm i",
@@ -42,7 +46,7 @@ Vellum is designed to be able to create the exact same documentation output whet
 
 That being said, it is not recommended to use both the visual editor or raw markdown on a single page. 
 
-If you are using the content editor, you will not have access to the the more complicated components such as tabs, accordions, callouts, and tasklists as they are not supported. To use them, you will need to use the raw markdown editor or the visual content block based editor.
+If you are using the content editor, you will not have access to the the more complicated components such as tabs, accordions, callouts, and tasklists as they are not supported. To use them, you will need to use write the raw markdown or use the visual content block based editor.
 
 ## Raw markdown vs Content editor
 I say raw markdown instead of the content editor because it is really easy to start writing markdown in the source editor, load up the visual editor or content editor, and then everything in your markdown editor gets escaped breaking your formatting.
