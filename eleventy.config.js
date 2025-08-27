@@ -39,6 +39,7 @@ module.exports = async function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("./src/assets/js");
   eleventyConfig.addPassthroughCopy("./src/assets/uploads/**");
+  eleventyConfig.addPassthroughCopy("./src/assets/images");
     eleventyConfig.addPassthroughCopy({ "./src/images/favicon": "/" });
 
   let options = {
