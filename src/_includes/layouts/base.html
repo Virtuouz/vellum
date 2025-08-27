@@ -85,6 +85,48 @@
     {% endcomment %}
 
     <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
+    <script defer>
+  // The previous scroll position
+  let prevScrollpos = window.pageYOffset;
+  // The position where the last downward scroll started
+  let scrollDownStartPos = null;
+
+  window.onscroll = function () {
+    const nav = document.getElementById("mobile-navbar");
+    // Exit if the navbar isn't on the page to prevent errors
+    if (!nav) return; 
+
+    const currentScrollPos = window.pageYOffset;
+    // The distance in pixels to scroll down before the navbar hides
+    const scrollThreshold = 200; 
+    // An optional threshold to prevent the effect from happening at the very top of the page
+    const topThreshold = 250; 
+
+    // Check if scrolling down
+    if (prevScrollpos < currentScrollPos) {
+      // If this is the start of a new downward scroll, record the starting position
+      if (scrollDownStartPos === null) {
+        scrollDownStartPos = prevScrollpos;
+      }
+
+      // Hide the navbar only if past the top threshold AND scrolled down more than the scrollThreshold
+      if (
+        currentScrollPos > topThreshold &&
+        (currentScrollPos - scrollDownStartPos) > scrollThreshold
+      ) {
+        nav.style.top = "-" + nav.offsetHeight + "px";
+      }
+    } else { // This block executes when scrolling up
+      // Always show the navbar when scrolling up
+      nav.style.top = "0";
+      // Reset the downward scroll tracker since we are now scrolling up
+      scrollDownStartPos = null;
+    }
+
+    // Update the previous scroll position for the next scroll event
+    prevScrollpos = currentScrollPos;
+  };
+</script>
 
   <script defer>
 
