@@ -27,6 +27,7 @@ collections_config:
       - '!robots.njk'
       - '!sitemap.njk'
       - '!404.md'
+      - '!docs.json'
     name: Docs
     description: All your docs
     icon: description
