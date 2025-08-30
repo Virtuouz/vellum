@@ -16,8 +16,8 @@
   <li>
     <a
       data-umami-event="{{entry.title}}-navbar"
-      class="flex items-center gap-2 px-4 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-interactive-hover 
-        {% if entry.url == page.url %}bg-interactive-hover font-medium{% endif %}"
+      class="flex items-center gap-2 ml-2 px-2 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-interactive-hover 
+        {% if entry.url == page.url %}bg-interactive-hover font-medium border-l-2 border-accent-secondary{% endif %}"
       href="{{ entry.url }}"
     >
       <div class="opacity-70">{% bookshop "generic/heroLibraryIcon" heroLibraryIconName: entry.icon iconType: "outline" iconSize: 'xxsmall' roundedBorder: false, themeColor: true %}</div>

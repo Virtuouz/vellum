@@ -24,6 +24,8 @@ module.exports = {
         accent: {
           DEFAULT: 'var(--accent-primary)',
           hover: 'var(--accent-hover)',
+          secondary: 'var(--accent-secondary)',
+          'secondary-hover': 'var(--accent-secondary-hover)',
         },
 
         // Defines classes for code blocks
