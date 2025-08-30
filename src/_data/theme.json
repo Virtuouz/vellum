@@ -7,7 +7,9 @@
     "text-muted": "#6b7280",
     "border-primary": "#d1d5db",
     "accent-primary": "#0ea5e9",
-    "accent-hover": "#38bdf8",
+    "accent-hover": "#38bdf8",    
+    "accent-secondary": "#2c4c90",  
+    "accent-secondary-hover": "#5c69db",
     "code-inline-background": "#e5e7eb",
     "code-inline-text": "#994500",
     "code-block-background": "#f9fafb"
@@ -21,6 +23,8 @@
     "border-primary": "#333333",
     "accent-primary": "#5fb6e0",
     "accent-hover": "#7cc9f0",
+    "accent-secondary": "#1b3979",  
+    "accent-secondary-hover": "#2431a3",
     "code-inline-background": "#212529",
     "code-inline-text": "#e0b467",
     "code-block-background": "#1a1e22"
@@ -81,6 +85,20 @@
     "accent-hover": {
       "type": "color",
       "comment": "Accent color when hovered",
+      "options": {
+        "required": true
+      }
+    },
+    "accent-secondary": {
+      "type": "color",
+      "comment": "Secondary accent color",
+      "options": {
+        "required": true
+      }
+    },
+    "accent-secondary-hover": {
+      "type": "color",
+      "comment": "Secondary accent color when hovered",
       "options": {
         "required": true
       }
