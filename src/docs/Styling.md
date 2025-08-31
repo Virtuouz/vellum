@@ -432,6 +432,40 @@ This isn't the actual tree structure of this project. It's just a demo of the pl
   .eleventy.js
   package.json
 ```
+```md
+\```ultree
+. Eleventy Project Structure
+  src
+    _data
+      site.json
+      theme.json
+    _includes
+      layouts
+        base.liquid
+        doc.liquid
+      partials
+        footer.liquid
+        sidebar.liquid
+    assets
+      css
+        main.scss
+      images
+        logo.svg
+      js
+        theme-toggle.js
+    docs
+      collection-one
+        page-a.md
+        page-b.md
+      collection-two
+        index.md
+    index.md
+  _site
+    (Output Directory)
+  .eleventy.js
+  package.json
+\```
+```
 ---
 ## Bracketed spans
 
