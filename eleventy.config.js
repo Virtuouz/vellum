@@ -14,6 +14,7 @@ const markdownItAttrs = require("markdown-it-attrs");
 const markdownItContainer = require("markdown-it-container");
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans");
 const MarkdownItCollapsible = require("markdown-it-collapsible");
+const ultree = require('markdown-it-ultree');
 
 const yaml = require("js-yaml");
 
@@ -69,7 +70,8 @@ module.exports = async function (eleventyConfig) {
     .use(markdownItBracketedSpans)
     .use(markdownItAttrs)
     .use(tasklist)
-    .use(MarkdownItCollapsible);
+    .use(MarkdownItCollapsible)
+    .use(ultree);
 
   // --- Add these renderer overrides ---
 

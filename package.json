@@ -33,6 +33,7 @@
     "markdown-it-bracketed-spans": "^1.0.1",
     "markdown-it-collapsible": "^2.0.2",
     "markdown-it-container": "^4.0.0",
+    "markdown-it-ultree": "^1.0.0",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "sass": "^1.90.0",

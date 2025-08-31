@@ -386,7 +386,52 @@ email (string, optional): The user's email address.
 ++++
 +++
 ```
+----
+## File Tree
+This template comes with markdown-it-ultree installed to generate file trees that can be collapesed. The tree has been styled to match your theme.
+* https://www.npmjs.com/package/markdown-it-ultree
 
+
+Checkout out this example tree!
+
+||| warning
+**Note**
+
+This isn't the actual tree structure of this project. It's just a demo of the plugin.
+|||
+
+```ultree
+. Eleventy Project Structure
+  src
+    _data
+      site.json
+      theme.json
+    _includes
+      layouts
+        base.liquid
+        doc.liquid
+      partials
+        footer.liquid
+        sidebar.liquid
+    assets
+      css
+        main.scss
+      images
+        logo.svg
+      js
+        theme-toggle.js
+    docs
+      collection-one
+        page-a.md
+        page-b.md
+      collection-two
+        index.md
+    index.md
+  _site
+    (Output Directory)
+  .eleventy.js
+  package.json
+```
 ---
 ## Bracketed spans
 

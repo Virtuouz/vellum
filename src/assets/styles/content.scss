@@ -539,6 +539,124 @@ details[open] {
   }
 }
 
+/*
+  ULTree File Tree Styling
+  For the markdown-it-ultree plugin.
+*/
+
+.ultree {
+  // --- Container ---
+  // Sets the background and overall container style.
+  background-color: var(--code-block-background);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 24px 0;
+  font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 0.9rem;
+
+  // --- Reset Default List Styles ---
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  li {
+    position: relative;
+  }
+  ul > li {
+   list-style: none; 
+  }
+
+  // --- Guide Lines ---
+  // Creates the vertical and horizontal connector lines.
+  ul ul {
+    padding-left: 20px;
+  }
+
+  li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -12px;
+    width: 1px;
+    height: 100%;
+    background-color: var(--border-primary);
+  }
+
+  li:last-child::before {
+    // The last item's vertical line should only go halfway down.
+    height: 12px;
+  }
+
+  li::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: -12px;
+    width: 12px;
+    height: 1px;
+    background-color: var(--border-primary);
+  }
+
+  // --- Summary (Folder/File Name) Styling ---
+  summary {
+    display: block; // Ensures it takes up full width
+    cursor: pointer;
+    padding: 2px 0;
+    color: var(--text-primary);
+
+    // Remove the default browser marker (arrow).
+    &::-webkit-details-marker,
+    &::marker {
+      display: none;
+      content: "";
+    }
+
+    // --- Custom Folder/File Marker ---
+    &::before {
+      display: inline-block;
+      width: 1.2em;
+      font-weight: bold;
+      color: var(--text-muted);
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+
+  details details{
+    border-top: 0px solid var(--border-primary);
+    padding-top: 0px;
+    margin-top: 0px;
+  }
+
+  // --- Icon States for Details/Summary ---
+  details {
+    // Default state (closed folder icon)
+    > summary::before {
+      content: '▸'; // Right-pointing triangle for closed state
+    }
+  }
+
+  details[open] {
+    // Open state (open folder icon)
+    > summary::before {
+      content: '▾'; // Down-pointing triangle for open state
+    }
+  }
+
+  // --- Final Adjustments ---
+  // The very first list should not have any lines.
+  > ul > li::before,
+  > ul > li::after {
+    display: none;
+  }
+
+  // Adjust summary spacing to align with the marker
+  summary {
+    padding-left: 4px;
+  }
+}
 
 
 }
