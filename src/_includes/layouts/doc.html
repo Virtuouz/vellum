@@ -277,7 +277,11 @@
     
     <div class="flex-1 overflow-x-auto">
       <!-- Main Content Area -->
-      <main class=" flex w-full mx-auto p-8">
+      <div 
+      {% if primaryCollectionName %}
+        data-pagefind-filter="collection:{{ primaryCollectionName }}" 
+       {% endif %} 
+       class=" flex w-full mx-auto p-8">
         <div class="cs-mainContent mt-16 xl:mt-0 flex flex-col w-full cs-mainContent max-w-4xl mx-auto flex-1">
           <h1>{{ title }}</h1>
           <!-- Bookshop component for page content -->
@@ -291,7 +295,7 @@
             </article>
           {% endif %}
         </div>
-      </main>
+      </div>
     </div>
   </div>
  
