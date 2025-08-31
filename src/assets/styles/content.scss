@@ -267,6 +267,7 @@
 .tabs-tabs-header {
   display: flex;
   border-bottom: 1px solid var(--border-primary);
+  flex-wrap: wrap;
 }
 
 .tabs-tab-button {
