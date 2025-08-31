@@ -4,7 +4,7 @@ spec:
     - editorial_blocks
   label: "Task List"
   description:
-  icon:
+  icon: checklist
   tags: []
 
 # Defines the structure of this component, as well as the default values

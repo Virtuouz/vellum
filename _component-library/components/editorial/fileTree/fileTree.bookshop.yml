@@ -2,24 +2,29 @@
 spec:
   structures:
     - editorial_blocks
-  label: "Accordion"
+  label: "File Tree"
   description:
-  icon: unfold_more
+  icon: account_tree
   tags: []
 
 # Defines the structure of this component, as well as the default values
 blueprint:
-  accordions:
-    - title: 
-      opened: false
-      editorials: [bookshop:structure:editorial_blocks!(generic/textBlock)]
+  treeCode: >-
+    . root
+
+      src
+
+        index.html
+
+        style.css
+
+      output
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
-  title:
-    type: text
-    comment: 'The title of the accordion'
-    label: 'Accordion title'
+  treeCode:
+    type: code
+    comment: 'You can create a tree structure through new lines and indentation'

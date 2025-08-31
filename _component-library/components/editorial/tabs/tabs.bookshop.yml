@@ -4,7 +4,7 @@ spec:
     - editorial_blocks
   label: "Tabs"
   description:
-  icon:
+  icon: tabs
   tags: []
 
 # Defines the structure of this component, as well as the default values

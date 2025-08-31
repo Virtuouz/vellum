@@ -394,7 +394,7 @@ This template comes with markdown-it-ultree installed to generate file trees tha
 
 Checkout out this example tree!
 
-||| warning
+||| info
 **Note**
 
 This isn't the actual tree structure of this project. It's just a demo of the plugin.
