@@ -66,18 +66,12 @@
   <body
     class="  flex flex-col h-screen text-lg "
   >
- {% comment %} 
-    {% include "partials/site-head.html" %}
-{% endcomment %}
     {% include "partials/banner.html" %}
     <main
       tabindex="-1"
       id="main-content"
       class="flex flex-1 flex-col [&>:last-child]:flex-1 "
     >
-    {% comment %}
-      {% bookshop_include "hero" hero: hero %}  
-      {% endcomment %}
       {% block content %}{% endblock %}
     </main>
     {% comment %}
