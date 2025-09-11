@@ -1,0 +1,14 @@
+{% comment %}
+  This is a recursive helper that flattens the nested navigation tree.
+  It outputs a string for each clickable link in the format: "url;title;parent_title|||"
+  This allows the main template to parse it into a usable flat list.
+{% endcomment %}
+
+{%- if entry.url and entry.children.size == 0 -%}
+    {{ entry.url }};{{ entry.title }};{{ parentTitle }}|||
+{%- endif -%}
+
+{%- comment %} Recurse through children, passing the current entry's title as the new parentTitle {% endcomment %}
+{%- for child in entry.children -%}
+    {%- render "partials/get-flat-nav-data.html", entry: child, parentTitle: entry.title -%}
+{%- endfor -%}

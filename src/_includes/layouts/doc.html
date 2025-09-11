@@ -20,6 +20,49 @@
 {% endfor %}
 {% assign navPages = navPages | eleventyNavigation | uniq %}
 
+{% comment %}
+  --- PREVIOUS/NEXT NAVIGATION LOGIC ---
+  1. Flatten the entire nested navigation tree into a parsable string.
+  2. Split the string into an array of flat navigation items.
+  3. Loop through the flat array to find the index of the current page.
+  4. Get the items at the previous (index - 1) and next (index + 1) positions.
+{% endcomment %}
+{%- capture flat_nav_data_str -%}
+  {%- for entry in navPages -%}
+    {%- render "partials/get-flat-nav-data.html", entry: entry, parentTitle: "" -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- assign flatNavItems = flat_nav_data_str | split: '|||' | where_exp: "item", "item != ''" -%}
+
+{%- for item_str in flatNavItems -%}
+  {%- assign item_parts = item_str | split: ';' -%}
+  {%- assign item_url = item_parts[0] -%}
+  {%- if item_url == page.url -%}
+    {%- assign currentIndex = forloop.index0 -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if currentIndex != nil -%}
+  {%- assign prevIndex = currentIndex | minus: 1 -%}
+  {%- assign nextIndex = currentIndex | plus: 1 -%}
+
+  {%- if prevIndex >= 0 -%}
+    {%- assign prev_item_parts = flatNavItems[prevIndex] | split: ';' -%}
+    {%- assign prev_url = prev_item_parts[0] -%}
+    {%- assign prev_title = prev_item_parts[1] -%}
+    {%- assign prev_parent = prev_item_parts[2] -%}
+  {%- endif -%}
+
+  {%- if nextIndex < flatNavItems.size -%}
+    {%- assign next_item_parts = flatNavItems[nextIndex] | split: ';' -%}
+    {%- assign next_url = next_item_parts[0] -%}
+    {%- assign next_title = next_item_parts[1] -%}
+    {%- assign next_parent = next_item_parts[2] -%}
+  {%- endif -%}
+{%- endif -%}
+
+
 {% block content %}
 
 
@@ -76,21 +119,21 @@
       <div class="self-end flex gap-3 items-center">
         <!-- Theme Toggle -->
           <div class="lg:hidden flex justify-between">
-        <button
-          id="dark-toggle-mobile"
-          class="flex gap-2 p-1 items-center text-sm opacity-75 border border-textColor-primary rounded-full"
-          aria-label="Toggle color theme"
-        >
-          <div id="sun-icon-mobile">
-            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "sun" iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true %}
-          </div>
-          <div id="moon-icon-mobile">
-            {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "moon" iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true %}
-          </div>
-        </button>
+      <button
+        id="dark-toggle-mobile"
+        class="flex gap-2 p-1 items-center text-sm opacity-75 border border-textColor-primary rounded-full"
+        aria-label="Toggle color theme"
+      >
+        <div id="sun-icon-mobile">
+          {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "sun" iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true %}
+        </div>
+        <div id="moon-icon-mobile">
+          {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "moon" iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true %}
+        </div>
+      </button>
           </div>
         <button class="lg:hidden opacity-75"
-        
+       
           _="
           on click
             toggle .invisible on #navigation-bar
@@ -181,7 +224,7 @@
       {% endif %}
     </div>
 
-    
+   
     <!-- Navigation List -->
     <nav class="overflow-y-auto flex-grow min-h-32">
       <ul class="flex flex-col gap-1">
@@ -204,7 +247,7 @@
         </div>
       </button>
     </div>
-    
+   
   </aside>
 
   <div class="order-2 flex flex-col flex-1 min-w-0">
@@ -222,7 +265,7 @@
             {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "magnifying-glass" iconType: "solid" iconSize: 'xsmall' roundedBorder: false, themeColor: true %}
           </button>
           <button
-            
+           
             _="
             on click
               toggle .invisible on #navigation-bar
@@ -274,14 +317,14 @@
         </div>
       </div>
     </div>
-    
+   
     <div class="flex-1 overflow-x-auto">
       <!-- Main Content Area -->
       <div 
       {% if primaryCollectionName %}
         data-pagefind-filter="collection:{{ primaryCollectionName }}" 
-       {% endif %} 
-       class=" flex w-full mx-auto p-8">
+        {% endif %} 
+        class=" flex w-full mx-auto p-8">
         <div class="cs-mainContent mt-16 xl:mt-0 flex flex-col w-full cs-mainContent max-w-4xl mx-auto flex-1">
           <h1>{{ title }}</h1>
           <!-- Bookshop component for page content -->
@@ -294,6 +337,42 @@
               {{ content }}
             </article>
           {% endif %}
+
+          <!-- PREVIOUS/NEXT NAVIGATION RENDER -->
+          <div class="mt-12 pt-8 border-t border-borderColor-primary flex justify-between items-start gap-4">
+            {% if prev_url %}
+              <a href="{{ prev_url }}" class="flex-1 text-left p-4 border border-borderColor-primary rounded-md hover:bg-interactive-hover transition-colors duration-200">
+                <div class="text-sm text-muted flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                  </svg>
+                  Back
+                </div>
+                <div class="font-semibold text-textColor-primary mt-1">
+                  {% if prev_parent and prev_parent != "" %}<span class="text-muted font-normal">{{ prev_parent }} / </span>{% endif %}{{ prev_title }}
+                </div>
+              </a>
+            {% else %}
+              <div class="flex-1"></div> {% comment %}  Empty div to keep the "Back" link on the left {% endcomment %}
+            {% endif %}
+
+            {% if next_url %}
+              <a href="{{ next_url }}" class="flex-1 text-right p-4 border border-borderColor-primary rounded-md hover:bg-interactive-hover transition-colors duration-200">
+                <div class="text-sm text-muted flex items-center justify-end gap-2">
+                  Next
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                  </svg>
+                </div>
+                <div class="font-semibold text-textColor-primary mt-1">
+                  {% if next_parent and next_parent != "" %}<span class="text-muted font-normal">{{ next_parent }} / </span>{% endif %}{{ next_title }}
+                </div>
+              </a>
+            {% else %}
+              <div class="flex-1"></div> {% comment %}  Empty div to keep the "Back" link on the left  {% endcomment %}
+            {% endif %}
+          </div>
+
         </div>
       </div>
     </div>
