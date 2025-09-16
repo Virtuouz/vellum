@@ -110,7 +110,6 @@ async function generateFavicon() {
 
   // Extract markups and join them into a single HTML string
   const htmlContent = html.markups.join("\n");
-  console.log(htmlContent);
 
   const htmlFilePath = path.join(
     process.cwd(),
