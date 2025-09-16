@@ -1,6 +1,6 @@
 source: src
 paths:
-  uploads: assets/uploads/:title
+  uploads: assets/uploads/{title|slugify}
   static: ''
 data_config:
   banner:
@@ -11,7 +11,6 @@ data_config:
     path: _data/site.json
   theme:
     path: _data/theme.json
-collections_config_override: true
 collections_config:
   data:
     path: _data
@@ -22,7 +21,6 @@ collections_config:
     disable_file_actions: true 
   docs:
     path: docs
-    output: true
     glob:
       - '!robots.njk'
       - '!sitemap.njk'
@@ -31,34 +29,26 @@ collections_config:
     name: Docs
     description: All your docs
     icon: description
-    documentation: null
-    preview:
-      gallery: description
-    sort: null
-    sort_options: null
-    singular_name: null
-    singular_key: null
-    _editables: null
     _enabled_editors:
       - content
       - visual
     _inputs:
       title:
         label: Page Title
-        comment: Seo focused page title
+        comment: SEO focused page title
       removeFromNavigation:
         type: switch
         label: Remove from navigation
-        comment: 
       eleventyExcludeFromCollections:
         type: switch
         label: Exclude from collections
-        comment: Exclude this page from collections, this wont show up in navigation or sitemap
+        comment: Exclude this page from collections. This won't show up in navigation or sitemap.
       eleventyNavigation:
         label: Navigation
       eleventyNavigation.key:
         comment: How this page is identified in the navigation
       eleventyNavigation.order:
+        type: number
         comment: What order in the navigation
       eleventyNavigation.title:
         label: Display Title
@@ -76,7 +66,7 @@ collections_config:
           website.
       pageLink:
         label: Page Location
-        comment: The location of this page on your webiste i.e. Example.com/mylocation. Leave blank if you want to just use the page title as the page location.
+        comment: The location of this page on your website i.e. `example.com/mylocation`. Leave blank if you want to just use the page title as the page location.
         type: text
       metaDesc:
         type: textarea
@@ -92,19 +82,18 @@ collections_config:
         type: select
         options:
           values: data.docCollections[*].key
-    _select_data: null
-    _structures: null
-    add_options: null
-    create: null
-    disable_add: false
-    disable_add_folder: false
-    disable_file_actions: false
-    new_preview_url: null
     schemas:
       default:
         path: .cloudcannon/schemas/doc.md
-    schema_key: null
 _inputs:
+  headCode:
+    type: code
+    options:
+      syntax: html
+  bodyCode:
+    type: code
+    options:
+      syntax: html
   markdownContent:
     type: markdown
     options:
@@ -142,7 +131,6 @@ _inputs:
       initial_height: 135
   socialImage:
     type: image
-    hidden: false
   id:
     hidden: true
     instance_value: UUID
