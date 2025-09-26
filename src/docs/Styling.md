@@ -124,7 +124,7 @@ You can align columns by using colons (`:`) in the separator line.
 |Left|Center|Right|
 |Aligned|Aligned|Aligned|
 
-mardown of the table above 
+Markdown of the table above 
 
 ```md
 |Left-Aligned|Center-Aligned|Right-Aligned|
@@ -293,7 +293,7 @@ You should pay attention to this. It's not critical, but it's important.
 
 ---
 
-## Mardown Tabs
+## Markdown Tabs
 This is possible through markdown it tab plugin. Out of the box only a `tabs` container is configured, styled, and has the js to make it work.
 
 https://www.npmjs.com/package/@mdit/plugin-tab

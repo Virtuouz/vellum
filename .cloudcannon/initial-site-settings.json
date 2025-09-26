@@ -2,7 +2,6 @@
   "ssg": "eleventy",
   "mode": "hosted",
   "build": {
-    "output": "dist",
     "nodeVersion": "file",
     "preserved_paths": "node_modules/,.cache/,dist/assets/images/",
     "output_path": "dist",
