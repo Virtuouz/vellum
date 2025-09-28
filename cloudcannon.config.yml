@@ -39,11 +39,10 @@ collections_config:
       removeFromNavigation:
         type: switch
         label: Remove from navigation
-        comment: 
       eleventyExcludeFromCollections:
         type: switch
         label: Exclude from collections
-        comment: Exclude this page from collections. This wont show up in navigation or sitemap.
+        comment: Exclude this page from collections. This won't show up in navigation or sitemap.
       eleventyNavigation:
         label: Navigation
       eleventyNavigation.key:

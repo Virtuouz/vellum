@@ -124,7 +124,7 @@ You can align columns by using colons (`:`) in the separator line.
 |Left|Center|Right|
 |Aligned|Aligned|Aligned|
 
-Mardown of the table above 
+Markdown of the table above 
 
 ```md
 |Left-Aligned|Center-Aligned|Right-Aligned|
