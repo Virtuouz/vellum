@@ -16,7 +16,7 @@ _inputs:
     label: Unique ID
     hidden: '!enable_banner'
     comment: >-
-      Prevents repeated display for users who close the banner, changing ID
+      Prevents repeated display for users who close the banner. Changing ID
       resets for all.
   show_until:
     type: date
