@@ -104,7 +104,7 @@
   "
   >
     <!-- Search and Collection Selection Section -->
-    <div class="mt-4 flex flex-col gap-2 pb-4 mb-4 border-b border-borderColor-primary">
+    <div class="mt-4 justify-between flex flex-col gap-2 pb-4 mb-4 border-b border-borderColor-primary">
       <!-- Search Bar -->
       <button class="hidden lg:block relative bg-interactive-hover rounded-md"
         _="
@@ -124,19 +124,19 @@
       >
     <p class="opacity-40">Search</p> <div class="opacity-80"><span class="kbd">ctrl</span>+<span class="kbd">k</span></div></div>
       </button>      
-      <div class="self-end flex gap-3 items-center">
+      <div class="lg:hidden self-end flex gap-4 items-center">
         <!-- Theme Toggle -->
-          <div class="lg:hidden flex justify-between">
+          <div class=" flex justify-between">
       <button
         id="dark-toggle-mobile"
         class="flex gap-2 p-1 items-center text-sm opacity-75 border border-textColor-primary rounded-full"
         aria-label="Toggle color theme"
       >
         <div id="sun-icon-mobile">
-          {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "sun" iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true %}
+          {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "sun" iconType: "solid" iconSize: 'xxsmall' roundedBorder: false, themeColor: true %}
         </div>
         <div id="moon-icon-mobile">
-          {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "moon" iconType: "solid" iconSize: 'micro' roundedBorder: false, themeColor: true %}
+          {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "moon" iconType: "solid" iconSize: 'xxsmall' roundedBorder: false, themeColor: true %}
         </div>
       </button>
           </div>
@@ -151,7 +151,7 @@
           end
           "
         >
-          {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'xsmall' roundedBorder: false, themeColor: true  %}
+          {% bookshop "generic/heroLibraryIcon" heroLibraryIconName: "x-mark" iconType: "solid" iconSize: 'small' roundedBorder: false, themeColor: true  %}
         </button>
       </div>
       <!-- Logo -->
