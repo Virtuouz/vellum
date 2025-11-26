@@ -25,6 +25,55 @@ editorial_blocks:
           index.html
           style.css
         output
+  - _bookshop_name: editorial/accordion
+    accordions:
+      - title: Accordion
+        opened: true
+        editorials:
+          - _bookshop_name: generic/textBlock
+            markdownContent: This is cool
+          - _bookshop_name: editorial/tabs
+            tabs:
+              - title: Am I really nesting tabs in here?
+                editorials:
+                  - _bookshop_name: generic/textBlock
+                    markdownContent: 'no'
+              - title: yes I am
+                editorials:
+                  - _bookshop_name: generic/textBlock
+                    markdownContent: >-
+                      Your rich text content
+
+                      You can use **bold text** and *italic text* along with
+                      [links](http://google.com) and others options.
+  - _bookshop_name: generic/textBlock
+    markdownContent: >-
+      Your rich text content You can use **bold text** and *italic text* along
+      with [links](http://google.com) and others options.
+
+
+      > Check out this quote ma
+
+      >
+
+      > \-jane doe
+
+
+      <table><thead><tr><th><p>Separator</p></th><th><p>Item
+      2</p></th><th><p>Item 3</p></th></tr></thead><tbody><tr><td><p>Feature
+      1</p></td><td><p>X</p></td><td><p>N</p></td></tr><tr><td><p>Feautre
+      2</p></td><td><p>N</p></td><td><p>X</p></td></tr><tr><td><p><strong>Separaot</strong></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p>Feature
+      3</p></td><td><p>N</p></td><td><p>N</p></td></tr><tr><td><p>Feature
+      4</p></td><td><p> X </p></td><td><p>X</p></td></tr></tbody></table>
+
+
+      Thanks kind it, its a table
+
+
+      ## Teesting
+
+
+      asdfasdf
 ---
 ![Vellum Logo](/assets/images/uploads/Vellum%20Logo%20Gray.png)
 

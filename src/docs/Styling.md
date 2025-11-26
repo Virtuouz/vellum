@@ -4,23 +4,21 @@ draft: false
 title: Documentation Style Guide
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  key: Styling 
+  key: Styling
   order: 5
   title:
-  parent: 
+  parent:
   url:
   icon: paint-brush
 pageLink:
-metaDesc: 
+metaDesc:
 socialImage:
 customCode:
-  headCode: ""
-  bodyCode: ""
+  headCode: ''
+  bodyCode: ''
 tags: vellum
 editorial_blocks: []
 ---
-
-
 Welcome to the Documentation Style Guide! This document serves as a comprehensive reference for all the formatting options available in **Markdown**. You can use it as a template to see how various elements are rendered and to ensure consistency in your own documentation.
 
 ---
@@ -30,11 +28,14 @@ Welcome to the Documentation Style Guide! This document serves as a comprehensiv
 Headers are essential for structuring your document. Markdown provides six levels of headers.
 
 ## H2 Header (A major section)
-### H3 Header (A sub-section)
-#### H4 Header (Further sub-division)
-##### H5 Header (Used for fine-grained organization)
-###### H6 Header (The smallest header)
 
+### H3 Header (A sub-section)
+
+#### H4 Header (Further sub-division)
+
+##### H5 Header (Used for fine-grained organization)
+
+###### H6 Header (The smallest header)
 
 ---
 
@@ -42,14 +43,11 @@ Headers are essential for structuring your document. Markdown provides six level
 
 This is a standard paragraph. You can create a new paragraph by leaving a blank line. This paragraph contains **bold text** and *italic text*. You can also use ***bold and italic text together***. Strikethrough text is also supported.
 
-You can also create a new line within a paragraph using two spaces at the end of the line.  
-Like this.
+You can also create a new line within a paragraph using two spaces at the end of the line.<br> Like this.
 
-> This is a blockquote. It's often used for quoting a passage from another source or for emphasizing a particular point.
-> You can have multiple paragraphs within a blockquote.
+> This is a blockquote. It's often used for quoting a passage from another source or for emphasizing a particular point. You can have multiple paragraphs within a blockquote.
 >
-> > This is a nested blockquote.
-> > It's useful for quoting a quote!
+> > This is a nested blockquote. It's useful for quoting a quote!
 
 ---
 
@@ -61,18 +59,18 @@ Lists are great for organizing information. There are ordered lists, unordered l
 
 * Item one
 * Item two
-    * A nested item
-    * Another nested item
+  * A nested item
+  * Another nested item
 * Item three
 
 ### Ordered Lists
 
-1.  First item
-2.  Second item
-3.  Third item
-    1.  A nested ordered item
-    2.  Another nested ordered item
-4.  Fourth item
+1. First item
+2. Second item
+3. Third item
+   1. A nested ordered item
+   2. Another nested ordered item
+4. Fourth item
 
 ---
 
@@ -102,12 +100,7 @@ Tables are useful for presenting data in a structured format.
 
 These tables are made responsive at small sizes through table-saw, which is injected by 11ty transform as a final build step.
 
-
-|Header 1|Header 2|Header 3|
-|---|---|---|
-|Row 1, Col 1|Row 1, Col 2|Row 1, Col 3|
-|Row 2, Col 1|Row 2, Col 2|Row 2, Col 3|
-|Row 3, Col 1|Row 3, Col 2|Row 3, Col 3|
+\|Header 1\|Header 2\|Header 3\| \|---\|---\|---\| \|Row 1, Col 1\|Row 1, Col 2\|Row 1, Col 3\| \|Row 2, Col 1\|Row 2, Col 2\|Row 2, Col 3\| \|Row 3, Col 1\|Row 3, Col 2\|Row 3, Col 3\|
 
 ```md
 |Header 1|Header 2|Header 3|
@@ -119,12 +112,9 @@ These tables are made responsive at small sizes through table-saw, which is inje
 
 You can align columns by using colons (`:`) in the separator line.
 
-|Left-Aligned|Center-Aligned|Right-Aligned|
-|:---|:---:|---:|
-|Left|Center|Right|
-|Aligned|Aligned|Aligned|
+\|Left-Aligned\|Center-Aligned\|Right-Aligned\| \|:---\|:---:\|---:\| \|Left\|Center\|Right\| \|Aligned\|Aligned\|Aligned\|
 
-mardown of the table above 
+mardown of the table above
 
 ```md
 |Left-Aligned|Center-Aligned|Right-Aligned|
@@ -132,7 +122,6 @@ mardown of the table above
 |Left|Center|Right|
 |Aligned|Aligned|Aligned|
 ```
-
 
 ## Links and Images
 
@@ -157,6 +146,7 @@ These images are automatically optimized by using 11ty img plugin
 There is a dedicated component for embedding YouTube and Vimeo videos.
 
 They are powered by:
+
 * https://github.com/paulirish/lite-youtube-embed
 * https://github.com/luwes/lite-vimeo-embed
 
@@ -186,6 +176,7 @@ A horizontal rule is a line that separates content. It's great for visually brea
 You can create a horizontal rule using three or more hyphens (`---`), asterisks (`***`), or underscores (`___`). All three will produce the same result.
 
 ---
+
 ## Mermaid support
 
 ```mermaid
@@ -202,12 +193,9 @@ You can create a horizontal rule using three or more hyphens (`---`), asterisks 
 
 Task lists (or checkboxes) are a great way to track to-do items.
 
-- [x] This is a completed task.
-    
-- [ ] This is an incomplete task.
-    
-- [ ] Another incomplete task.
-    
+* \[x\] This is a completed task.
+* \[ \] This is an incomplete task.
+* \[ \] Another incomplete task.
 
 ---
 
@@ -221,7 +209,7 @@ Sometimes you need to display a character that Markdown would normally format, l
 
 ## Out of the box markdown containers
 
-Markdown-it container plugin is installed. 
+Markdown-it container plugin is installed.
 
 https://www.npmjs.com/package/markdown-it-container
 
@@ -231,34 +219,23 @@ Either `:::` or `|||` can be used to create a container. If you are trying to pl
 
 Nesting can be done by increasing the marker of the outer container
 
-||| info
-**Information**
+\|\|\| info **Information**
 
-This is a standard informational message. It uses the primary accent color.
-|||
+This is a standard informational message. It uses the primary accent color. \|\|\|
 
-::: warning
-**Warning**
+\::: warning **Warning**
 
-You should pay attention to this. It's not critical, but it's important.
-:::
+You should pay attention to this. It's not critical, but it's important. :::
 
-||| error
-**Error!**
+\|\|\| error **Error!**
 
-Something went wrong. This requires immediate attention.
-|||
+Something went wrong. This requires immediate attention. \|\|\|
 
-|||| info
-**Information**
+\|\|\|\| info **Information**
 
-This is a standard informational message. It uses the primary accent color.
-||| warning
-**Warning**
+This is a standard informational message. It uses the primary accent color. \|\|\| warning **Warning**
 
-You should pay attention to this. It's not critical, but it's important.
-|||
-||||
+You should pay attention to this. It's not critical, but it's important. \|\|\| \|\|\|\|
 
 ```md
 ||| info
@@ -294,22 +271,18 @@ You should pay attention to this. It's not critical, but it's important.
 ---
 
 ## Mardown Tabs
+
 This is possible through markdown it tab plugin. Out of the box only a `tabs` container is configured, styled, and has the js to make it work.
 
 https://www.npmjs.com/package/@mdit/plugin-tab
 
-::: tabs#fruit
+\::: tabs#fruit
 
-@tab:active Apple#apple
-This is a tab about **apples**
+@tab:active Apple#apple This is a tab about **apples**
 
-@tab Banana#banana
-This is a tab about **bananas**
+@tab Banana#banana This is a tab about **bananas**
 
-@tab Oranges#orange
-This is a tab about **oranges**
-:::
-
+@tab Oranges#orange This is a tab about **oranges** :::
 
 ```md
 ::: tabs#fruit
@@ -324,10 +297,12 @@ This is a tab about **bananas**
 This is a tab about **oranges**
 :::
 ```
-----
+
+---
+
 ## Accordion
-These acordions are possible through markdown-it-collapsible plugin:
-https://www.npmjs.com/package/markdown-it-collapsible
+
+These acordions are possible through markdown-it-collapsible plugin: https://www.npmjs.com/package/markdown-it-collapsible
 
 The the default rendering of this plugin has been modified for styling purposes and nested accordion support.
 
@@ -337,29 +312,23 @@ Other components, such as tabs, can also be nested.
 
 ---
 
-++> What is the purpose of an accordion?
-Accordions help organize content into collapsible sections. This allows users to scan topics quickly and expand only the information they need, reducing clutter and improving readability.
-++>
+\++&gt; What is the purpose of an accordion? Accordions help organize content into collapsible sections. This allows users to scan topics quickly and expand only the information they need, reducing clutter and improving readability. ++&gt;
 
-+++ How do you create a "Prerequisites" section for a tutorial?
-Before you begin, make sure you have the following installed:
+\+++ How do you create a "Prerequisites" section for a tutorial? Before you begin, make sure you have the following installed:
 
 * **Node.js**: Version 18 or higher.
 * **Git**: For version control.
-* **A code editor**: We recommend VS Code.
-+++
+* **A code editor**: We recommend VS Code. +++
 
-+++ Can I nest accordions?
-Yes, you can nest accordions to create hierarchical collapsible sections. For every nested accordion level you need to add an extra `+` in the beginning of the markdown.
+\+++ Can I nest accordions? Yes, you can nest accordions to create hierarchical collapsible sections. For every nested accordion level you need to add an extra `+` in the beginning of the markdown.
 
-++++ Inner Accordion: API Parameters
+\++++ Inner Accordion: API Parameters
 
 id (string, required): The unique identifier for the user.
 
 email (string, optional): The user's email address.
 
-++++
-+++
+\++++ +++
 
 ```md
 ++> What is the purpose of an accordion?
@@ -386,19 +355,20 @@ email (string, optional): The user's email address.
 ++++
 +++
 ```
-----
-## File Tree
-This template comes with markdown-it-ultree installed to generate file trees that can be collapesed. The tree has been styled to match your theme.
-* https://www.npmjs.com/package/markdown-it-ultree
 
+---
+
+## File Tree
+
+This template comes with markdown-it-ultree installed to generate file trees that can be collapesed. The tree has been styled to match your theme.
+
+* https://www.npmjs.com/package/markdown-it-ultree
 
 Checkout out this example tree!
 
-||| info
-**Note**
+\|\|\| info **Note**
 
-This isn't the actual tree structure of this project. It's just a demo of the plugin.
-|||
+This isn't the actual tree structure of this project. It's just a demo of the plugin. \|\|\|
 
 ```ultree
 . Eleventy Project Structure
@@ -432,10 +402,13 @@ This isn't the actual tree structure of this project. It's just a demo of the pl
   .eleventy.js
   package.json
 ```
+
 ---
+
 ## Bracketed spans
 
 This template comes with the following markdown-it plugins installed
+
 * https://www.npmjs.com/package/markdown-it-bracketed-spans
 * https://www.npmjs.com/package/markdown-it-attrs
 
@@ -443,17 +416,17 @@ The styles below come out of the box.
 
 ---
 
-To save the file, press [Ctrl]{.kbd} + [S]{.kbd}.
+To save the file, press \[Ctrl\]\{.kbd\} + \[S\]\{.kbd\}.
 
-To open the command palette, use [Ctrl]{.kbd} + [Shift]{.kbd} + [P]{.kbd}.
+To open the command palette, use \[Ctrl\]\{.kbd\} + \[Shift\]\{.kbd\} + \[P\]\{.kbd\}.
 
-Project status: [Completed]{.label .green}
+Project status: \[Completed\]\{.label .green\}
 
-Document version: [v2.1 (In Review)]{.label .orange}
+Document version: \[v2.1 (In Review)\]\{.label .orange\}
 
-Action required: [Approval Needed]{.label .red}
+Action required: \[Approval Needed\]\{.label .red\}
 
-Category: [Marketing Collateral]{.label .blue}
+Category: \[Marketing Collateral\]\{.label .blue\}
 
 ```md
 To save the file, press [Ctrl]{.kbd} + [S]{.kbd}.
