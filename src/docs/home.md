@@ -73,7 +73,8 @@ editorial_blocks:
       ## Teesting
 
 
-      asdfasdf
+      asdfasdf {% bookshop 'generic/styledText' text: "Testing" style: "green
+      label" %} asdfasf
 ---
 ![Vellum Logo](/assets/images/uploads/Vellum%20Logo%20Gray.png)
 
