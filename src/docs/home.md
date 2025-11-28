@@ -49,7 +49,9 @@ editorial_blocks:
   - _bookshop_name: generic/textBlock
     markdownContent: >-
       Your rich text content You can use **bold text** and *italic text* along
-      with [links](http://google.com) and others options.
+      with [links](http://google.com) and others options. {% bookshop
+      'generic/styledText' text: "Oh yeah" style: "green label" %} This should
+      be inline
 
 
       > Check out this quote ma
