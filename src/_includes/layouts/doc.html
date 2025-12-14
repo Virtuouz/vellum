@@ -268,6 +268,7 @@
   {% endif %}
 
   <div class="order-2 flex flex-col flex-1 min-w-0">
+    {% include "partials/banner.html" %}
     <!-- Mobile TOC Dropdown -->
     <div id="mobile-navbar" class="transition-all duration-300 {% if tocExists %}xl:hidden{% else  %}lg:hidden {% endif %} sticky top-0 z-10 w-full bg-body p-4 border-b border-borderColor-primary">
        <div class="lg:hidden flex gap-4 justify-end opacity-75 w-full bg-body ">
