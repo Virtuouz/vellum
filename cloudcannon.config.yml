@@ -30,9 +30,10 @@ collections_config:
     description: All your docs
     icon: description
     url: /[relative_base_path]/{pageLink|default=title|lowercase|slugify}/
+    new_preview_url: /
     _enabled_editors:
-      - content
       - visual
+      - content
     _inputs:
       title:
         label: Page Title
