@@ -18,7 +18,30 @@ const ultree = require('markdown-it-ultree');
 
 const yaml = require("js-yaml");
 
+const slugify = (key) =>
+  key
+    .toLowerCase()
+    .replace(/[^a-z0-9._]+/g, "-")
+    .replace(/^-|-$/g, "");
+
 const markdownItAnchor = require("markdown-it-anchor");
+const linkAfterHeader = markdownItAnchor.permalink.linkInsideHeader({
+  class: "anchor",
+  symbol: "<span >#</span>",
+  style: "aria-labelledby",
+});
+const markdownItAnchorOptions = {
+  level: [1, 2, 3,4,5,6],
+  slugify: (str) =>
+    slugify(str, {
+      lower: true,
+      strict: true,
+      remove: /["]/g,
+    }),
+  tabIndex: false,
+  // simply use the constant defined above
+  permalink: linkAfterHeader, 
+};
 const pluginTOC = require("eleventy-plugin-nesting-toc");
 const markdownIt = require("markdown-it"),
   md = markdownIt({
@@ -52,7 +75,7 @@ module.exports = async function (eleventyConfig) {
   // Initialize markdown-it
   const md = markdownIt(options)
     .disable(["code"])
-    .use(markdownItAnchor)
+    .use(markdownItAnchor, markdownItAnchorOptions)
     .use(markdownItContainer, "div")
     .use(markdownItContainer, "info", {
       marker: "|",
