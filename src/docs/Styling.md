@@ -140,9 +140,9 @@ Links and images are essential for connecting to other resources and adding visu
 
 ### Links
 
-This is a [link to Google](https://www.google.com). You can also use reference-style links, which can make your markdown cleaner for multiple links to the same URL.
+This is a [link to Google](https://www.google.com){target=_blank}. You can also use reference-style links, which can make your markdown cleaner for multiple links to the same URL.
 
-Here's an example: [Google Home Page](https://www.google.com).
+Here's an example: [Google Home Page](https://www.google.com){target=_blank}.
 
 ### Images
 
@@ -157,8 +157,8 @@ These images are automatically optimized by using 11ty img plugin
 There is a dedicated component for embedding YouTube and Vimeo videos.
 
 They are powered by:
-* https://github.com/paulirish/lite-youtube-embed
-* https://github.com/luwes/lite-vimeo-embed
+* [https://github.com/paulirish/lite-youtube-embed](https://github.com/paulirish/lite-youtube-embed){target=_blank}
+* [https://github.com/luwes/lite-vimeo-embed](https://github.com/luwes/lite-vimeo-embed){target=_blank}
 
 {% bookshop 'snippets/videoEmbed' platform: "youtube" videoId: "tKrJTc2DgbY" %}
 
@@ -223,7 +223,7 @@ Sometimes you need to display a character that Markdown would normally format, l
 
 Markdown-it container plugin is installed. 
 
-https://www.npmjs.com/package/markdown-it-container
+[https://www.npmjs.com/package/markdown-it-container](https://www.npmjs.com/package/markdown-it-container){target=_blank}
 
 The following containers come defined and styled out of the box
 
@@ -296,7 +296,7 @@ You should pay attention to this. It's not critical, but it's important.
 ## Markdown Tabs
 This is possible through markdown it tab plugin. Out of the box only a `tabs` container is configured, styled, and has the js to make it work.
 
-https://www.npmjs.com/package/@mdit/plugin-tab
+[https://www.npmjs.com/package/@mdit/plugin-tab](https://www.npmjs.com/package/@mdit/plugin-tab){target=_blank}
 
 ::: tabs#fruit
 
@@ -327,7 +327,7 @@ This is a tab about **oranges**
 ----
 ## Accordion
 These acordions are possible through markdown-it-collapsible plugin:
-https://www.npmjs.com/package/markdown-it-collapsible
+[https://www.npmjs.com/package/markdown-it-collapsible](https://www.npmjs.com/package/markdown-it-collapsible){target=_blank}
 
 The the default rendering of this plugin has been modified for styling purposes and nested accordion support.
 
@@ -389,7 +389,7 @@ email (string, optional): The user's email address.
 ----
 ## File Tree
 This template comes with markdown-it-ultree installed to generate file trees that can be collapesed. The tree has been styled to match your theme.
-* https://www.npmjs.com/package/markdown-it-ultree
+* [https://www.npmjs.com/package/markdown-it-ultree](https://www.npmjs.com/package/markdown-it-ultree){target=_blank}
 
 
 Checkout out this example tree!
@@ -470,8 +470,8 @@ This isn't the actual tree structure of this project. It's just a demo of the pl
 ## Bracketed spans
 
 This template comes with the following markdown-it plugins installed
-* https://www.npmjs.com/package/markdown-it-bracketed-spans
-* https://www.npmjs.com/package/markdown-it-attrs
+* [https://www.npmjs.com/package/markdown-it-bracketed-spans](https://www.npmjs.com/package/markdown-it-bracketed-spans){target=_blank}
+* [https://www.npmjs.com/package/markdown-it-attrs](https://www.npmjs.com/package/markdown-it-attrs){target=_blank}
 
 The styles below come out of the box.
 
