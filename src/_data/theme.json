@@ -33,6 +33,20 @@
   "content_font": "Lato",
   "logo_font": "Lato",
   "_inputs": {
+    "light": {
+      "options": {
+      "preview": {
+        "icon": "light_mode"
+      }
+      }
+    },
+    "dark": {
+      "options": {
+      "preview": {
+        "icon": "dark_mode"
+      }
+      }
+    },
     "background-body": {
       "type": "color",
       "comment": "Background color for the body of the page",
