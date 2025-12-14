@@ -17,12 +17,8 @@ const MarkdownItCollapsible = require("markdown-it-collapsible");
 const ultree = require('markdown-it-ultree');
 
 const yaml = require("js-yaml");
+const slugify = require("slugify");
 
-const slugify = (key) =>
-  key
-    .toLowerCase()
-    .replace(/[^a-z0-9._]+/g, "-")
-    .replace(/^-|-$/g, "");
 
 const markdownItAnchor = require("markdown-it-anchor");
 const linkAfterHeader = markdownItAnchor.permalink.linkInsideHeader({
@@ -42,7 +38,7 @@ const markdownItAnchorOptions = {
   // simply use the constant defined above
   permalink: linkAfterHeader, 
 };
-const pluginTOC = require("eleventy-plugin-nesting-toc");
+const pluginTOC = require("eleventy-plugin-toc");
 const markdownIt = require("markdown-it"),
   md = markdownIt({
     html: true,
@@ -162,7 +158,9 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
   eleventyConfig.addDataExtension("yml", (contents) => yaml.load(contents));
 
-  eleventyConfig.addPlugin(pluginTOC);
+  eleventyConfig.addPlugin(pluginTOC, {
+    tags: ["h1", "h2", "h3", "h4", "h5", "h6"],
+  });
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
