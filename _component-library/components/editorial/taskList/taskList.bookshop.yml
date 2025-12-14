@@ -3,7 +3,7 @@ spec:
   structures:
     - editorial_blocks
   label: "Task List"
-  description:
+  description: Simple checkboxes that can be checked or unchecked
   icon: checklist
   tags: []
 
