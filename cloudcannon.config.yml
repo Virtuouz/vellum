@@ -29,6 +29,7 @@ collections_config:
     name: Docs
     description: All your docs
     icon: description
+    url: /[relative_base_path]/{pageLink|default=title|lowercase|slugify}/
     _enabled_editors:
       - content
       - visual
