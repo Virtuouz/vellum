@@ -514,6 +514,20 @@ _structures:
     style: modal
   editorial_blocks:
     style: modal
+file_config:
+ - glob: _data/docCollections.json
+   _inputs:
+     $:
+       type: array
+       options:
+         structures:
+           style: select
+           values:
+             - value:
+                 key:
+                 name:
+                 icon:
+                 path:
 _editables:
   content:
     link: true
