@@ -140,18 +140,60 @@ _inputs:
     comment: >-
       Write the name of any font from
       [https://fonts.google.com/](https://fonts.google.com/) 
-    type: text
+    type: select
+    options:
+      allow_create: true
+      values:
+        - Archivo
+        - Figtree
+        - IBM Plex Sans
+        - Inter
+        - Lato
+        - Merriweather
+        - Noto Sans
+        - Rubik
+        - Source Sans 3
+        - Source Serif 4
+        - Work Sans
   content_font:
     comment: >-
       Write the name of any font from
       [https://fonts.google.com/](https://fonts.google.com/) 
       available
-    type: text 
+    type: select
+    options:
+      allow_create: true
+      values:
+        - Archivo
+        - Figtree
+        - IBM Plex Sans
+        - Inter
+        - Lato
+        - Merriweather
+        - Noto Sans
+        - Rubik
+        - Source Sans 3
+        - Source Serif 4
+        - Work Sans
   logo_font:
     comment: >-
       Write the name of any font from
       [https://fonts.google.com/](https://fonts.google.com/) 
-    type: text 
+    type: select
+    options:
+      allow_create: true
+      values:
+        - Archivo
+        - Figtree
+        - IBM Plex Sans
+        - Inter
+        - Lato
+        - Merriweather
+        - Noto Sans
+        - Rubik
+        - Source Sans 3
+        - Source Serif 4
+        - Work Sans
   showNote:
     type: switch
     comment: >-
