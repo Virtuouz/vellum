@@ -3,7 +3,7 @@ spec:
   structures:
     - editorial_blocks
   label: "Tabs"
-  description:
+  description: Organize content into tabs to free up space.
   icon: tabs
   tags: []
 
