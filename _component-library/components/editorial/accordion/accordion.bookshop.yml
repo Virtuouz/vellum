@@ -3,7 +3,7 @@ spec:
   structures:
     - editorial_blocks
   label: "Accordion"
-  description:
+  description: Organize content into collapsible sections
   icon: unfold_more
   tags: []
 
