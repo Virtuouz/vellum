@@ -509,6 +509,7 @@ _snippets:
       named_args:
         - editor_key: platform
           type: string
+          default: youtube
         - editor_key: videoId
           type: string
     _inputs:
