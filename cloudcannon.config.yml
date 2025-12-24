@@ -504,6 +504,13 @@ _inputs:
         - x-circle
         - x-mark
 _snippets:
+  changeLog:
+    template: eleventy_liquid_bookshop_component
+    inline: false
+    preview:
+      text: Change Log 
+    definitions:
+      component_name: simple/changelog
   videoEmbed:
     template: eleventy_liquid_bookshop_component
     inline: false
