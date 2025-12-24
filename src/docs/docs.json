@@ -1,4 +1,4 @@
 {
-    "permalink": "{% if pageLink and pageLink != \"\" %}/{% assign pagelink = pageLink | slugify %}{{  page.filePathStem | fileSubstringFilter | append: pagelink | downcase }}/index.html{% else %}/{% assign title = title | slugify %}{{ page.filePathStem | fileSubstringFilter | append: title | downcase }}/index.html{%endif %}",
+    "permalink": "/{% assign slug = pageLink | default: title | slugify %}{{ page.filePathStem | fileSubstringFilter | append: slug | downcase }}{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber }}{% endif %}/index.html",
     "layout": "layouts/doc.html"
 }
