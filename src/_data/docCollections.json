@@ -6,6 +6,12 @@
     "path":"/"
   },
   {
+    "key": "changelog",
+    "name":"Changelog",
+    "icon":"",
+    "path":"/changelog/"
+  },
+  {
     "key": "future",
     "name":"Future Improvements",
     "icon":"beaker",
