@@ -1,6 +1,7 @@
 {% layout "layouts/base.html" %}
 
 {% assign primaryCollectionTag = tags | first %}
+ {% assign docCollections = docCollections | reject: "key", "changelog" %}
 {% for collection in docCollections %}
  {% if collection.key == primaryCollectionTag %} 
 
@@ -17,6 +18,8 @@
 
 
 {% for tag in tags %}
+{% if tag == "changelog" %}{% continue %}
+{% endif %}
 {% assign navPages = navPages | concat: collections[tag] %}
 {% endfor %}
 {% assign navPages = navPages | eleventyNavigation | uniq %}
@@ -344,8 +347,8 @@
     <div class="flex-1 overflow-x-auto">
       <!-- Main Content Area -->
       <div 
-      {% if primaryCollectionName %}
-        data-pagefind-filter="collection:{{ primaryCollectionName }}" 
+      {% if primaryCollectionName or primaryCollectionTag=="changelog" %}
+        data-pagefind-filter="collection:{{ primaryCollectionName | default: primaryCollectionTag }}" 
         {% endif %} 
         class=" flex w-full mx-auto p-8">
         <div class="cs-mainContent mt-16 xl:mt-0 flex flex-col w-full cs-mainContent max-w-4xl mx-auto flex-1">
