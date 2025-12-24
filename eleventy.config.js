@@ -3,12 +3,14 @@ const { execSync } = require("child_process");
 const fileSubstringFilter = require("./src/filters/extract-file-substring-filter.js");
 const uuidFilter = require("./src/filters/uuid-filter.js");
 const pathExistsFilter = require("./src/filters/pathExists-filter.js");
+const sanitizeRssFilter = require("./src/filters/sanitizeRss-filter.js");
 
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginBookshop = require("@bookshop/eleventy-bookshop");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const svgContents = require("eleventy-plugin-svg-contents");
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
+const rssPlugin = require("@11ty/eleventy-plugin-rss");
 
 const markdownItAttrs = require("markdown-it-attrs");
 const markdownItContainer = require("markdown-it-container");
@@ -165,6 +167,7 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
   eleventyConfig.addPlugin(svgContents);
+  eleventyConfig.addPlugin(rssPlugin);
   eleventyConfig.addPlugin(eleventyImageTransformPlugin);
   eleventyConfig.addPlugin(pluginMermaid, {
     mermaid_config: {
@@ -184,6 +187,10 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addFilter("removeExtraWhitespace", function (str) {
     return str.replace(/\s+/g, " ").trim();
   });
+  eleventyConfig.addFilter("dateToRfc3339", rssPlugin.dateToRfc3339);
+  eleventyConfig.addFilter("dateToRfc882", rssPlugin.dateToRfc822);
+  eleventyConfig.addFilter("getNewestCollectionItemDate",rssPlugin.getNewestCollectionItemDate);
+  eleventyConfig.addFilter("sanitizeRss", sanitizeRssFilter);
   eleventyConfig.addLiquidFilter(
     "isDescendantOf",
     function (entry, currentPage) {
