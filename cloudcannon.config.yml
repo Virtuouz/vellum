@@ -84,6 +84,10 @@ collections_config:
         type: select
         options:
           values: data.docCollections[*].key
+      date:
+        label: Create Date
+        comment: The date this page was created. Primarily used for sorting in the changelog.
+        instance_value: NOW
     schemas:
       default:
         path: .cloudcannon/schemas/doc.md

@@ -3,6 +3,7 @@ _schema: default
 draft: false
 title: Page
 eleventyExcludeFromCollections: false
+date:
 eleventyNavigation:
   key: page
   order: 
