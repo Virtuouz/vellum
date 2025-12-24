@@ -8,7 +8,7 @@
 
 {% for page in changelogItems %}
   ## [{{page.data.title}}]({{page.url}})
-  {{page.date}}
+  *{{page.date | date_to_string: "ordinal", "US"}}*
   {% bookshop_include "doc" editorial_blocks: page.data.editorial_blocks %}
   {{page.rawInput }}
 ***
