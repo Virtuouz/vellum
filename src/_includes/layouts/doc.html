@@ -354,7 +354,7 @@
         <div class="cs-mainContent mt-16 xl:mt-0 flex flex-col w-full cs-mainContent max-w-4xl mx-auto flex-1">
           <div data-pagefind-body>
             <h1>{{ title }}</h1>
-            {{ bookshopContent }}
+            {% bookshop_include "doc" editorial_blocks: editorial_blocks %}
             {% if content and content != "" %}
               <article data-cms-edit="content" class=" ">
                 {{ content }}
