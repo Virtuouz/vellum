@@ -86,7 +86,7 @@ collections_config:
           values: data.docCollections[*].key
       date:
         label: Create Date
-        comment: The date this page was created. Primarily used for sorting in the changelog.
+        comment: Used to override the creation date of this page. Primarily used for sorting in the changelog. Leave blank to use page creation date.
         instance_value: NOW
     schemas:
       default:
