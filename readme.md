@@ -32,6 +32,7 @@ This template works with our without CloudCannon. CloudCannon is recommended if 
     - Nested navigation powered by 11ty Navigation.
     - Responsive tables using `<table-saw>`.
     - Internal linking via file paths (InputPath to Url 11ty plugin)
+    - Quickly add a change log with the `changelog` component.
 
 ## Quick Start
 Navigate to the Site data file, labeled `Vellum` in the CloudCannon UI. Update the information there to match your organization or personal project.
