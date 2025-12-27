@@ -11,19 +11,16 @@ eleventyNavigation:
   url:
   icon: clipboard-document-list
 pageLink: /changelog/
-pagination:
-  data: collections.changelog
-  size: 2
-  reverse: true
-metaDesc: 
+metaDesc:
 socialImage:
 customCode:
-  headCode: ""
-  bodyCode: ""
+  headCode: ''
+  bodyCode: ''
 tags: vellum
 editorial_blocks: []
 ---
 ## Example Changelog
+
 This an example of what a change log page might look like. Pagination is also supported.
 
 {% bookshop 'simple/changelog' %}

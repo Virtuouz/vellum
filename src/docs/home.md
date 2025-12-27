@@ -4,27 +4,32 @@ draft: false
 title: Vellum Overview
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  key: Vellum Overview 
+  key: Vellum Overview
   order: 1
   title:
   parent:
   url:
   icon: home
 pageLink: /
-metaDesc: 
+metaDesc:
 socialImage:
 customCode:
-  headCode: ""
-  bodyCode: ""
+  headCode: ''
+  bodyCode: ''
 tags: vellum
-editorial_blocks: []
+editorial_blocks:
+  - _bookshop_name: generic/textBlock
+    markdownContent: >-
+      I am testing if this {% bookshop 'generic/styledText' text: "Label" style:
+      "green label" %} works
 ---
-
-![Vellum Logo](</assets/images/uploads/Vellum Logo Gray.png>)
+![Vellum Logo](/assets/images/uploads/Vellum%20Logo%20Gray.png)
 
 ## What is Vellum?
 
 Vellum is a modern documentation template designed to serve a diverse audience, from non-technical content editors to experienced developers. It bridges the gap between simple, unscalable solutions and complex, development-heavy frameworks.
+
+Testing if this&nbsp;{% bookshop 'generic/styledText' text: "Label" style: "green label" %}&nbsp;works
 
 In the past, creating web-based documentation was primarily a technical task, often requiring developers to set up a site from scratch. This left many businesses, internal teams, and non-profit organizations without an easy way to build and maintain their own knowledge bases. Vellum was created to address this accessibility gap, providing a ready-to-use solution that's simple enough for anyone to get started, yet powerful enough to grow with your needs.
 
@@ -37,4 +42,3 @@ Many documentation solutions present a trade-off: they are either simple to star
 Vellum solves this by prioritizing both **ease of use** and **scalability**. The template is designed to be ready out of the box, allowing you to focus on your content from day one. At the same time, it is built to handle hundreds of documentation pages effortlessly through a powerful **collections system**. Think of collections as a digital filing cabinet, allowing you to logically organize pages into groups, making navigation and content management intuitive for everyone.
 
 Furthermore, many popular documentation frameworks rely on complex technologies like React, which can be an unnecessary overhead for building static, text-heavy sites. Vellum is built with **Eleventy (11ty)**, a simple yet incredibly fast static site generator. This choice of technology ensures that Vellum is lightweight, produces highly performant pages, and remains accessible to a wide variety of users.
-
