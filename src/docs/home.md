@@ -29,7 +29,7 @@ editorial_blocks:
 
 Vellum is a modern documentation template designed to serve a diverse audience, from non-technical content editors to experienced developers. It bridges the gap between simple, unscalable solutions and complex, development-heavy frameworks.
 
-Testing if this&nbsp;{%- bookshop 'generic/styledText' text: "Label" style: "green label" -%}&nbsp;works
+Testing if this {%- bookshop 'generic/styledText' text: "Label" style: "green label" -%} works
 
 In the past, creating web-based documentation was primarily a technical task, often requiring developers to set up a site from scratch. This left many businesses, internal teams, and non-profit organizations without an easy way to build and maintain their own knowledge bases. Vellum was created to address this accessibility gap, providing a ready-to-use solution that's simple enough for anyone to get started, yet powerful enough to grow with your needs.
 
