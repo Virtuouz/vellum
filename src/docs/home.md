@@ -20,8 +20,8 @@ tags: vellum
 editorial_blocks:
   - _bookshop_name: generic/textBlock
     markdownContent: >-
-      I am testing if this {% bookshop 'generic/styledText' text: "Label" style:
-      "green label" %} works
+      I am testing if this {%- bookshop 'generic/styledText' text: "Label"
+      style: "green label" -%} works
 ---
 ![Vellum Logo](/assets/images/uploads/Vellum%20Logo%20Gray.png)
 
