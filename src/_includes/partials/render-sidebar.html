@@ -9,6 +9,7 @@
 {% endcomment %}
 
 {% assign level = level | plus: 1 %}
+{% assign isToplevel = level < 1 %}
 {% comment %}
   Check if the current navigation item is a single link (no children).
 {% endcomment %}
@@ -16,7 +17,7 @@
   <li>
     <a
       data-umami-event="{{entry.title}}-navbar"
-      class="flex items-center gap-2 ml-2 px-2 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-interactive-hover 
+      class="flex items-center gap-2 {% unless isToplevel %}ml-2 {% endunless %} px-1 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-interactive-hover 
         {% if entry.url == page.url %}bg-interactive-hover font-medium border-l-2 border-accent-secondary{% endif %}"
       href="{{ entry.url }}"
     >
@@ -37,7 +38,6 @@
   {% endcomment %}
   {% assign isOpen = entry | isDescendantOf: page %}
   {% assign isActive = entry.url == page.url %}
-  {% assign isToplevel = level < 1 %}
   <div class="relative">
     <div class="w-full">
       <li class="w-full">
@@ -53,7 +53,7 @@
         
         <button
           aria-expanded="{{ isOpen  }}"
-          class="flex items-center gap-2 w-full px-3 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-interactive-hover
+          class="flex items-center gap-2 w-full px-1 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-interactive-hover
             {% if isActive %}bg-interactive-hover font-medium{% endif %}"
           _="
             on click
