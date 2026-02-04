@@ -2,7 +2,7 @@
 ---
 Vellum is a documentation template built with a simple philosophy: creating beautiful, easy-to-read documentation should be an intuitive and enjoyable process for everyone, from developers to non-technical writers. It leverages the power of Markdown, the simplicity of 11ty, and the visual editing of CloudCannon to create a site that is fast, flexible, and fully customizable.
 
-This template works with our without CloudCannon. CloudCannon is recommended if you or your users are non developers. 
+This template works with or without CloudCannon. CloudCannon is recommended if you or your users are non developers. 
 ## Key Features
 - **Markdown is all you need:** Write content and even complex components using familiar Markdown syntax.
 - **Visually edit with CloudCannon:** Non-technical users can build pages visually using Bookshop components.
