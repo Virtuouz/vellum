@@ -83,6 +83,8 @@ collections_config:
         hidden: true
       tags:
         type: select
+        comment: Determines which collection this page will be shown in. Changelog does not display as a collection
+        label: Collection
         options:
           values: data.docCollections[*].key
       date:
