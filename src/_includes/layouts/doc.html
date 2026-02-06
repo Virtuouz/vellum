@@ -243,6 +243,17 @@
         {% for entry in navPages %} {% render "partials/render-sidebar.html",
           entry: entry, level:-1, page:page, eleventyNavigation: eleventyNavigation, navPages: navPages %} {% endfor %}
       </ul>
+      {% if env_bookshop_live %}
+      <div class="bg-cyan-100 border border-cyan-700 p-4 flex mt-4">
+          <div class="  text-left">
+              <p class="text-2xl text-cyan-900">No Live Updates</p>
+              <div class="text-base text-slate-900">
+              <p class="text-base text-slate-900">This navigation bar and collection selector does not live update. Save your changes to see updated navigation</p>
+              <p class="text-sm"><br> This note is only visible in live editor. It won't be shown in live site</p>
+              </div>
+          </div>
+      </div>
+      {% endif %}
     </nav>
       <!-- Theme Toggle -->
     <div class="hidden lg:flex justify-between">
@@ -411,6 +422,17 @@
           {{ bookshopTOC }}
           {{ contentTOC }}
       </div>
+      {% if env_bookshop_live %}
+      <div class="bg-cyan-100 border border-cyan-700 p-4 flex mt-4">
+          <div class="  text-left">
+              <p class="text-2xl text-cyan-900">No Live Updates</p>
+              <div class="text-base text-slate-900">
+              <p class="text-base text-slate-900">This table of contents does not live update. Save your changes to see updated table of contents</p>
+              <p class="text-sm"><br> This note is only visible in live editor. It won't be shown in live site</p>
+              </div>
+          </div>
+      </div>
+      {% endif %}
     </div>
   </div>
    {% endif %}
