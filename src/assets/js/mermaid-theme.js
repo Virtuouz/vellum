@@ -212,7 +212,7 @@ function initPanZoom() {
     // Calculate container height from aspect ratio, capped to reasonable bounds
     const containerWidth = container.clientWidth;
     const naturalHeight = (containerWidth / vbWidth) * vbHeight;
-    const height = Math.max(Math.min(naturalHeight, 600), 200);
+    const height = Math.max(Math.min(naturalHeight, 800), 500);
     container.style.height = height + "px";
 
     // Remove mermaid's inline sizing so svg-pan-zoom has full control
