@@ -681,6 +681,7 @@ pre.mermaid {
   min-height: 200px;
   position: relative;
   touch-action: pan-x pan-y;
+  cursor: grab;
 
   .mermaid-gesture-overlay {
     position: absolute;
