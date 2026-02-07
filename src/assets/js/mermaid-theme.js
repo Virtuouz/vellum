@@ -60,6 +60,141 @@ function restoreSources() {
   });
 }
 
+// --- Gesture handling ---
+
+const isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+const SCROLL_MSG = isMac
+  ? "Use \u2318 + scroll to zoom"
+  : "Use Ctrl + scroll to zoom";
+const TOUCH_MSG = "Use two fingers to move the diagram";
+const OVERLAY_TIMEOUT = 1000;
+const gestureControllers = new Map();
+
+function showOverlay(container, type) {
+  let overlay = container.querySelector(".mermaid-gesture-overlay");
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.className = "mermaid-gesture-overlay";
+    container.appendChild(overlay);
+  }
+  overlay.textContent = type === "scroll" ? SCROLL_MSG : TOUCH_MSG;
+  overlay.classList.add("active");
+
+  clearTimeout(container._gestureTimer);
+  container._gestureTimer = setTimeout(() => {
+    overlay.classList.remove("active");
+  }, OVERLAY_TIMEOUT);
+}
+
+function hideOverlay(container) {
+  const overlay = container.querySelector(".mermaid-gesture-overlay");
+  if (overlay) overlay.classList.remove("active");
+  clearTimeout(container._gestureTimer);
+}
+
+function getTouchDistance(touches) {
+  const dx = touches[0].clientX - touches[1].clientX;
+  const dy = touches[0].clientY - touches[1].clientY;
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
+function getTouchCenter(touches) {
+  return {
+    x: (touches[0].clientX + touches[1].clientX) / 2,
+    y: (touches[0].clientY + touches[1].clientY) / 2,
+  };
+}
+
+function setupGestureHandling(container, instance) {
+  if (gestureControllers.has(container)) {
+    gestureControllers.get(container).abort();
+  }
+  const controller = new AbortController();
+  gestureControllers.set(container, controller);
+  const sig = { signal: controller.signal };
+
+  // Desktop: Ctrl/Cmd + scroll to zoom
+  container.addEventListener(
+    "wheel",
+    (e) => {
+      if (e.ctrlKey || e.metaKey) {
+        e.preventDefault();
+        const factor = e.deltaY > 0 ? 0.9 : 1.1;
+        instance.zoomBy(factor);
+        hideOverlay(container);
+      } else {
+        showOverlay(container, "scroll");
+      }
+    },
+    { ...sig, passive: false }
+  );
+
+  // Touch: two-finger pan and pinch-to-zoom
+  let pinchDistance = null;
+  let lastTouchCenter = null;
+
+  container.addEventListener(
+    "touchstart",
+    (e) => {
+      if (e.touches.length >= 2) {
+        pinchDistance = getTouchDistance(e.touches);
+        lastTouchCenter = getTouchCenter(e.touches);
+        hideOverlay(container);
+      } else {
+        pinchDistance = null;
+        lastTouchCenter = null;
+      }
+    },
+    { ...sig, passive: true }
+  );
+
+  container.addEventListener(
+    "touchmove",
+    (e) => {
+      if (e.touches.length >= 2) {
+        e.preventDefault();
+        hideOverlay(container);
+
+        const currentDistance = getTouchDistance(e.touches);
+        const center = getTouchCenter(e.touches);
+
+        if (pinchDistance !== null) {
+          const factor = currentDistance / pinchDistance;
+          instance.zoomBy(factor);
+        }
+        pinchDistance = currentDistance;
+
+        if (lastTouchCenter !== null) {
+          instance.panBy({
+            x: center.x - lastTouchCenter.x,
+            y: center.y - lastTouchCenter.y,
+          });
+        }
+        lastTouchCenter = center;
+      } else {
+        showOverlay(container, "touch");
+        pinchDistance = null;
+        lastTouchCenter = null;
+      }
+    },
+    { ...sig, passive: false }
+  );
+
+  container.addEventListener(
+    "touchend",
+    (e) => {
+      if (e.touches.length < 2) {
+        pinchDistance = null;
+        lastTouchCenter = null;
+      }
+      hideOverlay(container);
+    },
+    { ...sig, passive: true }
+  );
+}
+
+// --- Pan-zoom initialization ---
+
 function initPanZoom() {
   if (typeof window.svgPanZoom !== "function") return;
 
@@ -87,16 +222,21 @@ function initPanZoom() {
 
     svg.classList.add("pan-zoom-enabled");
 
-    window.svgPanZoom(svg, {
+    const instance = window.svgPanZoom(svg, {
       zoomEnabled: true,
       controlIconsEnabled: true,
       fit: true,
       center: true,
       minZoom: 0.5,
       maxZoom: 10,
+      mouseWheelZoomEnabled: false,
     });
+
+    setupGestureHandling(container, instance);
   });
 }
+
+// --- Rendering ---
 
 async function renderMermaid() {
   const themeVariables = getThemeVariables();
