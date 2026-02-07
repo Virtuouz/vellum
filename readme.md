@@ -14,9 +14,7 @@ This template works with or without CloudCannon. CloudCannon is recommended if y
 - **Advanced Authoring Components:**
 	- Tabs
     - Accordions
-    - Mermaid.js graphs
-        - Automatically styled with your theme
-        - Built in panning and zooming
+    - Mermaid.js graphs (styled with your theme and with built in panning and zooming) 
     - File Tree
     - Task lists
     - Callouts (info, warning, error)
