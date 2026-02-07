@@ -16,11 +16,10 @@ const markdownItAttrs = require("markdown-it-attrs");
 const markdownItContainer = require("markdown-it-container");
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans");
 const MarkdownItCollapsible = require("markdown-it-collapsible");
-const ultree = require('markdown-it-ultree');
+const ultree = require("markdown-it-ultree");
 
 const yaml = require("js-yaml");
 const slugify = require("slugify");
-
 
 const markdownItAnchor = require("markdown-it-anchor");
 const linkAfterHeader = markdownItAnchor.permalink.linkInsideHeader({
@@ -29,7 +28,7 @@ const linkAfterHeader = markdownItAnchor.permalink.linkInsideHeader({
   style: "aria-labelledby",
 });
 const markdownItAnchorOptions = {
-  level: [1, 2, 3,4,5,6],
+  level: [1, 2, 3, 4, 5, 6],
   slugify: (str) =>
     slugify(str, {
       lower: true,
@@ -38,7 +37,7 @@ const markdownItAnchorOptions = {
     }),
   tabIndex: false,
   // simply use the constant defined above
-  permalink: linkAfterHeader, 
+  permalink: linkAfterHeader,
 };
 const pluginTOC = require("eleventy-plugin-toc");
 const markdownIt = require("markdown-it"),
@@ -58,11 +57,10 @@ module.exports = async function (eleventyConfig) {
   const { tasklist } = await import("@mdit/plugin-tasklist");
   const { RenderPlugin } = await import("@11ty/eleventy");
 
-
   eleventyConfig.addPassthroughCopy("./src/assets/js");
   eleventyConfig.addPassthroughCopy("./src/assets/uploads/**");
   eleventyConfig.addPassthroughCopy("./src/assets/images");
-    eleventyConfig.addPassthroughCopy({ "./src/images/favicon": "/" });
+  eleventyConfig.addPassthroughCopy({ "./src/images/favicon": "/" });
 
   let options = {
     html: true,
@@ -120,16 +118,26 @@ module.exports = async function (eleventyConfig) {
       // Output the closing tags for the content div and the details element
       return "</div></details>\n";
     };
+  //Remove bookshop live comments. This allows snippets (styled text tags)
+  //to be able to render inline.
+  md.core.ruler.before("normalize", "strip_bookshop_live_comments", (state) => {
+    if (!state.src || !state.src.includes("bookshop-live")) return;
+
+    // remove bookshop live markers (meta/name/end, etc.)
+    state.src = state.src.replace(/<!--\s*bookshop-live[\s\s]*?-->/g, "");
+
+    // clean up extra blank lines left behind (prevents paragraph breaks)
+    state.src = state.src.replace(/\n{3,}/g, "\n\n");
+  });
 
   eleventyConfig.setLibrary("md", md);
   /**
    * Eleventy Transform to wrap all tables in a <table-saw> custom element.
    * This makes tables responsive without needing to modify the source markdown.
    */
-  eleventyConfig.addTransform("wrap-tables", function(content, outputPath) {
+  eleventyConfig.addTransform("wrap-tables", function (content, outputPath) {
     // 1. Check if the file is an HTML file before processing.
     if (outputPath && outputPath.endsWith(".html")) {
-      
       // 2. Use a regular expression to find all HTML tables.
       // - The /g flag ensures we find ALL tables on the page.
       // - The /s flag (dotAll) allows '.' to match newlines, which is crucial
@@ -154,7 +162,7 @@ module.exports = async function (eleventyConfig) {
     pluginBookshop({
       bookshopLocations: ["_component-library"],
       pathPrefix: "",
-    })
+    }),
   );
 
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
@@ -194,7 +202,10 @@ module.exports = async function (eleventyConfig) {
   });
   eleventyConfig.addFilter("dateToRfc3339", rssPlugin.dateToRfc3339);
   eleventyConfig.addFilter("dateToRfc882", rssPlugin.dateToRfc822);
-  eleventyConfig.addFilter("getNewestCollectionItemDate",rssPlugin.getNewestCollectionItemDate);
+  eleventyConfig.addFilter(
+    "getNewestCollectionItemDate",
+    rssPlugin.getNewestCollectionItemDate,
+  );
   eleventyConfig.addFilter("sanitizeRss", sanitizeRssFilter);
   eleventyConfig.addLiquidFilter(
     "isDescendantOf",
@@ -223,7 +234,7 @@ module.exports = async function (eleventyConfig) {
 
       // Start the recursive check from the top-level entry.
       return hasDescendant(entry, currentPage);
-    }
+    },
   );
 
   eleventyConfig.on("eleventy.before", () => {
@@ -233,7 +244,7 @@ module.exports = async function (eleventyConfig) {
 
   eleventyConfig.on("eleventy.after", () => {
     execSync(
-      "npx tailwindcss -i ./src/css/main.css -o ./dist/css/styles.css --minify"
+      "npx tailwindcss -i ./src/css/main.css -o ./dist/css/styles.css --minify",
     );
   });
 

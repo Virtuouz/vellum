@@ -9,7 +9,7 @@ eleventyNavigation:
   title:
   parent:
   url:
-  icon: diagram-project
+  icon: chart-pie
 pageLink:
 metaDesc: A comprehensive collection of Mermaid diagram examples including flowcharts, sequence diagrams, class diagrams, and more.
 socialImage:
@@ -498,18 +498,6 @@ graph TD
     C -->|Yes| D[Done]
     C -->|No| B
 ```
-
----
-
-## SSR Compatibility Note
-
-This site uses server-side rendering (SSR) for Mermaid diagrams, which means diagrams are pre-rendered at build time for better performance. However, some diagram types require browser APIs not available during SSR:
-
-- **Mind Maps** - Requires canvas rendering (cytoscape)
-- **Requirement Diagrams** - Complex parsing requirements
-- **C4 Diagrams** - Requires browser-specific APIs
-
-These diagrams are fully supported when using Mermaid with client-side rendering.
 
 ---
 
