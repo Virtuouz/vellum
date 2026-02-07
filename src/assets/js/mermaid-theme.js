@@ -113,6 +113,23 @@ function setupGestureHandling(container, instance) {
   gestureControllers.set(container, controller);
   const sig = { signal: controller.signal };
 
+  // Gate svg-pan-zoom's built-in panning by input type.
+  // Capture phase fires on the container BEFORE svg-pan-zoom's handler on the
+  // SVG child, so we can toggle panEnabled before it checks the flag.
+  // Mouse → enable (desktop click-drag panning works normally)
+  // Touch → disable (prevents single-finger panning; we handle two-finger manually)
+  container.addEventListener(
+    "pointerdown",
+    (e) => {
+      if (e.pointerType === "touch") {
+        instance.disablePan();
+      } else {
+        instance.enablePan();
+      }
+    },
+    { capture: true, ...sig }
+  );
+
   // Desktop: Ctrl/Cmd + scroll to zoom
   container.addEventListener(
     "wheel",
@@ -129,7 +146,7 @@ function setupGestureHandling(container, instance) {
     { ...sig, passive: false }
   );
 
-  // Touch: two-finger pan and pinch-to-zoom
+  // Touch: two-finger pan and pinch-to-zoom (handled manually via panBy/zoomBy)
   let pinchDistance = null;
   let lastTouchCenter = null;
 
