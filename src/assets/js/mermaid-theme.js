@@ -129,47 +129,6 @@ function setupGestureHandling(container, instance) {
     { ...sig, passive: false }
   );
 
-  // Desktop: mouse drag to pan
-  let isDragging = false;
-  let lastMousePos = null;
-
-  container.addEventListener(
-    "mousedown",
-    (e) => {
-      if (e.button !== 0) return;
-      isDragging = true;
-      lastMousePos = { x: e.clientX, y: e.clientY };
-      container.style.cursor = "grabbing";
-      e.preventDefault();
-    },
-    sig
-  );
-
-  window.addEventListener(
-    "mousemove",
-    (e) => {
-      if (!isDragging || !lastMousePos) return;
-      instance.panBy({
-        x: e.clientX - lastMousePos.x,
-        y: e.clientY - lastMousePos.y,
-      });
-      lastMousePos = { x: e.clientX, y: e.clientY };
-    },
-    sig
-  );
-
-  window.addEventListener(
-    "mouseup",
-    () => {
-      if (isDragging) {
-        isDragging = false;
-        lastMousePos = null;
-        container.style.cursor = "";
-      }
-    },
-    sig
-  );
-
   // Touch: two-finger pan and pinch-to-zoom (handled manually via panBy/zoomBy)
   let pinchDistance = null;
   let lastTouchCenter = null;
@@ -271,8 +230,18 @@ function initPanZoom() {
       minZoom: 0.5,
       maxZoom: 10,
       mouseWheelZoomEnabled: false,
-      panEnabled: false,
       dblClickZoomEnabled: false,
+      customEventsHandler: {
+        haltEventListeners: [
+          "touchstart",
+          "touchmove",
+          "touchend",
+          "touchleave",
+          "touchcancel",
+        ],
+        init: function () {},
+        destroy: function () {},
+      },
     });
 
     setupGestureHandling(container, instance);
