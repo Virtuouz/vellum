@@ -675,7 +675,23 @@ details[open] {
   }
 }
 
+pre.mermaid {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+  min-height: 200px;
+}
 
+}
+
+.svg-pan-zoom-control {
+  fill: var(--text-muted);
+  cursor: pointer;
+
+  &:hover {
+    fill: var(--text-primary);
+  }
 }
 
 /* --- Responsive Heading Styles for Mobile --- */

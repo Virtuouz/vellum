@@ -175,6 +175,11 @@ module.exports = async function (eleventyConfig) {
       theme: "dark",
     },
   });
+
+  eleventyConfig.addShortcode("mermaid_js_custom", () => {
+    return `<script src="https://unpkg.com/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+<script type="module" src="/assets/js/mermaid-theme.js"></script>`;
+  });
   eleventyConfig.addPlugin(RenderPlugin);
 
   eleventyConfig.addFilter("markdownify", (markdown) => md.render(markdown));
