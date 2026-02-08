@@ -43,7 +43,7 @@
     
 <span class="c-heroLibraryIcon--{{iconType}} flex shrink-0 justify-center items-center {{ iconSizeClasses | strip }}" style="--c-heroLibraryIconColor: {% if themeColor %}{% else %}{{ color }}{% endif %}">
   {% if env_bookshop_live %}
-    <span class="w-full h-full bg-clip-content  bg-[url(--url)]" style="--url: url('{{ iconPath }}')"></span>
+    <span class="c-heroLibraryIcon__image" style="--url: url('{{ iconPath }}')"></span>
   {% else %}
     {{ '/src' | append: iconPath | svgContents: chosenType }}
   {% endif %}
