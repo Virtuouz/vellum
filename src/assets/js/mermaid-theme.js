@@ -151,7 +151,11 @@ class SvgPanZoom {
     const containerW = svgRect.width || this._container.clientWidth;
     const containerH = svgRect.height || this._container.clientHeight;
 
-    // Scale to fit the viewBox within the container
+    // Set viewBox to match pixel space so our wrapper transform has full control
+    // (prevents the SVG's native viewBox mapping from double-scaling)
+    this._svg.setAttribute("viewBox", `0 0 ${containerW} ${containerH}`);
+
+    // Scale to fit the diagram within the container
     const scaleX = containerW / this._vbWidth;
     const scaleY = containerH / this._vbHeight;
     this._scale = Math.min(scaleX, scaleY);
@@ -373,6 +377,12 @@ class SvgPanZoom {
     if (this._controlsEl && this._controlsEl.parentNode) {
       this._controlsEl.remove();
     }
+
+    // Restore original viewBox
+    this._svg.setAttribute(
+      "viewBox",
+      `${this._vbX} ${this._vbY} ${this._vbWidth} ${this._vbHeight}`
+    );
 
     // Unwrap the <g> — move children back to SVG root
     while (this._wrapper.firstChild) {
