@@ -5,7 +5,9 @@ You can use this page as a starting point if you want to create a different layo
 {% layout "layouts/base.html" %} 
 
 {% block content %}
-{% bookshop_include "page" content_blocks: content_blocks %}
+<editable-component data-prop="content_blocks" data-component="page">
+  {% bookshop_include "page" content_blocks: content_blocks %}
+</editable-component>
 {% if content and content != "" %}
 <div class="flex justify-center">
   <section class="w-full max-w-[720px] cs-mainContent">{{ content }}</section>

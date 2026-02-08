@@ -1,9 +1,9 @@
 {% if markdownContent and env_bookshop_live %}
-    <div class="c-textBlock">    
+    <div class="c-textBlock" data-editable="text" data-prop="markdownContent">
         {{ markdownContent | markdownify  }}
     </div>
 {% elsif markdownContent %}
-<div class="c-textBlock">    
+<div class="c-textBlock" data-editable="text" data-prop="markdownContent">
         {{ markdownContent | renderContent | markdownify  }}
     </div>
 {% endif %}

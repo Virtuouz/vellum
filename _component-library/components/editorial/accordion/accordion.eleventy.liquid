@@ -1,14 +1,14 @@
-{% for accordion in accordions %}    
-        
-    
+{% for accordion in accordions %}
 <details {% if accordion.opened %}open{% endif %} >
-
   <summary>
-    <span class="details-marker"></span>{{accordion.title}}</summary>
-  <div class="details-content">
+    <span class="details-marker"></span>
+    <span data-editable="text" data-prop="title" data-type="span">{{accordion.title}}</span>
+  </summary>
+  <div class="details-content" data-editable="array" data-prop="editorials" data-id-key="_bookshop_name" data-component-key="_bookshop_name">
     {% for editorial_block in accordion.editorials %}
-        
-    {% bookshop {{editorial_block._bookshop_name}} bind: editorial_block %}
+      <editable-array-item data-component="{{ editorial_block._bookshop_name }}" data-id="{{ editorial_block._bookshop_name }}">
+        {% bookshop {{editorial_block._bookshop_name}} bind: editorial_block %}
+      </editable-array-item>
     {% endfor %}
   </div>
 </details>
