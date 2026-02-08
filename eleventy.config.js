@@ -184,9 +184,6 @@ module.exports = async function (eleventyConfig) {
     },
   });
 
-  eleventyConfig.addShortcode("mermaid_js_custom", () => {
-    return `<script type="module" src="/assets/js/mermaid-theme.js"></script>`;
-  });
   eleventyConfig.addPlugin(RenderPlugin);
 
   eleventyConfig.addFilter("markdownify", (markdown) => md.render(markdown));
