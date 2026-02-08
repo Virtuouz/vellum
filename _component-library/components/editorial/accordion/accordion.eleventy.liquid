@@ -1,8 +1,9 @@
+<editable-array data-prop="accordions">
 {% for accordion in accordions %}
-<details {% if accordion.opened %}open{% endif %} >
+<details data-editable="array-item"  {% if accordion.opened %}open{% endif %} >
   <summary>
     <span class="details-marker"></span>
-    <span data-editable="text" data-prop="accordion.title" data-type="span">{{accordion.title}}</span>
+    <span data-editable="text" data-prop="title" data-type="span">{{accordion.title}}</span>
   </summary>
   <div class="details-content" data-editable="array" data-prop="editorials" data-id-key="_bookshop_name" data-component-key="_bookshop_name">
     {% for editorial_block in accordion.editorials %}
@@ -13,3 +14,4 @@
   </div>
 </details>
 {% endfor %}
+</editable-array>
