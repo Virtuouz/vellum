@@ -8,7 +8,7 @@
   </div>
   <div data-editable="array" data-prop="tabs" class="tabs-tabs-container">
     {% for tab in tabs %}
-    <div class="tabs-tab-content {% if tabs.first == tab %}active{% endif %}" data-tab="{{ forloop.index }}" data-id="{{tab.title | slug}}" {% if tabs.first == tab %}data-active{% endif %}>
+    <div data-editable="array-item" class="tabs-tab-content {% if tabs.first == tab %}active{% endif %}" data-tab="{{ forloop.index }}" data-id="{{tab.title | slug}}" {% if tabs.first == tab %}data-active{% endif %}>
       <div data-editable="array" data-prop="editorials" data-id-key="_bookshop_name" data-component-key="_bookshop_name">
         {% for editorial_block in tab.editorials %}
           <editable-array-item data-component="{{ editorial_block._bookshop_name }}" data-id="{{ editorial_block._bookshop_name }}">
