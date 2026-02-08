@@ -243,8 +243,7 @@
         {% for entry in navPages %} {% render "partials/render-sidebar.html",
           entry: entry, level:-1, page:page, eleventyNavigation: eleventyNavigation, navPages: navPages %} {% endfor %}
       </ul>
-      {% if env_bookshop_live %}
-      <div class="bg-cyan-100 border border-cyan-700 p-4 flex mt-4">
+      <div class="notification hidden bg-cyan-100 border border-cyan-700 p-4 mt-4">
           <div class="  text-left">
               <p class="text-2xl text-cyan-900">No Live Updates</p>
               <div class="text-base text-slate-900">
@@ -253,7 +252,6 @@
               </div>
           </div>
       </div>
-      {% endif %}
     </nav>
       <!-- Theme Toggle -->
     <div class="hidden lg:flex justify-between">
@@ -422,8 +420,7 @@
           {{ bookshopTOC }}
           {{ contentTOC }}
       </div>
-      {% if env_bookshop_live %}
-      <div class="bg-cyan-100 border border-cyan-700 p-4 flex mt-4">
+      <div class="notification hidden bg-cyan-100 border border-cyan-700 p-4 mt-4">
           <div class="  text-left">
               <p class="text-2xl text-cyan-900">No Live Updates</p>
               <div class="text-base text-slate-900">
@@ -432,7 +429,6 @@
               </div>
           </div>
       </div>
-      {% endif %}
     </div>
   </div>
    {% endif %}

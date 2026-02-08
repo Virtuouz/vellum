@@ -37,6 +37,10 @@
   outline: 1px solid #f00 !important;
 }  */
 
+/* cloudcannon live editor */
+.cms-editor-active .notification{
+  display: flex;
+}
 /* Compositions */
 .flow-half > * + * {
   margin-top: 8px;
