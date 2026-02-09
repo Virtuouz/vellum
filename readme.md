@@ -50,4 +50,4 @@ In depth guides can be found here [https://www.vellumdocs.dev/](https://www.vell
 
 The output folder is `dist`.
 
-This templates can be extended by creating new bookshop components or adding Markdown-it plugins.. `npm run start` 
+This templates can be extended by creating new bookshop components or adding Markdown-it plugins.
