@@ -367,7 +367,7 @@
               {% bookshop_include "doc" editorial_blocks: editorial_blocks %}
             </editable-component>
             {% if content and content != "" %}
-              <article data-cms-edit="content" class=" ">
+              <article data-editable="text" data-prop="@content" class=" ">
                 {{ content }}
               </article>
             {% endif %}
